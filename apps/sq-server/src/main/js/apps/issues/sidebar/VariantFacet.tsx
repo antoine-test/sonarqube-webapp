@@ -39,7 +39,7 @@ interface VariantFacetProps {
 
 const FACET_NAME = 'codeVariants';
 
-export function VariantFacet(props: VariantFacetProps) {
+export function VariantFacet(props: Readonly<VariantFacetProps>) {
   const { open, fetching, stats = {}, values, onToggle, onChange } = props;
 
   const handleClear = React.useCallback(() => {
@@ -120,3 +120,4 @@ export function VariantFacet(props: VariantFacetProps) {
     </FacetBox>
   );
 }
+
