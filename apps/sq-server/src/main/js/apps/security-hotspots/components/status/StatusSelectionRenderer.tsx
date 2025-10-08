@@ -36,7 +36,7 @@ export interface StatusSelectionRendererProps {
   submitDisabled: boolean;
 }
 
-export default function StatusSelectionRenderer(props: StatusSelectionRendererProps) {
+export default function StatusSelectionRenderer(props: Readonly<StatusSelectionRendererProps>) {
   const { comment, loading, status, submitDisabled } = props;
 
   const intl = useIntl();
@@ -100,3 +100,4 @@ export default function StatusSelectionRenderer(props: StatusSelectionRendererPr
     />
   );
 }
+
