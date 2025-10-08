@@ -33,7 +33,7 @@ interface Props {
   total: number;
 }
 
-export default function FilesCounter({ className, current, total }: Props) {
+export default function FilesCounter({ className, current, total }: Readonly<Props>) {
   return (
     <Text className={classNames('sw-whitespace-nowrap', className)} isSubtle>
       <Counter className="sw-typo-semibold">
@@ -50,3 +50,4 @@ FilesCounter.displayName = 'FilesCounter';
 const Counter = styled.strong`
   color: ${themeColor('pageContent')};
 `;
+
