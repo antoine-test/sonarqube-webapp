@@ -33,7 +33,7 @@ export interface JavaMavenProps {
   projectName: string;
 }
 
-export default function JavaMaven(props: JavaMavenProps) {
+export default function JavaMaven(props: Readonly<JavaMavenProps>) {
   const { projectKey, projectName } = props;
   return (
     <>
@@ -74,3 +74,4 @@ export default function JavaMaven(props: JavaMavenProps) {
     </>
   );
 }
+
