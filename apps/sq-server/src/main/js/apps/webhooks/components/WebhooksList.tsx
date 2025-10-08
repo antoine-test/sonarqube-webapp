@@ -32,7 +32,7 @@ interface Props {
 
 const COLUMN_WIDTHS = ['auto', 'auto', 'auto', 'auto', '5%'];
 
-export default function WebhooksList({ webhooks, onDelete, onUpdate }: Props) {
+export default function WebhooksList({ webhooks, onDelete, onUpdate }: Readonly<Props>) {
   if (webhooks.length < 1) {
     return <p className="it__webhook-empty-list">{translate('webhooks.no_result')}</p>;
   }
@@ -61,3 +61,4 @@ export default function WebhooksList({ webhooks, onDelete, onUpdate }: Props) {
     </Table>
   );
 }
+
