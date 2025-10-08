@@ -37,7 +37,7 @@ export interface IssueMessageProps {
   issue: Issue;
 }
 
-export default function IssueMessage(props: IssueMessageProps) {
+export default function IssueMessage(props: Readonly<IssueMessageProps>) {
   const { issue, branchLike, displayWhyIsThisAnIssue } = props;
   const location = useLocation();
   const query = parseQuery(location.query);
@@ -84,3 +84,4 @@ export default function IssueMessage(props: IssueMessageProps) {
     </>
   );
 }
+
