@@ -34,7 +34,7 @@ interface Props {
   status: string | undefined;
 }
 
-function LineCoverageFunc({ lineNumber, coverageStatus, status, scrollToUncoveredLine }: Props) {
+function LineCoverageFunc({ lineNumber, coverageStatus, status, scrollToUncoveredLine }: Readonly<Props>) {
   const coverageMarker = React.useRef<HTMLTableCellElement>(null);
   React.useEffect(() => {
     if (scrollToUncoveredLine && coverageMarker.current) {
@@ -96,3 +96,4 @@ function PartiallyCoveredBlock(htmlProps: React.HTMLAttributes<HTMLDivElement>) 
     </CoverageBlock>
   );
 }
+
