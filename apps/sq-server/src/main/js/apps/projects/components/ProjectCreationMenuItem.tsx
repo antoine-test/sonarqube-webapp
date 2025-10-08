@@ -28,7 +28,7 @@ export interface ProjectCreationMenuItemProps {
   alm: string;
 }
 
-export default function ProjectCreationMenuItem(props: ProjectCreationMenuItemProps) {
+export default function ProjectCreationMenuItem(props: Readonly<ProjectCreationMenuItemProps>) {
   const { alm } = props;
   let almIcon = alm;
   if (alm === AlmKeys.BitbucketCloud) {
@@ -46,3 +46,4 @@ export default function ProjectCreationMenuItem(props: ProjectCreationMenuItemPr
     </ItemLink>
   );
 }
+
