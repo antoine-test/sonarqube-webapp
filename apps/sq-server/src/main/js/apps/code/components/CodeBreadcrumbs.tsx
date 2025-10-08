@@ -31,7 +31,7 @@ interface Props {
   rootComponent: ComponentMeasure;
 }
 
-export default function CodeBreadcrumbs(props: Props) {
+export default function CodeBreadcrumbs(props: Readonly<Props>) {
   const { branchLike, breadcrumbs, className, rootComponent } = props;
 
   return (
@@ -50,3 +50,4 @@ export default function CodeBreadcrumbs(props: Props) {
     </Breadcrumbs>
   );
 }
+
