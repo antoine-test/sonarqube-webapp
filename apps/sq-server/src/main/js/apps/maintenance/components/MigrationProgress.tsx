@@ -31,7 +31,7 @@ interface Props {
   };
 }
 
-export function MigrationProgress({ progress }: Props) {
+export function MigrationProgress({ progress }: Readonly<Props>) {
   const percentage = `${(progress.completedSteps / progress.totalSteps) * 100}%`;
 
   return (
@@ -81,3 +81,4 @@ const MigrationForegroundBar = styled.div<{ width: string }>`
 const MigrationProgressContainer = styled.div`
   position: relative;
 `;
+
