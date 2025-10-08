@@ -32,7 +32,7 @@ interface Props extends React.AriaAttributes {
   value: string | number | undefined;
 }
 
-export default function Rating({ className, muted = false, value, ...ariaAttrs }: Props) {
+export default function Rating({ className, muted = false, value, ...ariaAttrs }: Readonly<Props>) {
   if (value === undefined) {
     return (
       <span
@@ -57,3 +57,4 @@ export default function Rating({ className, muted = false, value, ...ariaAttrs }
     </span>
   );
 }
+
