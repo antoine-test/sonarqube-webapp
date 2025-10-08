@@ -69,7 +69,7 @@ export function BeamerWidget({ hideCounter = true }: Readonly<Props>) {
   const filter = useBeamerContextData();
 
   useEffectOnce(() => {
-    window.beamer_config = {
+    globalThis.beamer_config = {
       bounce: false,
       // counter icon is controlled by CSS (beamer_icon class) as recommended by Beamer team
       counter: true,
@@ -88,11 +88,11 @@ export function BeamerWidget({ hideCounter = true }: Readonly<Props>) {
   });
 
   useEffect(() => {
-    window.Beamer?.update({ filter });
+    globalThis.Beamer?.update({ filter });
   }, [filter]);
 
   useEffect(() => {
-    window.Beamer?.update({ theme: theme.id });
+    globalThis.Beamer?.update({ theme: theme.id });
   }, [theme.id]);
 
   return (
@@ -130,3 +130,4 @@ export function BeamerWidget({ hideCounter = true }: Readonly<Props>) {
     </>
   );
 }
+
