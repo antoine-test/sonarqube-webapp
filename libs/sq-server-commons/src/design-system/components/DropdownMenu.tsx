@@ -122,7 +122,7 @@ interface ItemNavLinkProps extends ItemLinkProps {
 /** @deprecated Use DropdownMenu and other DropdownMenu.* elements from Echoes instead.
  * See the {@link https://xtranet-sonarsource.atlassian.net/wiki/spaces/Platform/pages/3354918914/DropdownMenus | Migration Guide}
  */
-export function ItemNavLink(props: ItemNavLinkProps) {
+export function ItemNavLink(props: Readonly<ItemNavLinkProps>) {
   const { children, className, disabled, end, icon, onClick, selected, innerRef, to, ...liProps } =
     props;
   return (
@@ -185,7 +185,7 @@ interface ItemCheckboxProps extends ListItemProps {
   onCheck: (checked: boolean, id?: string) => void;
 }
 
-export function ItemCheckbox(props: ItemCheckboxProps) {
+export function ItemCheckbox(props: Readonly<ItemCheckboxProps>) {
   const {
     checked,
     children,
@@ -222,7 +222,7 @@ interface ItemCopyProps {
   tooltipOverlay: React.ReactNode;
 }
 
-export function ItemCopy(props: ItemCopyProps) {
+export function ItemCopy(props: Readonly<ItemCopyProps>) {
   const { children, className, copyValue, tooltipOverlay } = props;
 
   const [copySuccess, handleCopy] = useCopyClipboardEffect(copyValue);
@@ -243,7 +243,7 @@ interface ItemDownloadProps extends ListItemProps {
   href: string;
 }
 
-export function ItemDownload(props: ItemDownloadProps) {
+export function ItemDownload(props: Readonly<ItemDownloadProps>) {
   const { children, className, download, href, innerRef, ...liProps } = props;
   return (
     <li ref={innerRef} role="none" {...liProps}>
@@ -417,3 +417,4 @@ const ItemCheckboxStyled = styled(Checkbox)`
   --color: ${themeContrast('dropdownMenu')};
   ${itemStyle}
 `;
+
