@@ -27,7 +27,7 @@ export interface StatusDescriptionProps {
   statusOption: HotspotStatusOption;
 }
 
-export default function StatusDescription(props: StatusDescriptionProps) {
+export default function StatusDescription(props: Readonly<StatusDescriptionProps>) {
   const { statusOption } = props;
 
   return (
@@ -48,3 +48,4 @@ export default function StatusDescription(props: StatusDescriptionProps) {
 const Description = styled.div`
   max-width: 360px;
 `;
+
