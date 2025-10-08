@@ -30,7 +30,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   highlighted: boolean;
 }
 
-export function LineWrapper(props: Props) {
+export function LineWrapper(props: Readonly<Props>) {
   const { displayCoverage, displaySCM, duplicationsCount, highlighted, ...htmlProps } = props;
   const theme = useTheme();
   const SCMCol = displaySCM ? '50px ' : '';
@@ -62,3 +62,4 @@ export function SuggestedLineWrapper(props: Readonly<HTMLAttributes<HTMLDivEleme
     />
   );
 }
+
