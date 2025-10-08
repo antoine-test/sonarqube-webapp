@@ -40,7 +40,7 @@ interface Props {
   selectedPermission?: string;
 }
 
-export default function SearchForm(props: Props) {
+export default function SearchForm(props: Readonly<Props>) {
   const { filter, onFilter, onSearch, onSelectPermission, permissions, query, selectedPermission } =
     props;
 
@@ -98,3 +98,4 @@ export default function SearchForm(props: Props) {
     </div>
   );
 }
+
