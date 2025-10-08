@@ -33,7 +33,7 @@ export interface Props {
   value?: any;
 }
 
-export default function NewLinesFilter(props: Props) {
+export default function NewLinesFilter(props: Readonly<Props>) {
   const { facet, maxFacetValue, property = MetricKey.new_lines, value } = props;
 
   return (
@@ -65,3 +65,4 @@ function renderOption(option: number) {
 function renderAccessibleLabel(option: number) {
   return translate('projects.facets.new_lines.label', option.toString());
 }
+
