@@ -27,7 +27,7 @@ interface Props {
   qualityGate: { isDefault?: boolean; name: string };
 }
 
-export default function MetaQualityGate({ qualityGate }: Props) {
+export default function MetaQualityGate({ qualityGate }: Readonly<Props>) {
   const intl = useIntl();
 
   return (
@@ -54,3 +54,4 @@ export default function MetaQualityGate({ qualityGate }: Props) {
     </section>
   );
 }
+
