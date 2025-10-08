@@ -47,7 +47,7 @@ interface Props<T = string> extends CommonProps {
   selectedItems: Array<T>;
 }
 
-export function SimpleListStyleFacet(props: Props) {
+export function SimpleListStyleFacet(props: Readonly<Props>) {
   const {
     fetching,
     open,
@@ -127,3 +127,4 @@ export function SimpleListStyleFacet(props: Props) {
     </FacetBox>
   );
 }
+
