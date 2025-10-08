@@ -30,7 +30,7 @@ export interface HeaderProps {
   currentUser: CurrentUser;
 }
 
-export function Header(props: HeaderProps) {
+export function Header(props: Readonly<HeaderProps>) {
   const { component, currentUser } = props;
 
   return (
@@ -43,3 +43,4 @@ export function Header(props: HeaderProps) {
 }
 
 export default withCurrentUserContext(React.memo(Header));
+
