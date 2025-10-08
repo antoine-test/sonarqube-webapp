@@ -70,7 +70,7 @@ export enum TabKeys {
 
 const TABS_OFFSET = LAYOUT_GLOBAL_NAV_HEIGHT + LAYOUT_PROJECT_NAV_HEIGHT;
 
-export default function HotspotViewerTabs(props: Props) {
+export default function HotspotViewerTabs(props: Readonly<Props>) {
   const {
     activityTabContent,
     codeTabContent,
@@ -260,3 +260,4 @@ const StickyTabs = styled.div<{ isSticky: boolean; top: number }>`
   box-shadow: ${({ isSticky }) => (isSticky ? themeShadow('sm') : 'none')};
   top: ${({ top }) => top}px;
 `;
+
