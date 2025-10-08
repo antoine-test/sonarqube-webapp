@@ -47,7 +47,7 @@ interface SearchSelectDropdownControlProps {
  *
  * See the [Migration Guide](https://xtranet-sonarsource.atlassian.net/wiki/x/K4AYxw)
  */
-export function SearchSelectDropdownControl(props: SearchSelectDropdownControlProps) {
+export function SearchSelectDropdownControl(props: Readonly<SearchSelectDropdownControlProps>) {
   const {
     className,
     disabled,
@@ -170,3 +170,4 @@ const InputValue = styled.span`
     color: ${cssVar('color-text-disabled')};
   }
 `;
+
