@@ -35,7 +35,7 @@ interface Props {
   measures?: MeasureEnhanced[];
 }
 
-export function NoCodeWarning({ branchLike, component, measures }: Props) {
+export function NoCodeWarning({ branchLike, component, measures }: Readonly<Props>) {
   const isApp = component.qualifier === ComponentQualifier.Application;
 
   /* eslint-disable no-lonely-if */
@@ -62,13 +62,13 @@ export function NoCodeWarning({ branchLike, component, measures }: Props) {
     if (measures === undefined || measures.length === 0) {
       if (isMainBranch(branchLike)) {
         title = translate('overview.project.main_branch_empty');
-      } else if (branchLike !== undefined) {
+      } else if (branchLike === undefined) {
+        title = translate('overview.project.empty');
+      } else {
         title = translateWithParameters(
           'overview.project.branch_X_empty',
           getBranchLikeDisplayName(branchLike),
         );
-      } else {
-        title = translate('overview.project.empty');
       }
     } else {
       if (isMainBranch(branchLike)) {
@@ -87,3 +87,4 @@ export function NoCodeWarning({ branchLike, component, measures }: Props) {
 }
 
 export default React.memo(NoCodeWarning);
+
