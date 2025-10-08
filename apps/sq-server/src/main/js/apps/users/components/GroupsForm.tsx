@@ -45,7 +45,7 @@ interface Props {
   user: RestUserDetailed;
 }
 
-export default function GroupsForm(props: Props) {
+export default function GroupsForm(props: Readonly<Props>) {
   const { user } = props;
   const [query, setQuery] = React.useState<string>('');
   const [filter, setFilter] = React.useState<SelectListFilter>(SelectListFilter.Selected);
@@ -148,3 +148,4 @@ export default function GroupsForm(props: Props) {
     />
   );
 }
+
