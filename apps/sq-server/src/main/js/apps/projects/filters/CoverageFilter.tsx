@@ -39,7 +39,7 @@ export interface Props {
 
 const NO_DATA_OPTION = 6;
 
-export default function CoverageFilter(props: Props) {
+export default function CoverageFilter(props: Readonly<Props>) {
   const { facet, maxFacetValue, property = MetricKey.coverage, value } = props;
 
   return (
@@ -90,3 +90,4 @@ function renderOption(option: number) {
     </div>
   );
 }
+
