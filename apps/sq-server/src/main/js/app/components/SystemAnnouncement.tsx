@@ -85,7 +85,7 @@ export class SystemAnnouncement extends React.PureComponent<WithAvailableFeature
     const { displayMessage, message } = this.state;
 
     return (
-      <div style={!(displayMessage && message.length > 0) ? { display: 'none' } : {}}>
+      <div style={(displayMessage && message.length > 0) ? {} : { display: 'none' }}>
         <StyledBannerWithMarkdown aria-live="assertive" disableFollowScroll variety="warning">
           <SafeHTMLInjection htmlAsString={message} sanitizeLevel={SanitizeLevel.USER_INPUT} />
         </StyledBannerWithMarkdown>
@@ -130,3 +130,4 @@ const StyledBannerWithMarkdown = styled(Banner)`
 `;
 
 export default withAvailableFeatures(SystemAnnouncement);
+
