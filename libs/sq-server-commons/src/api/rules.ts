@@ -81,7 +81,7 @@ export function createRule(data: CreateRuleData) {
     // do not show global error if the status code is 409
     // this case should be handled inside a component
     if (response && (response as { status: HttpStatus }).status === HttpStatus.Conflict) {
-      return Promise.reject(response);
+      throw response;
     }
     return throwGlobalError(response);
   });
@@ -100,3 +100,4 @@ export function updateRule(data: RulesUpdateRequest): Promise<RuleDetails> {
 
   return postJSON('/api/rules/update', { ...data, impacts }).then((r) => r.rule, throwGlobalError);
 }
+
