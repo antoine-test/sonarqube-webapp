@@ -175,7 +175,7 @@ export function useSaveSimpleValueMutation(
           oldData
             ? {
                 ...oldData,
-                value: oldData.value !== undefined ? String(value) : undefined,
+                value: oldData.value === undefined ? undefined : String(value),
               }
             : oldData,
         );
@@ -204,3 +204,4 @@ function isDefaultValue(
 
   return defaultValue === String(value);
 }
+
