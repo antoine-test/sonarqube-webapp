@@ -42,7 +42,7 @@ const StyledFailedQGConditionLink = styled(DangerButtonSecondary)`
   }
 `;
 
-export function FailedQGConditionLink({ children, ...props }: ButtonProps) {
+export function FailedQGConditionLink({ children, ...props }: Readonly<ButtonProps>) {
   return (
     <StyledFailedQGConditionLink {...props}>
       {children}
@@ -50,3 +50,4 @@ export function FailedQGConditionLink({ children, ...props }: ButtonProps) {
     </StyledFailedQGConditionLink>
   );
 }
+
