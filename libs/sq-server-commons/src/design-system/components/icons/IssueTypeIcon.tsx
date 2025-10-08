@@ -37,7 +37,7 @@ export enum IssueTypeEnum {
   SECURITY_HOTSPOT = 'SECURITY_HOTSPOT',
 }
 
-export function IssueTypeIcon({ type, ...iconProps }: Props) {
+export function IssueTypeIcon({ type, ...iconProps }: Readonly<Props>) {
   switch (type.toLowerCase()) {
     case IssueTypeEnum.BUG.toLowerCase():
     case 'bugs':
@@ -63,3 +63,4 @@ export function IssueTypeIcon({ type, ...iconProps }: Props) {
       return null;
   }
 }
+
