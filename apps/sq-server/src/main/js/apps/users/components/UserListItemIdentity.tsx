@@ -32,7 +32,7 @@ export interface Props {
   user: RestUserDetailed;
 }
 
-export default function UserListItemIdentity({ identityProvider, user, manageProvider }: Props) {
+export default function UserListItemIdentity({ identityProvider, user, manageProvider }: Readonly<Props>) {
   return (
     <div>
       <div className="sw-flex sw-flex-col">
@@ -52,7 +52,7 @@ export default function UserListItemIdentity({ identityProvider, user, managePro
   );
 }
 
-export function ExternalProvider({ identityProvider, user }: Omit<Props, 'manageProvider'>) {
+export function ExternalProvider({ identityProvider, user }: Readonly<Omit<Props, 'manageProvider'>>) {
   if (!identityProvider) {
     return (
       <div className="it__user-identity-provider sw-mt-1">
@@ -84,3 +84,4 @@ export function ExternalProvider({ identityProvider, user }: Omit<Props, 'manage
     </div>
   );
 }
+
