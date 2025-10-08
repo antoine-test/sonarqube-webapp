@@ -48,14 +48,14 @@ export function changePassword(data: {
   password: string;
   previousPassword?: string;
 }) {
-  return post('/api/users/change_password', data).catch(async (response: Response) => {
-    if (response.status === HttpStatus.BadRequest) {
-      const { result } = (await parseJSON(response)) as { result: ChangePasswordResults };
+  return post('/api/users/change_password', data).catch(async (error_: Response) => {
+    if (error_.status === HttpStatus.BadRequest) {
+      const { result } = (await parseJSON(error_)) as { result: ChangePasswordResults };
 
       return Promise.reject<ChangePasswordResults>(result);
     }
 
-    return throwGlobalError(response);
+    return throwGlobalError(error_);
   });
 }
 
@@ -109,3 +109,4 @@ export function deleteUser({ id, anonymize }: { anonymize?: boolean; id: string 
 export function setHomePage(homepage: HomePage): Promise<void | Response> {
   return post('/api/users/set_homepage', homepage).catch(throwGlobalError);
 }
+
