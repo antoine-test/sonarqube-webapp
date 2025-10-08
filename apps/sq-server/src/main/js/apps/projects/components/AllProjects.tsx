@@ -98,7 +98,7 @@ function AllProjects({ isFavorite }: Readonly<{ isFavorite: boolean }>) {
           .flatMap((page) => page.components)
           .map((project) => ({
             ...project,
-            isScannable: scannableProjects.find((p) => p.key === project.key) !== undefined,
+            isScannable: scannableProjects.some((p) => p.key === project.key),
           })) ?? [],
       facets: getFacetsMap(
         projectPages?.pages[projectPages?.pages.length - 1]?.facets ?? [],
@@ -118,8 +118,7 @@ function AllProjects({ isFavorite }: Readonly<{ isFavorite: boolean }>) {
   });
   const measuresForLastChunkAreLoading = Boolean(last(measureQueries)?.isLoading);
   const measures = measureQueries
-    .map((q) => q.data)
-    .flat()
+    .flatMap((q) => q.data)
     .filter(isDefined);
 
   // When measures for latest page are loading, we don't want to show them
@@ -345,3 +344,4 @@ const SideBarStyle = styled.div`
 const PageHeaderWrapper = styled.div`
   border-bottom: ${themeBorder('default', 'filterbarBorder')};
 `;
+
