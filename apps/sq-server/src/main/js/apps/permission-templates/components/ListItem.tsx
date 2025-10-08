@@ -30,7 +30,7 @@ interface Props {
   topQualifiers: string[];
 }
 
-export default function ListItem(props: Props) {
+export default function ListItem(props: Readonly<Props>) {
   const permissions = props.template.permissions.map((p) => (
     <PermissionCell key={p.key} permission={p} />
   ));
@@ -51,3 +51,4 @@ export default function ListItem(props: Props) {
     </TableRow>
   );
 }
+
