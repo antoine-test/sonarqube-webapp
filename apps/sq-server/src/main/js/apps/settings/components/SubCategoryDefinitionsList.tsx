@@ -72,7 +72,7 @@ class SubCategoryDefinitionsList extends React.PureComponent<SubCategoryDefiniti
   }
 
   detectElementToScroll = (hash: string) => {
-    const query = `[data-scroll-key=${hash.substring(1).replace(/[.#/]/g, '\\$&')}]`;
+    const query = `[data-scroll-key=${hash.substring(1).replace(/[.#/]/g, String.raw`\$&`)}]`;
     const element = document.querySelector<HTMLHeadingElement | HTMLLIElement>(query);
     this.scrollToSubCategoryOrDefinition(element);
   };
@@ -80,7 +80,7 @@ class SubCategoryDefinitionsList extends React.PureComponent<SubCategoryDefiniti
   scrollToSubCategoryOrDefinition = (element: HTMLHeadingElement | HTMLLIElement | null) => {
     if (element) {
       const { hash } = this.props.location;
-      if (hash.length > 0 && hash.substring(1) === element.getAttribute('data-scroll-key')) {
+      if (hash.length > 0 && hash.substring(1) === element.dataset.scrollKey) {
         element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
       }
     }
@@ -184,3 +184,4 @@ const StyledListItem = styled.li`
 `;
 
 export default withRouter(SubCategoryDefinitionsList);
+
