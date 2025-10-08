@@ -138,13 +138,13 @@ export default function GitLabConfigurationForm(props: Readonly<Props>) {
         },
         {} as GitLabConfigurationCreateBody,
       );
-      if (!isCreate) {
+      if (isCreate) {
+        createConfig(submitData, { onSuccess: props.onClose });
+      } else {
         updateConfig(
           { id: gitlabConfiguration.id, data: submitData },
           { onSuccess: props.onClose },
         );
-      } else {
-        createConfig(submitData, { onSuccess: props.onClose });
       }
     } else {
       const errors = Object.entries(formData)
@@ -235,3 +235,4 @@ export default function GitLabConfigurationForm(props: Readonly<Props>) {
     />
   );
 }
+
