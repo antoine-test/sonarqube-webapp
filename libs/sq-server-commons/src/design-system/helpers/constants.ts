@@ -21,7 +21,7 @@
 import { theme } from 'twin.macro';
 
 export const DEFAULT_LOCALE = 'en';
-export const IS_SSR = typeof window === 'undefined';
+export const IS_SSR = typeof globalThis.window === 'undefined';
 export const REACT_DOM_CONTAINER = '#content';
 
 export const RULE_STATUSES = ['READY', 'BETA', 'DEPRECATED'];
@@ -75,3 +75,4 @@ export const OPACITY_20_PERCENT = 0.2;
 export const OPACITY_75_PERCENT = 0.75;
 
 export const GLOBAL_POPUP_Z_INDEX = 5000;
+
