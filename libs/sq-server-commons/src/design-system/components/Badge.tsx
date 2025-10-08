@@ -62,7 +62,7 @@ function getColor(variantInfo: ThemeColors) {
  * /!\ If the badge triggers a Tooltip, you cannot migrate it as is. A tooltip needs an interactive element.
  * Either add a ToggleTip or wait for an integrated Echoes solution to be provided!
  */
-export function Badge({ className, children, title, variant = 'default' }: BadgeProps) {
+export function Badge({ className, children, title, variant = 'default' }: Readonly<BadgeProps>) {
   const commonProps = {
     'aria-label': title,
     className,
@@ -123,3 +123,4 @@ const StyledCounter = styled.span<{
     ${tw`sw-hidden`}
   }
 `;
+
