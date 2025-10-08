@@ -87,7 +87,7 @@ export class LoginContainer extends React.PureComponent<Props, State> {
   }
 
   handleSuccessfulLogin = () => {
-    window.location.replace(getReturnUrl(this.props.location));
+    globalThis.location.replace(getReturnUrl(this.props.location));
   };
 
   handleSubmit = (id: string, password: string) => {
@@ -95,7 +95,7 @@ export class LoginContainer extends React.PureComponent<Props, State> {
       .then(this.handleSuccessfulLogin)
       .catch(() => {
         addGlobalErrorMessage(translate('login.authentication_failed'));
-        return Promise.reject();
+        throw undefined;
       });
   };
 
@@ -116,3 +116,4 @@ export class LoginContainer extends React.PureComponent<Props, State> {
 }
 
 export default withRouter(LoginContainer);
+
