@@ -34,7 +34,7 @@ export default function OAuthProviders({ identityProviders, returnTo }: Readonly
   const authenticate = React.useCallback(
     (key: string) => {
       // We need a real page refresh, as the login mechanism is handled on the server
-      window.location.replace(
+      globalThis.location.replace(
         `${getBaseUrl()}/sessions/init/${key}?return_to=${encodeURIComponent(returnTo)}`,
       );
     },
@@ -69,3 +69,4 @@ export default function OAuthProviders({ identityProviders, returnTo }: Readonly
     </>
   );
 }
+
