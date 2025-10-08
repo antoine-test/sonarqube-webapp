@@ -32,7 +32,7 @@ export interface PageActionsProps {
   paging?: Paging;
 }
 
-export default function PageActions(props: PageActionsProps) {
+export default function PageActions(props: Readonly<PageActionsProps>) {
   const { canSetHome, effortTotal, paging } = props;
 
   return (
@@ -52,3 +52,4 @@ export default function PageActions(props: PageActionsProps) {
     </div>
   );
 }
+
