@@ -112,18 +112,18 @@ export default function IssueChangelogDiff({ diff }: Readonly<Props>) {
   }
 
   let message =
-    diff.newValue !== undefined
+    diff.newValue === undefined
       ? formatMessage(
+          { id: 'issue.changelog.removed' },
+          {
+            '0': formatMessage({ id: `issue.changelog.field.${diff.key}` }),
+          },
+        )
+      : formatMessage(
           { id: 'issue.changelog.changed_to' },
           {
             '0': formatMessage({ id: `issue.changelog.field.${diff.key}` }),
             '1': diffComputedValues.newValue,
-          },
-        )
-      : formatMessage(
-          { id: 'issue.changelog.removed' },
-          {
-            '0': formatMessage({ id: `issue.changelog.field.${diff.key}` }),
           },
         );
 
@@ -138,3 +138,4 @@ export default function IssueChangelogDiff({ diff }: Readonly<Props>) {
 
   return <p>{message}</p>;
 }
+
