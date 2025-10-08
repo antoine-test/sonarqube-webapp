@@ -27,7 +27,7 @@ export interface AppHeaderProps {
   canAdmin: boolean;
 }
 
-export default function AppHeader(props: AppHeaderProps) {
+export default function AppHeader(props: Readonly<AppHeaderProps>) {
   const { canAdmin } = props;
   const toUrl = useDocUrl(DocLink.NewCodeDefinition);
 
@@ -68,3 +68,4 @@ export default function AppHeader(props: AppHeaderProps) {
     </header>
   );
 }
+
