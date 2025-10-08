@@ -37,7 +37,7 @@ export interface LineIssuesListProps {
   selectedIssue: string | undefined;
 }
 
-export default function LineIssuesList(props: LineIssuesListProps) {
+export default function LineIssuesList(props: Readonly<LineIssuesListProps>) {
   const {
     line,
     displayWhyIsThisAnIssue,
@@ -79,3 +79,4 @@ export default function LineIssuesList(props: LineIssuesListProps) {
     </ul>
   );
 }
+
