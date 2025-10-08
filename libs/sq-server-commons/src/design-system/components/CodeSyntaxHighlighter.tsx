@@ -123,7 +123,7 @@ interface Props {
   wrap?: boolean | 'words';
 }
 
-const CODE_REGEXP = '<(code|pre)\\b([^>]*?)>(.+?)<\\/\\1>';
+const CODE_REGEXP = String.raw`<(code|pre)\b([^>]*?)>(.+?)<\/\1>`;
 const GLOBAL_REGEXP = new RegExp(CODE_REGEXP, 'gs');
 const SINGLE_REGEXP = new RegExp(CODE_REGEXP, 's');
 
@@ -144,7 +144,7 @@ export function CodeSyntaxHighlighter(props: Readonly<Props>) {
   } = props;
   let highlightedHtmlAsString = htmlAsString;
 
-  htmlAsString.match(GLOBAL_REGEXP)?.forEach((codeBlock) => {
+  if (htmlAsString.match(GLOBAL_REGEXP)) for (const codeBlock of htmlAsString.match(GLOBAL_REGEXP)) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const [, tag, attributes, code] = SINGLE_REGEXP.exec(codeBlock)!;
 
@@ -172,7 +172,7 @@ export function CodeSyntaxHighlighter(props: Readonly<Props>) {
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#specifying_a_string_as_the_replacement
       () => `<${tag}${attributes}>${highlightedCode.value}</${tag}>`,
     );
-  });
+  }
 
   return (
     <SafeHTMLInjection htmlAsString={highlightedHtmlAsString} sanitizeLevel={sanitizeLevel}>
@@ -262,3 +262,4 @@ const StyledSpan = styled.span`
     color: ${themeContrast('codeSnippetHighlight')};
   }
 `;
+
