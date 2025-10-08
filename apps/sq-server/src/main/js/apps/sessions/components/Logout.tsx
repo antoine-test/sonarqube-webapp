@@ -30,7 +30,7 @@ export default function Logout() {
     logOut()
       .then(() => {
         RecentHistory.clear();
-        window.location.replace(getBaseUrl() + '/');
+        globalThis.location.replace(getBaseUrl() + '/');
       })
       .catch(() => {
         addGlobalErrorMessage(translate('login.logout_failed'));
@@ -43,3 +43,4 @@ export default function Logout() {
     </CenteredLayout>
   );
 }
+
