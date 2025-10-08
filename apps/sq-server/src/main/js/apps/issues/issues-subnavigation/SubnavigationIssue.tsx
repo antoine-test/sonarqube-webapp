@@ -37,7 +37,7 @@ export interface ConciseIssueProps {
   selectedLocationIndex: number | undefined;
 }
 
-export default function SubnavigationIssue(props: ConciseIssueProps) {
+export default function SubnavigationIssue(props: Readonly<ConciseIssueProps>) {
   const { issue, selected, selectedFlowIndex, selectedLocationIndex } = props;
   const element = React.useRef<HTMLLIElement>(null);
 
@@ -92,3 +92,4 @@ const StyledIssueTitle = styled(BareButton)`
     background-color: ${themeColor('subnavigationSelected')};
   }
 `;
+
