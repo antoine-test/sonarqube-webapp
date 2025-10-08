@@ -25,7 +25,7 @@ interface Props {
   user: LoggedInUser;
 }
 
-export default function UserCard({ user }: Props) {
+export default function UserCard({ user }: Readonly<Props>) {
   return (
     <>
       <Avatar hash={user.avatar} name={user.name} size="md" />
@@ -33,3 +33,4 @@ export default function UserCard({ user }: Props) {
     </>
   );
 }
+
