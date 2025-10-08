@@ -50,7 +50,7 @@ function isSameBranch(task: Task, branchLike?: BranchLike) {
   return !task.branch && !task.pullRequest;
 }
 
-export function AnalysisErrorMessage(props: Props) {
+export function AnalysisErrorMessage(props: Readonly<Props>) {
   const { component, currentTask } = props;
   const { data: branchLike } = useCurrentBranchQuery(component);
   const currentTaskOnSameBranch = isSameBranch(currentTask, branchLike);
@@ -100,3 +100,4 @@ export function AnalysisErrorMessage(props: Props) {
 
   return <FormattedMessage id={messageKey} values={{ branch, url, stacktrace, type }} />;
 }
+
