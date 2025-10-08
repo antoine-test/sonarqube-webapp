@@ -30,7 +30,7 @@ interface Props {
   update: Update;
 }
 
-export default function PluginChangeLogItem({ release, update }: Props) {
+export default function PluginChangeLogItem({ release, update }: Readonly<Props>) {
   return (
     <li>
       <div className="sw-mb-2">
@@ -56,3 +56,4 @@ export default function PluginChangeLogItem({ release, update }: Props) {
     </li>
   );
 }
+
