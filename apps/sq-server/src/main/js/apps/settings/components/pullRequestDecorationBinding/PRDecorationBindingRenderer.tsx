@@ -60,7 +60,7 @@ export interface PRDecorationBindingRendererProps {
   updating: boolean;
 }
 
-export default function PRDecorationBindingRenderer(props: PRDecorationBindingRendererProps) {
+export default function PRDecorationBindingRenderer(props: Readonly<PRDecorationBindingRendererProps>) {
   const {
     formData,
     instances,
@@ -238,3 +238,4 @@ export default function PRDecorationBindingRenderer(props: PRDecorationBindingRe
     </div>
   );
 }
+
