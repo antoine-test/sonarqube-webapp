@@ -152,7 +152,7 @@ function renderField(
   );
 }
 
-export function AlmSpecificForm(props: AlmSpecificFormProps) {
+export function AlmSpecificForm(props: Readonly<AlmSpecificFormProps>) {
   const {
     alm,
     instances,
@@ -275,7 +275,7 @@ export function AlmSpecificForm(props: AlmSpecificFormProps) {
             id: 'github.summary_comment_setting',
             onFieldChange: props.onFieldChange,
             propKey: 'summaryCommentEnabled',
-            value: summaryCommentEnabled === undefined ? true : summaryCommentEnabled,
+            value: summaryCommentEnabled ?? true,
           })}
         </>
       );
@@ -326,3 +326,4 @@ export function AlmSpecificForm(props: AlmSpecificFormProps) {
 }
 
 export default withAvailableFeatures(AlmSpecificForm);
+
