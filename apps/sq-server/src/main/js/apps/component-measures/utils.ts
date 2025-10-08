@@ -119,7 +119,7 @@ export const populateDomainsFromMeasures = memoize(
 
         return {
           ...measure,
-          ...{ [isDiff ? 'leak' : 'value']: calculatedValue },
+           [isDiff ? 'leak' : 'value']: calculatedValue ,
         };
       });
 
@@ -336,7 +336,7 @@ export function isProjectOverview(metric: string) {
 }
 
 function parseView(metric: MetricKey, rawView?: string): MeasurePageView {
-  const view = (parseAsString(rawView) || DEFAULT_VIEW) as MeasurePageView;
+  const view = (parseAsString(rawView) || DEFAULT_VIEW);
   if (!hasTree(metric)) {
     return MeasurePageView.list;
   } else if (view === MeasurePageView.list && !hasList(metric)) {
@@ -370,3 +370,4 @@ export const serializeQuery = memoize((query: Query) => {
     view: query.view === DEFAULT_VIEW ? undefined : serializeString(query.view),
   });
 });
+
