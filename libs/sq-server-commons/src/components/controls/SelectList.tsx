@@ -126,10 +126,10 @@ export default class SelectList extends React.PureComponent<Props, State> {
           query: this.state.lastSearchParams.query,
         };
 
-        if (this.props.loading !== undefined) {
-          this.props.onSearch(params);
-        } else {
+        if (this.props.loading === undefined) {
           this.props.onSearch(params).then(this.stopLoading).catch(this.stopLoading);
+        } else {
+          this.props.onSearch(params);
         }
       },
     );
@@ -146,7 +146,7 @@ export default class SelectList extends React.PureComponent<Props, State> {
   onLoadMore = () => {
     this.search({
       page:
-        this.state.lastSearchParams.page != null ? this.state.lastSearchParams.page + 1 : undefined,
+        this.state.lastSearchParams.page == null ? undefined : this.state.lastSearchParams.page + 1,
     });
   };
 
@@ -213,3 +213,4 @@ export default class SelectList extends React.PureComponent<Props, State> {
     );
   }
 }
+
