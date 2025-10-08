@@ -29,7 +29,7 @@ interface Props {
   title: React.ReactNode;
 }
 
-export function TutorialStep({ children, title, stepNumber }: Props) {
+export function TutorialStep({ children, title, stepNumber }: Readonly<Props>) {
   return (
     <Step stepNumber={stepNumber}>
       <Title>{title}</Title>
@@ -86,3 +86,4 @@ const Step = styled.li<{ stepNumber?: number }>`
     ${tw`sw-pt-10`}
   }
 `;
+
