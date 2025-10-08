@@ -51,7 +51,7 @@ const renderAvatar = (name?: string, avatar?: string) => (
   <Avatar hash={avatar} name={name} size="xs" />
 );
 
-export default function Assignee(props: Props) {
+export default function Assignee(props: Readonly<Props>) {
   const {
     hotspot: { assigneeUser, status, resolution, key },
   } = props;
@@ -139,3 +139,4 @@ export default function Assignee(props: Props) {
     />
   );
 }
+
