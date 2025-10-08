@@ -31,7 +31,7 @@ export interface GithubFormProps {
   onFieldChange: (fieldId: keyof GithubBindingDefinition, value: string) => void;
 }
 
-export default function GithubForm(props: GithubFormProps) {
+export default function GithubForm(props: Readonly<GithubFormProps>) {
   const { formData, onFieldChange } = props;
   const toStatic = useDocUrl(DocLink.AlmGitHubIntegration);
   return (
@@ -129,3 +129,4 @@ export default function GithubForm(props: GithubFormProps) {
     </>
   );
 }
+
