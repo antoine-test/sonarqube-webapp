@@ -69,7 +69,7 @@ export function Checkbox({
   right,
   thirdState = false,
   title,
-}: Props) {
+}: Readonly<Props>) {
   const handleChange = () => {
     if (!disabled) {
       onCheck(!checked, id);
@@ -103,7 +103,7 @@ interface CheckIconProps {
   thirdState?: boolean;
 }
 
-function CheckboxIcon({ checked, thirdState }: CheckIconProps) {
+function CheckboxIcon({ checked, thirdState }: Readonly<CheckIconProps>) {
   if (checked && thirdState) {
     return (
       <CustomIcon>
@@ -188,3 +188,4 @@ export const AccessibleCheckbox = styled.input`
     border: ${themeBorder('default', 'checkboxDisabledChecked')};
   }
 `;
+
