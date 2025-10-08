@@ -45,12 +45,12 @@ export class OutsideClickHandler extends React.Component<Props> {
 
   addClickHandler = () => {
     const { listenerType = 'click' } = this.props;
-    window.addEventListener(listenerType, this.handleWindowClick);
+    globalThis.addEventListener(listenerType, this.handleWindowClick);
   };
 
   removeClickHandler = () => {
     const { listenerType = 'click' } = this.props;
-    window.removeEventListener(listenerType, this.handleWindowClick);
+    globalThis.removeEventListener(listenerType, this.handleWindowClick);
   };
 
   handleWindowClick = (event: MouseEvent) => {
@@ -68,3 +68,4 @@ export class OutsideClickHandler extends React.Component<Props> {
     return this.props.children;
   }
 }
+
