@@ -48,7 +48,7 @@ export enum AssigneeFilterOption {
   ME = 'me',
 }
 
-export default function HotspotFilterByStatus(props: FilterBarProps) {
+export default function HotspotFilterByStatus(props: Readonly<FilterBarProps>) {
   const { filters, isStaticListOfHotspots } = props;
 
   return (
@@ -89,3 +89,4 @@ export default function HotspotFilterByStatus(props: FilterBarProps) {
 const StyledFilterWrapper = withTheme(styled.div`
   border-bottom: ${themeBorder('default')};
 `);
+
