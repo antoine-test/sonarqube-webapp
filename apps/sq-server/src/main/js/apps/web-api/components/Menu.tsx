@@ -33,7 +33,7 @@ interface Props {
   splat: string;
 }
 
-export default function Menu(props: Props) {
+export default function Menu(props: Readonly<Props>) {
   const { domains, query, splat } = props;
 
   const navigateTo = useNavigate();
@@ -58,7 +58,7 @@ export default function Menu(props: Props) {
     .filter((domain) => domain.filteredActions.length);
 
   const renderDomain = (domain: WebApi.Domain) => {
-    const internal = !domain.actions.find((action) => !action.internal);
+    const internal = !domain.actions.some((action) => !action.internal);
 
     return (
       <SubnavigationItem
@@ -81,3 +81,4 @@ export default function Menu(props: Props) {
     </SubnavigationGroup>
   );
 }
+
