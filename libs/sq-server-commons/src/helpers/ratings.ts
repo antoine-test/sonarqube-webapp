@@ -63,7 +63,7 @@ export const getMaintainabilityGrid = (ratingGridSetting: string) => {
   const numbers = ratingGridSetting
     .split(',')
     .map((s) => parseFloat(s))
-    .filter((n) => !isNaN(n));
+    .filter((n) => !Number.isNaN(n));
 
   return numbers.length === RATING_GRID_SIZE ? numbers : [0, 0, 0, 0];
 };
@@ -72,3 +72,4 @@ const DUPLICATION_RATINGS: ['A', 'B', 'C', 'D', 'E', 'F'] = ['A', 'B', 'C', 'D',
 export function duplicationValueToRating(val: number) {
   return DUPLICATION_RATINGS[val - 1];
 }
+
