@@ -48,7 +48,7 @@ enum RadioOption {
   Specific = 'specific',
 }
 
-export default function SetQualityProfileModal(props: SetQualityProfileModalProps) {
+export default function SetQualityProfileModal(props: Readonly<SetQualityProfileModalProps>) {
   const { availableProfiles, component, currentProfile, usesDefault } = props;
   const intl = useIntl();
   const [selected, setSelected] = React.useState(
@@ -110,7 +110,7 @@ export default function SetQualityProfileModal(props: SetQualityProfileModalProp
                     setSelected(value);
                   }}
                   profiles={availableProfiles}
-                  value={!hasSelectedSysDefault ? selected : currentProfile.key}
+                  value={hasSelectedSysDefault ? currentProfile.key : selected}
                 />
               ),
             },
@@ -154,3 +154,4 @@ export default function SetQualityProfileModal(props: SetQualityProfileModalProp
     />
   );
 }
+
