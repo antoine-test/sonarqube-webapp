@@ -30,7 +30,7 @@ export interface HotspotCommentPopupProps {
   value?: string;
 }
 
-export default function HotspotCommentModal(props: HotspotCommentPopupProps) {
+export default function HotspotCommentModal(props: Readonly<HotspotCommentPopupProps>) {
   const [comment, setComment] = React.useState(props.value ?? '');
 
   return (
@@ -51,7 +51,7 @@ export default function HotspotCommentModal(props: HotspotCommentPopupProps) {
         </FormField>
       }
       headerTitle={translate(
-        props.value !== undefined ? 'issue.comment.edit' : 'hotspots.status.add_comment',
+        props.value === undefined ? 'hotspots.status.add_comment' : 'issue.comment.edit',
       )}
       onClose={props.onCancel}
       primaryButton={
@@ -69,3 +69,4 @@ export default function HotspotCommentModal(props: HotspotCommentPopupProps) {
     />
   );
 }
+
