@@ -42,7 +42,7 @@ interface Props {
   selectedLocationIndex: number | undefined;
 }
 
-export default function SubnavigationIssuesList(props: Props) {
+export default function SubnavigationIssuesList(props: Readonly<Props>) {
   const {
     issues,
     loading,
@@ -112,3 +112,4 @@ const StyledWrapper = styled.div`
 const StyledFooter = styled(ListFooter)`
   box-shadow: ${themeShadow('scrolling')};
 `;
+
