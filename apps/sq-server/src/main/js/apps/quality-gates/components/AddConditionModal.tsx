@@ -48,13 +48,13 @@ interface Props {
 }
 
 const FORBIDDEN_METRIC_TYPES = [MetricType.Data, MetricType.Distribution, 'STRING', 'BOOL'];
-const FORBIDDEN_METRICS: string[] = [
+const FORBIDDEN_METRICS: string[] = new Set([
   MetricKey.alert_status,
   MetricKey.releasability_rating,
   MetricKey.security_hotspots,
   MetricKey.new_security_hotspots,
   MetricKey.high_impact_accepted_issues,
-];
+]);
 
 const ADD_CONDITION_MODAL_ID = 'add-condition-modal';
 const QUALITY_GATES_ADD_CONDITION = 'quality_gates.add_condition';
@@ -87,7 +87,7 @@ export default function AddConditionModal({ qualityGate }: Readonly<Props>) {
         (metric) =>
           !metric.hidden &&
           !FORBIDDEN_METRIC_TYPES.includes(metric.type) &&
-          !FORBIDDEN_METRICS.includes(metric.key) &&
+          !FORBIDDEN_METRICS.has(metric.key) &&
           !(
             isStandardMode
               ? Object.values(STANDARD_CONDITIONS_MAP)
@@ -258,3 +258,4 @@ function findSimilarConditionMetricFromAnotherMode(
   const qgMetrics = conditions.map((condition) => condition.metric);
   return qgMetrics.find((metric) => metric === selectedMetricFromAnotherMode);
 }
+
