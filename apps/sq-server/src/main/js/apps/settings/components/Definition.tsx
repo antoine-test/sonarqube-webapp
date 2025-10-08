@@ -125,7 +125,7 @@ export default function Definition(props: Readonly<Props>) {
       ref.current?.focus();
       setValidationMessage(undefined);
 
-      timeout.current = window.setTimeout(() => {
+      timeout.current = globalThis.setTimeout(() => {
         setSuccess(false);
       }, SAFE_SET_STATE_DELAY);
     } catch (e) {
@@ -215,7 +215,7 @@ export default function Definition(props: Readonly<Props>) {
         setSuccess(true);
         ref.current?.focus();
 
-        timeout.current = window.setTimeout(() => {
+        timeout.current = globalThis.setTimeout(() => {
           setSuccess(false);
         }, SAFE_SET_STATE_DELAY);
       } catch (e) {
@@ -331,3 +331,4 @@ export default function Definition(props: Readonly<Props>) {
     </div>
   );
 }
+
