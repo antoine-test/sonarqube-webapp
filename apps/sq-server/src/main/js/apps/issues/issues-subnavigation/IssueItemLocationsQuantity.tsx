@@ -26,7 +26,7 @@ interface Props {
   issue: Pick<Issue, 'flows' | 'flowsWithType' | 'secondaryLocations'>;
 }
 
-export default function IssueItemLocationsQuantity(props: Props) {
+export default function IssueItemLocationsQuantity(props: Readonly<Props>) {
   const { formatMessage } = useIntl();
 
   const { id, titleValues, values } = getLocationsText(props.issue);
@@ -123,3 +123,4 @@ function getLocationsText(issue: Props['issue']) {
 
   return {};
 }
+
