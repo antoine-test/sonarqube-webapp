@@ -75,10 +75,10 @@ export default function ResetPasswordForm({
       previousPassword: oldPassword,
     })
       .then(handleSuccessfulChange)
-      .catch((result: ChangePasswordResults) => {
-        if (result === ChangePasswordResults.OldPasswordIncorrect) {
+      .catch((error_: ChangePasswordResults) => {
+        if (error_ === ChangePasswordResults.OldPasswordIncorrect) {
           setError(translate('user.old_password_incorrect'));
-        } else if (result === ChangePasswordResults.NewPasswordSameAsOld) {
+        } else if (error_ === ChangePasswordResults.NewPasswordSameAsOld) {
           setError(translate('user.new_password_same_as_old'));
         }
       });
@@ -136,3 +136,4 @@ export default function ResetPasswordForm({
     </Form>
   );
 }
+
