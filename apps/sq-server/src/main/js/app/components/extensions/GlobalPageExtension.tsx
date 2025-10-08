@@ -40,12 +40,13 @@ function GlobalPageExtension(props: GlobalPageExtensionProps) {
   const { extensionKey, pluginKey } = useParams();
 
   const fullKey =
-    params !== undefined
-      ? `${params.pluginKey}/${params.extensionKey}`
-      : `${pluginKey}/${extensionKey}`;
+    params === undefined
+      ? `${pluginKey}/${extensionKey}`
+      : `${params.pluginKey}/${params.extensionKey}`;
 
   const extension = globalPages?.find((p) => p.key === fullKey);
   return extension ? <Extension extension={extension} /> : <NotFound />;
 }
 
 export default withAppStateContext(GlobalPageExtension);
+
