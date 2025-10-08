@@ -22,7 +22,7 @@ import { useTheme } from '@emotion/react';
 import { themeColor, themeContrast } from '../../helpers/theme';
 import { CustomIcon, IconProps } from './Icon';
 
-export function SeverityCriticalIcon({ fill = 'iconSeverityMajor', ...iconProps }: IconProps) {
+export function SeverityCriticalIcon({ fill = 'iconSeverityMajor', ...iconProps }: Readonly<IconProps>) {
   const theme = useTheme();
 
   return (
@@ -35,3 +35,4 @@ export function SeverityCriticalIcon({ fill = 'iconSeverityMajor', ...iconProps 
     </CustomIcon>
   );
 }
+
