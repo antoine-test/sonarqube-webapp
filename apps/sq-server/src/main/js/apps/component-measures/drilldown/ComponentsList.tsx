@@ -40,7 +40,7 @@ interface Props {
   view: MeasurePageView;
 }
 
-export default function ComponentsList({ components, metric, metrics, ...props }: Props) {
+export default function ComponentsList({ components, metric, metrics, ...props }: Readonly<Props>) {
   const { branchLike, rootComponent, selectedComponent } = props;
 
   if (!components.length) {
@@ -98,3 +98,4 @@ export default function ComponentsList({ components, metric, metrics, ...props }
     </Table>
   );
 }
+
