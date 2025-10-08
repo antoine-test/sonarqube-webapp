@@ -38,7 +38,7 @@ export interface QualityGatePermissionsRendererProps {
   users: UserBase[];
 }
 
-export default function QualityGatePermissionsRenderer(props: QualityGatePermissionsRendererProps) {
+export default function QualityGatePermissionsRenderer(props: Readonly<QualityGatePermissionsRendererProps>) {
   const { groups, loading, qualityGate, submitting, users } = props;
 
   return (
@@ -72,3 +72,4 @@ export default function QualityGatePermissionsRenderer(props: QualityGatePermiss
     </div>
   );
 }
+
