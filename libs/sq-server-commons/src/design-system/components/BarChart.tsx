@@ -41,7 +41,7 @@ interface Props<T> {
   xValues?: string[];
 }
 
-export function BarChart<T>(props: Props<T>) {
+export function BarChart<T>(props: Readonly<Props<T>>) {
   const { barsWidth, data, width, height, padding = [10, 10, 10, 10], xValues } = props;
 
   const availableWidth = width - padding[1] - padding[3];
@@ -163,3 +163,4 @@ const BarChartBar = styled.rect`
     fill: ${themeColor('primaryDark')};
   }
 `;
+
