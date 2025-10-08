@@ -29,7 +29,7 @@ interface Props {
   permalink: string;
 }
 
-export function LineOptionsPopup({ line, permalink }: Props) {
+export function LineOptionsPopup({ line, permalink }: Readonly<Props>) {
   const lineCodeAsPlainText = getLineCodeAsPlainText(line.code);
   return (
     <DropdownMenu>
@@ -53,3 +53,4 @@ export function LineOptionsPopup({ line, permalink }: Props) {
 }
 
 export default memo(LineOptionsPopup);
+
