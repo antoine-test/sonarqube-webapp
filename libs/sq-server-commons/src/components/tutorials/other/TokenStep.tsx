@@ -280,7 +280,7 @@ export default class TokenStep extends React.PureComponent<Props, State> {
               messageInvalid={translate('onboarding.token.invalid_format')}
               onChange={this.handleExisingTokenChange}
               type="text"
-              validation={!validInput ? 'invalid' : 'none'}
+              validation={validInput ? 'none' : 'invalid'}
               value={this.state.existingToken}
               width={FormFieldWidth.Large}
             />
@@ -308,7 +308,20 @@ export default class TokenStep extends React.PureComponent<Props, State> {
 
     return (
       <div className="sw-p-4">
-        {token != null ? (
+        {token == null ? (
+          <div>
+            <ToggleButton
+              onChange={this.handleModeChange}
+              options={modeOptions}
+              value={selection}
+            />
+
+            <div className="sw-ml-4">
+              {selection === TokenUse.GENERATE && this.renderGenerateOption()}
+              {selection === TokenUse.EXISTING && this.renderUseExistingOption()}
+            </div>
+          </div>
+        ) : (
           <form className="sw-flex sw-items-center" onSubmit={this.handleTokenRevoke}>
             <span>
               {tokenName}
@@ -326,19 +339,6 @@ export default class TokenStep extends React.PureComponent<Props, State> {
               />
             </Spinner>
           </form>
-        ) : (
-          <div>
-            <ToggleButton
-              onChange={this.handleModeChange}
-              options={modeOptions}
-              value={selection}
-            />
-
-            <div className="sw-ml-4">
-              {selection === TokenUse.GENERATE && this.renderGenerateOption()}
-              {selection === TokenUse.EXISTING && this.renderUseExistingOption()}
-            </div>
-          </div>
         )}
 
         <Text as="div" className="sw-mt-6 sw-w-1/2" isSubtle>
@@ -410,3 +410,4 @@ const appearAnimation = keyframes`
 const DivAnimated = styled.div`
   animation: 0.3s ease-out ${appearAnimation};
 `;
+
