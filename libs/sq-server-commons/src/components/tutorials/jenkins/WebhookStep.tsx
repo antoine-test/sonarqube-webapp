@@ -70,7 +70,7 @@ function renderAlmSpecificInstructions(props: WebhookStepProps) {
   }
 }
 
-export default function WebhookStep(props: WebhookStepProps) {
+export default function WebhookStep(props: Readonly<WebhookStepProps>) {
   const { alm } = props;
 
   return (
@@ -82,3 +82,4 @@ export default function WebhookStep(props: WebhookStepProps) {
     </TutorialStep>
   );
 }
+
