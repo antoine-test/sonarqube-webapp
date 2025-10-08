@@ -31,7 +31,7 @@ interface Props {
   webhook?: WebhookResponse;
 }
 
-export default function CreateWebhookForm({ webhook, onClose, onDone }: Props) {
+export default function CreateWebhookForm({ webhook, onClose, onDone }: Readonly<Props>) {
   const isUpdate = !!webhook;
   const modalHeader = isUpdate ? translate('webhooks.update') : translate('webhooks.create');
   const confirmButtonText = isUpdate ? translate('update_verb') : translate('create');
@@ -122,3 +122,4 @@ export default function CreateWebhookForm({ webhook, onClose, onDone }: Props) {
     </ValidationModal>
   );
 }
+
