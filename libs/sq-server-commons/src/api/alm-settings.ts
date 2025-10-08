@@ -56,11 +56,11 @@ export function validateAlmSettings(key: string): Promise<string> {
     .then(() => {
       return '';
     })
-    .catch((response: Response) => {
-      if (response.status === HttpStatus.BadRequest) {
-        return parseError(response);
+    .catch((error_: Response) => {
+      if (error_.status === HttpStatus.BadRequest) {
+        return parseError(error_);
       }
-      return throwGlobalError(response);
+      return throwGlobalError(error_);
     });
 }
 
@@ -151,11 +151,12 @@ export function validateProjectAlmBinding(
 ): Promise<ProjectAlmBindingConfigurationErrors | undefined> {
   return get('/api/alm_settings/validate_binding', { project: projectKey })
     .then(() => undefined)
-    .catch((response: Response) => {
-      if (response.status === HttpStatus.BadRequest) {
-        return parseJSON(response);
+    .catch((error_: Response) => {
+      if (error_.status === HttpStatus.BadRequest) {
+        return parseJSON(error_);
       }
 
-      return throwGlobalError(response);
+      return throwGlobalError(error_);
     }) as Promise<ProjectAlmBindingConfigurationErrors | undefined>;
 }
+
