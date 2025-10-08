@@ -33,7 +33,7 @@ export interface Props {
   value?: any;
 }
 
-export default function SizeFilter(props: Props) {
+export default function SizeFilter(props: Readonly<Props>) {
   const { facet, maxFacetValue, property = 'size', value } = props;
 
   return (
@@ -70,3 +70,4 @@ function renderOption(option: number) {
 function renderAccessibleLabel(option: number) {
   return translate('projects.facets.size.label', option.toString());
 }
+
