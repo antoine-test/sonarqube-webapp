@@ -41,7 +41,7 @@ interface Props {
 
 const CLOSED_STEP_OPACITY = 0.4;
 
-export default function Step(props: Props) {
+export default function Step(props: Readonly<Props>) {
   const { finished, open, stepNumber, stepTitle } = props;
 
   const clickable = !open && finished && props.onOpen !== undefined;
@@ -93,3 +93,4 @@ const StyledCard = styled(Card)<{ clickable: boolean }>`
     }
 `};
 `;
+
