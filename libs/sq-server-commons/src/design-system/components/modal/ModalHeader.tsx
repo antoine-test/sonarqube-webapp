@@ -28,7 +28,7 @@ interface Props {
   title: string | ReactNode;
 }
 
-export function ModalHeader({ description, title }: Props) {
+export function ModalHeader({ description, title }: Readonly<Props>) {
   return (
     <div>
       <Title id="modal_header_title">{title}</Title>
@@ -49,3 +49,4 @@ const Title = styled.h2`
 
   color: ${themeColor('pageTitle')};
 `;
+
