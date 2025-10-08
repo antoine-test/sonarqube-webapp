@@ -38,7 +38,7 @@ export interface EventInnerProps {
   readonly?: boolean;
 }
 
-export default function EventInner({ event, readonly }: EventInnerProps) {
+export default function EventInner({ event, readonly }: Readonly<EventInnerProps>) {
   const { component } = React.useContext(ComponentContext);
   const { data: branchLike } = useCurrentBranchQuery(component, StaleTime.LONG);
   if (isRichQualityGateEvent(event)) {
@@ -82,3 +82,4 @@ export default function EventInner({ event, readonly }: EventInnerProps) {
     </div>
   );
 }
+
