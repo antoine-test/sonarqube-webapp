@@ -94,9 +94,9 @@ export default class HoldersList extends React.PureComponent<
 
   getItemInitialPermissionsCount = (item: PermissionGroup | PermissionUser) => {
     const key = this.getKey(item);
-    return this.state.initialPermissionsCount[key] !== undefined
-      ? this.state.initialPermissionsCount[key]
-      : item.permissions.length;
+    return this.state.initialPermissionsCount[key] === undefined
+      ? item.permissions.length
+      : this.state.initialPermissionsCount[key];
   };
 
   renderItem(item: PermissionUser | PermissionGroup, permissions: PermissionDefinitions) {
@@ -195,3 +195,4 @@ export default class HoldersList extends React.PureComponent<
     );
   }
 }
+
