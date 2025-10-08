@@ -25,7 +25,7 @@ import { CLEAN_CODE_CATEGORIES } from '~sq-server-commons/helpers/constants';
 import { DocLink } from '~sq-server-commons/helpers/doc-links';
 import { translate } from '~sq-server-commons/helpers/l10n';
 
-export default function AttributeCategoryFacet(props: BasicProps) {
+export default function AttributeCategoryFacet(props: Readonly<BasicProps>) {
   const renderName = React.useCallback(
     (attribute: string) => translate('issue.clean_code_attribute_category', attribute),
     [],
@@ -48,3 +48,4 @@ export default function AttributeCategoryFacet(props: BasicProps) {
     />
   );
 }
+
