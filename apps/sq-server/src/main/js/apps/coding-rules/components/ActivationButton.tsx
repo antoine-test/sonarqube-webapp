@@ -35,7 +35,7 @@ interface Props {
   rule: Rule | RuleDetails;
 }
 
-export default function ActivationButton(props: Props) {
+export default function ActivationButton(props: Readonly<Props>) {
   const { className, ariaLabel, buttonText, activation, modalHeader, profiles, rule } = props;
   const [modalOpen, setModalOpen] = React.useState(false);
 
@@ -68,3 +68,4 @@ export default function ActivationButton(props: Props) {
     </>
   );
 }
+
