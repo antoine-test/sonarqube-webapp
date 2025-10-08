@@ -42,7 +42,7 @@ interface BranchLikeNavigationProps {
   component: Component;
 }
 
-export function BranchLikeNavigation(props: BranchLikeNavigationProps) {
+export function BranchLikeNavigation(props: Readonly<BranchLikeNavigationProps>) {
   const { hasFeature } = useAvailableFeatures();
 
   const {
@@ -146,3 +146,4 @@ const SlashSeparator = styled.span`
     color: rgba(68, 68, 68, 0.3);
   }
 `;
+
