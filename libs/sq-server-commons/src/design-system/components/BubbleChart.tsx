@@ -70,7 +70,7 @@ export interface BubbleChartProps<T> {
 
 type Scale = ScaleLinear<number, number>;
 
-export function BubbleChart<T>(props: BubbleChartProps<T>) {
+export function BubbleChart<T>(props: Readonly<BubbleChartProps<T>>) {
   const {
     padding = DEFAULT_PADDING,
     height,
@@ -86,8 +86,8 @@ export function BubbleChart<T>(props: BubbleChartProps<T>) {
     displayYTicks = true,
     displayXGrid = true,
     displayYGrid = true,
-    formatXTick = (d: number) => String(d),
-    formatYTick = (d: number) => String(d),
+    formatXTick = String,
+    formatYTick = String,
   } = props;
 
   const [transform, setTransform] = React.useState({ x: 0, y: 0, k: 1 });
@@ -388,7 +388,7 @@ interface BubbleProps<T> {
   y: number;
 }
 
-function Bubble<T>(props: BubbleProps<T>) {
+function Bubble<T>(props: Readonly<BubbleProps<T>>) {
   const { backgroundColor, borderColor, data, onClick, r, scale, tooltip, x, y } = props;
   const handleClick = React.useCallback(
     (event: React.MouseEvent<HTMLAnchorElement>) => {
@@ -438,3 +438,4 @@ const BubbleChartTick = styled.text`
   fill: ${cssVar('color-text-subtle')};
   text-anchor: var(--align);
 `;
+
