@@ -319,7 +319,7 @@ export function useSetMainBranchMutation() {
  * Helper functions that sould be avoided. Instead convert the component into a functional one
  * and/or use proper react-query
  */
-const REFRESH_INTERVAL = 1_000;
+const REFRESH_INTERVAL = 1000;
 
 export function useRefreshBranchStatus(componentKey: string | undefined): () => void {
   const queryClient = useQueryClient();
@@ -389,3 +389,4 @@ export function withBranchStatusRefresh<
     return <WrappedComponent {...props} refreshBranchStatus={refresh} />;
   };
 }
+
