@@ -82,16 +82,17 @@ export function getBadgeUrl(
     case BadgeType.qualityGate:
       return `${getHostUrl()}/api/project_badges/quality_gate?${new URLSearchParams(
         omitNil({ branch, project, pullRequest, token }),
-      ).toString()}${disableBrowserCache ? `&${new Date().getTime()}` : ''}`;
+      ).toString()}${disableBrowserCache ? `&${Date.now()}` : ''}`;
     case BadgeType.aiCodeAssurance:
       return `${getHostUrl()}/api/project_badges/ai_code_assurance?${new URLSearchParams(
         omitNil({ branch, project, pullRequest, token }),
-      ).toString()}${disableBrowserCache ? `&${new Date().getTime()}` : ''}`;
+      ).toString()}${disableBrowserCache ? `&${Date.now()}` : ''}`;
 
     case BadgeType.measure:
     default:
       return `${getHostUrl()}/api/project_badges/measure?${new URLSearchParams(
         omitNil({ branch, project, metric, pullRequest, token }),
-      ).toString()}${disableBrowserCache ? `&${new Date().getTime()}` : ''}`;
+      ).toString()}${disableBrowserCache ? `&${Date.now()}` : ''}`;
   }
 }
+
