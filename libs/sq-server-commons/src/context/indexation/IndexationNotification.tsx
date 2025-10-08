@@ -129,7 +129,7 @@ export class IndexationNotification extends React.PureComponent<
       },
     } = this.props;
 
-    return !this.isSystemAdmin ? null : (
+    return this.isSystemAdmin ? (
       <IndexationNotificationRenderer
         completedCount={completedCount}
         onDismissBanner={this.dismissBanner}
@@ -137,10 +137,11 @@ export class IndexationNotification extends React.PureComponent<
         total={total}
         type={notificationType}
       />
-    );
+    ) : null;
   }
 }
 
 export default withCurrentUserContext(
   withIndexationContext(withAppStateContext(IndexationNotification)),
 );
+
