@@ -45,7 +45,7 @@ function getRepositoryUrl(workspace: string, slug: string) {
   return `https://bitbucket.org/${workspace}/${slug}`;
 }
 
-export default function BitbucketCloudSearchForm(props: BitbucketCloudSearchFormProps) {
+export default function BitbucketCloudSearchForm(props: Readonly<BitbucketCloudSearchFormProps>) {
   const { isLastPage, loadingMore, repositories = [], searching, searchQuery } = props;
 
   if (repositories.length === 0 && searchQuery.length === 0 && !searching) {
@@ -120,3 +120,4 @@ export default function BitbucketCloudSearchForm(props: BitbucketCloudSearchForm
     </div>
   );
 }
+
