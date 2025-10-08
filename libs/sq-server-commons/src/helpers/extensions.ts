@@ -46,7 +46,7 @@ export function installScript(url: string, target: 'body' | 'head' = 'body'): Pr
 export async function getExtensionStart(key: string): Promise<ExtensionStartMethod | undefined> {
   const fromCache = getExtensionFromCache(key);
   if (fromCache) {
-    return Promise.resolve(fromCache.start);
+    return fromCache.start;
   }
 
   if (!librariesExposed) {
@@ -60,7 +60,7 @@ export async function getExtensionStart(key: string): Promise<ExtensionStartMeth
 
   const extension = getExtensionFromCache(key);
   if (!extension) {
-    return Promise.reject();
+    throw undefined;
   }
 
   if (extension.providesCSSFile) {
@@ -69,3 +69,4 @@ export async function getExtensionStart(key: string): Promise<ExtensionStartMeth
 
   return extension.start;
 }
+
