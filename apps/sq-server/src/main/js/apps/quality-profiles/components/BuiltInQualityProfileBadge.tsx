@@ -27,7 +27,7 @@ interface Props {
   tooltip?: boolean;
 }
 
-export default function BuiltInQualityProfileBadge({ className, tooltip = true }: Props) {
+export default function BuiltInQualityProfileBadge({ className, tooltip = true }: Readonly<Props>) {
   const badge = (
     <Badge className={className} variant="default">
       {translate('quality_profiles.built_in')}
@@ -40,3 +40,4 @@ export default function BuiltInQualityProfileBadge({ className, tooltip = true }
 
   return badge;
 }
+
