@@ -39,7 +39,7 @@ export interface PermissionItemProps {
   onConfirmDelete: (item: UserBase | Group) => void;
 }
 
-export default function PermissionItem(props: PermissionItemProps) {
+export default function PermissionItem(props: Readonly<PermissionItemProps>) {
   const { item } = props;
   const { formatMessage } = useIntl();
 
@@ -106,3 +106,4 @@ export default function PermissionItem(props: PermissionItemProps) {
     </>
   );
 }
+
