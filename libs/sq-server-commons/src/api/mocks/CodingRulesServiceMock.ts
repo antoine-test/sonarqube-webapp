@@ -421,18 +421,18 @@ export default class CodingRulesServiceMock {
     const template = this.rules.find((r) => r.key === rule.templateKey);
 
     // Lets not convert the md to html in test.
-    rule.mdDesc = data.markdownDescription !== undefined ? data.markdownDescription : rule.mdDesc;
+    rule.mdDesc = data.markdownDescription ?? rule.mdDesc;
     rule.htmlDesc =
-      data.markdownDescription !== undefined ? data.markdownDescription : rule.htmlDesc;
-    rule.mdNote = data.markdown_note !== undefined ? data.markdown_note : rule.mdNote;
-    rule.htmlNote = data.markdown_note !== undefined ? data.markdown_note : rule.htmlNote;
-    rule.name = data.name !== undefined ? data.name : rule.name;
+      data.markdownDescription ?? rule.htmlDesc;
+    rule.mdNote = data.markdown_note ?? rule.mdNote;
+    rule.htmlNote = data.markdown_note ?? rule.htmlNote;
+    rule.name = data.name ?? rule.name;
     rule.status = rule.status === RuleStatus.Removed ? RuleStatus.Ready : rule.status;
     rule.cleanCodeAttribute =
-      data.cleanCodeAttribute !== undefined ? data.cleanCodeAttribute : rule.cleanCodeAttribute;
-    rule.impacts = data.impacts !== undefined ? data.impacts : rule.impacts;
-    rule.type = data.type !== undefined ? data.type : rule.type;
-    rule.severity = data.severity !== undefined ? data.severity : rule.severity;
+      data.cleanCodeAttribute ?? rule.cleanCodeAttribute;
+    rule.impacts = data.impacts ?? rule.impacts;
+    rule.type = data.type ?? rule.type;
+    rule.severity = data.severity ?? rule.severity;
 
     if (template && data.params) {
       rule.params = [];
@@ -449,13 +449,13 @@ export default class CodingRulesServiceMock {
     }
 
     rule.remFnBaseEffort =
-      data.remediation_fn_base_effort !== undefined
-        ? data.remediation_fn_base_effort
-        : rule.remFnBaseEffort;
+      data.remediation_fn_base_effort === undefined
+        ? rule.remFnBaseEffort
+        : data.remediation_fn_base_effort;
     rule.remFnType =
-      data.remediation_fn_type !== undefined ? data.remediation_fn_type : rule.remFnType;
-    rule.status = data.status !== undefined ? data.status : rule.status;
-    rule.tags = data.tags !== undefined ? data.tags.split(',') : rule.tags;
+      data.remediation_fn_type ?? rule.remFnType;
+    rule.status = data.status ?? rule.status;
+    rule.tags = data.tags === undefined ? rule.tags : data.tags.split(',');
 
     return this.reply(rule);
   };
@@ -545,14 +545,13 @@ export default class CodingRulesServiceMock {
         const isActive = facet.startsWith('active_');
         const counts = countBy(
           this.rules
-            .map((r) => {
+            .flatMap((r) => {
               const rule = isActive
                 ? (this.rulesActivations[r.key]?.find((a) => a.qProfile === qprofile) ??
                   ({} as RuleDetails))
                 : r;
               return uniq(rule.impacts?.map((i) => i.severity));
-            })
-            .flat(),
+            }),
         );
         const values = IMPACT_SEVERITIES.map((val) => ({
           val,
@@ -778,13 +777,13 @@ export default class CodingRulesServiceMock {
         ({ qProfile }) => qProfile === nextActivation.qProfile,
       );
 
-      if (activationIndex !== -1) {
+      if (activationIndex === -1) {
+        this.rulesActivations[data.rule].push(nextActivation);
+      } else {
         this.rulesActivations[data.rule][activationIndex] = {
           ...nextActivation,
           inherit: 'OVERRIDES',
         };
-      } else {
-        this.rulesActivations[data.rule].push(nextActivation);
       }
     });
 
@@ -856,3 +855,4 @@ export default class CodingRulesServiceMock {
     return Promise.resolve(cloneDeep(response));
   }
 }
+
