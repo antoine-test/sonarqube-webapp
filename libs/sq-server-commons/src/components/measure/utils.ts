@@ -44,8 +44,7 @@ export function getLeakValue(measure: MeasureIntern | undefined): string | undef
   return measure?.period?.value;
 }
 
-export function duplicationRatingConverter(val: number) {
-  const value = val || 0;
+export function duplicationRatingConverter(value = 0) {
   const THRESHOLD_B = 3;
   const THRESHOLD_C = 5;
   const THRESHOLD_D = 10;
@@ -64,3 +63,4 @@ export function duplicationRatingConverter(val: number) {
   }
   return 'F';
 }
+
