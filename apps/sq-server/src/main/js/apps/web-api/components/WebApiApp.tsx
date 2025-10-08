@@ -90,7 +90,7 @@ export class WebApiApp extends React.PureComponent<Props, State> {
   parseDomains(domains: any[]): WebApi.Domain[] {
     return domains.map((domain) => {
       const deprecated = getLatestDeprecatedAction(domain);
-      const internal = !domain.actions.find((action: any) => !action.internal);
+      const internal = !domain.actions.some((action: any) => !action.internal);
       return { ...domain, deprecatedSince: deprecated?.deprecatedSince, internal };
     });
   }
@@ -202,7 +202,7 @@ export class WebApiApp extends React.PureComponent<Props, State> {
   }
 }
 
-function WebApiAppWithParams(props: { location: Location; router: Router }) {
+function WebApiAppWithParams(props: Readonly<{ location: Location; router: Router }>) {
   const params = useParams();
 
   return <WebApiApp {...props} params={{ splat: params['*'] }} />;
@@ -234,3 +234,4 @@ const NavContainer = styled.nav`
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 `;
+
