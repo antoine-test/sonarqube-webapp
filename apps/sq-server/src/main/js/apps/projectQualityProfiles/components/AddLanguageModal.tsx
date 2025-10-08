@@ -38,7 +38,7 @@ export interface AddLanguageModalProps extends WithLanguagesProps {
   unavailableLanguages: string[];
 }
 
-export function AddLanguageModal(props: AddLanguageModalProps) {
+export function AddLanguageModal(props: Readonly<AddLanguageModalProps>) {
   const { languagesWithRules: languages, profilesByLanguage, unavailableLanguages } = props;
 
   const [{ language, key }, setSelected] = React.useState<{ key?: string; language?: string }>({
@@ -110,3 +110,4 @@ export function AddLanguageModal(props: AddLanguageModalProps) {
 }
 
 export default withLanguages(AddLanguageModal);
+
