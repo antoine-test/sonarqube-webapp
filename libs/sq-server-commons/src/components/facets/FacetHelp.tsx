@@ -65,10 +65,11 @@ export function FacetHelp({ property, title, description, noDescription, link, l
         </DocumentationLink>
       }
       title={
-        property !== undefined
-          ? intl.formatMessage({ id: `issues.facet.${property}.help.title` })
-          : title
+        property === undefined
+          ? title
+          : intl.formatMessage({ id: `issues.facet.${property}.help.title` })
       }
     />
   );
 }
+
