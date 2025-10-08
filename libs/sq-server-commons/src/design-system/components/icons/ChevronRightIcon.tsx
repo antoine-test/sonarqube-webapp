@@ -22,7 +22,7 @@ import { useTheme } from '@emotion/react';
 import { themeColor } from '../../helpers/theme';
 import { CustomIcon, IconProps } from './Icon';
 
-export function ChevronRightIcon({ fill = 'currentColor', ...iconProps }: IconProps) {
+export function ChevronRightIcon({ fill = 'currentColor', ...iconProps }: Readonly<IconProps>) {
   const theme = useTheme();
   return (
     <CustomIcon {...iconProps}>
@@ -35,3 +35,4 @@ export function ChevronRightIcon({ fill = 'currentColor', ...iconProps }: IconPr
     </CustomIcon>
   );
 }
+
