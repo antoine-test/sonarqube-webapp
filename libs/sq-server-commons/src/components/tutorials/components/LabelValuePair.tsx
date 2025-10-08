@@ -26,7 +26,7 @@ export interface LabelValuePairProps {
   value: string;
 }
 
-export default function LabelValuePair({ translationKey, value }: LabelValuePairProps) {
+export default function LabelValuePair({ translationKey, value }: Readonly<LabelValuePairProps>) {
   return (
     <div className="sw-flex sw-items-center">
       <b className="sw-mr-1 sw-font-semibold">{translate(translationKey, 'label')}:</b> {value}
@@ -34,3 +34,4 @@ export default function LabelValuePair({ translationKey, value }: LabelValuePair
     </div>
   );
 }
+
