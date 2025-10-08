@@ -45,7 +45,7 @@ export function ResetPassword({ currentUser }: Readonly<ResetPasswordProps>) {
           <ResetPasswordForm
             onPasswordChange={() => {
               // Force a refresh for the backend to handle additional redirects.
-              window.location.href = `${getBaseUrl()}/`;
+              globalThis.location.href = `${getBaseUrl()}/`;
             }}
             user={currentUser}
           />
@@ -56,3 +56,4 @@ export function ResetPassword({ currentUser }: Readonly<ResetPasswordProps>) {
 }
 
 export default whenLoggedIn(ResetPassword);
+
