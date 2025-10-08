@@ -38,7 +38,7 @@ interface Props {
   onComponentChange: (changes: {}) => void;
 }
 
-export default function MetaTags(props: Props) {
+export default function MetaTags(props: Readonly<Props>) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -110,7 +110,7 @@ interface MetaTagsSelectorProps {
 const LIST_SIZE = 10;
 const MAX_LIST_SIZE = 100;
 
-function MetaTagsSelector({ selectedTags, setProjectTags }: MetaTagsSelectorProps) {
+function MetaTagsSelector({ selectedTags, setProjectTags }: Readonly<MetaTagsSelectorProps>) {
   const [searchResult, setSearchResult] = useState<string[]>([]);
   const availableTags = difference(searchResult, selectedTags);
 
@@ -148,3 +148,4 @@ function MetaTagsSelector({ selectedTags, setProjectTags }: MetaTagsSelectorProp
     />
   );
 }
+
