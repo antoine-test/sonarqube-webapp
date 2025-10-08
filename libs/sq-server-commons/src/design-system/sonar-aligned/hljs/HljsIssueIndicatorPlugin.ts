@@ -91,10 +91,10 @@ export class HljsIssueIndicatorPlugin {
 
       if (match) {
         const issueKeys = match[1].split(',');
-        if (!this.issueKeys[lineNumber]) {
-          this.issueKeys[lineNumber] = issueKeys;
-        } else {
+        if (this.issueKeys[lineNumber]) {
           this.issueKeys[lineNumber].push(...issueKeys);
+        } else {
+          this.issueKeys[lineNumber] = issueKeys;
         }
       }
 
@@ -142,3 +142,4 @@ export class HljsIssueIndicatorPlugin {
 
 const hljsIssueIndicatorPlugin = new HljsIssueIndicatorPlugin();
 export { hljsIssueIndicatorPlugin };
+
