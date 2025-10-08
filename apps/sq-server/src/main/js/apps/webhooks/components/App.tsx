@@ -42,7 +42,7 @@ export interface AppProps {
   component?: Component;
 }
 
-export function App({ component }: AppProps) {
+export function App({ component }: Readonly<AppProps>) {
   const [loading, setLoading] = useState(true);
   const [webhooks, setWebhooks] = useState<WebhookResponse[]>([]);
 
@@ -122,3 +122,4 @@ export function App({ component }: AppProps) {
 }
 
 export default withComponentContext(App);
+
