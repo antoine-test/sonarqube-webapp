@@ -47,7 +47,7 @@ export default function ColorGradientLegend({
   showColorNA = false,
   naColors = ['rgb(36,36,36)', 'rgb(120,120,120)'],
   width,
-}: Props) {
+}: Readonly<Props>) {
   const colorRange: Array<string | number> = colorScale.range();
   const colorDomain: Array<string | number> = colorScale.domain();
   const lastColorIdx = colorRange.length - 1;
@@ -138,3 +138,4 @@ const GradientLegendText = styled(GradientLegendTextBase)`
     text-anchor: end;
   }
 `;
+
