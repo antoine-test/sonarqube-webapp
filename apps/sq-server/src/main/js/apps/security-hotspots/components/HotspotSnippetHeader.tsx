@@ -41,7 +41,7 @@ export interface HotspotSnippetHeaderProps {
   hotspot: Hotspot;
 }
 
-function HotspotSnippetHeader(props: HotspotSnippetHeaderProps) {
+function HotspotSnippetHeader(props: Readonly<HotspotSnippetHeaderProps>) {
   const { hotspot, currentUser, component, branchLike } = props;
   const {
     project,
@@ -92,3 +92,4 @@ const StyledHeader = withTheme(styled.div`
 `);
 
 export default withCurrentUserContext(HotspotSnippetHeader);
+
