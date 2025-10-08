@@ -29,7 +29,7 @@ export interface WebhookStepGitLabProps {
   branchesEnabled: boolean;
 }
 
-export default function WebhookStepGitLab({ branchesEnabled }: WebhookStepGitLabProps) {
+export default function WebhookStepGitLab({ branchesEnabled }: Readonly<WebhookStepGitLabProps>) {
   return (
     <>
       <NumberedListItem>
@@ -92,3 +92,4 @@ export default function WebhookStepGitLab({ branchesEnabled }: WebhookStepGitLab
     </>
   );
 }
+
