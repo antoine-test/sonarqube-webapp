@@ -29,7 +29,7 @@ export interface SentenceWithFilenameProps {
 export default function SentenceWithFilename({
   filename,
   translationKey,
-}: SentenceWithFilenameProps) {
+}: Readonly<SentenceWithFilenameProps>) {
   return (
     <span>
       <FormattedMessage
@@ -41,3 +41,4 @@ export default function SentenceWithFilename({
     </span>
   );
 }
+
