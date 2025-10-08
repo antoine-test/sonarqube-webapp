@@ -30,7 +30,7 @@ interface Props {
   topQualifiers: string[];
 }
 
-export default function List(props: Props) {
+export default function List(props: Readonly<Props>) {
   const permissionTemplates = props.permissionTemplates.map((p) => (
     <ListItem key={p.id} refresh={props.refresh} template={p} topQualifiers={props.topQualifiers} />
   ));
@@ -45,3 +45,4 @@ export default function List(props: Props) {
     </Table>
   );
 }
+
