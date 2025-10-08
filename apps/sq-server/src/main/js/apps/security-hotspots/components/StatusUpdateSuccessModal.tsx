@@ -35,7 +35,7 @@ export interface StatusUpdateSuccessModalProps {
   onSwitchFilterToStatusOfUpdatedHotspot: () => void;
 }
 
-export default function StatusUpdateSuccessModal(props: StatusUpdateSuccessModalProps) {
+export default function StatusUpdateSuccessModal(props: Readonly<StatusUpdateSuccessModalProps>) {
   const { hotspotsReviewedMeasure, lastStatusChangedTo } = props;
 
   const [isChecked, setIsChecked] = React.useState(false);
@@ -110,3 +110,4 @@ export default function StatusUpdateSuccessModal(props: StatusUpdateSuccessModal
     </Modal>
   );
 }
+
