@@ -77,7 +77,7 @@ export default class ProjectModal extends React.PureComponent<Props, State> {
 
           if (projects && projects.items.length > 0) {
             suggestions = projects.items
-              .filter((item) => !addedProjects.find((p) => p.project === item.key))
+              .filter((item) => !addedProjects.some((p) => p.project === item.key))
               .map((item) => ({
                 project: item.key,
                 projectName: item.name,
@@ -165,3 +165,4 @@ function suggestionsToOptions(suggestions: NotificationProject[]): SelectOption[
     items: [],
   }));
 }
+
