@@ -38,7 +38,7 @@ export interface ScopeFacetProps {
   stats: Record<string, number> | undefined;
 }
 
-export function ScopeFacet(props: ScopeFacetProps) {
+export function ScopeFacet(props: Readonly<ScopeFacetProps>) {
   const { fetching, open, scopes = [], stats = {} } = props;
   const intl = useIntl();
 
@@ -109,3 +109,4 @@ export function ScopeFacet(props: ScopeFacetProps) {
     </FacetBox>
   );
 }
+
