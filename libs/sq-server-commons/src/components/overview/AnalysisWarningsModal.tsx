@@ -36,7 +36,7 @@ interface Props {
   warnings: TaskWarning[];
 }
 
-export function AnalysisWarningsModal(props: Props) {
+export function AnalysisWarningsModal(props: Readonly<Props>) {
   const { component, currentUser, warnings } = props;
 
   const { mutate, isPending, variables } = useDismissBranchWarningMutation(component.key);
@@ -53,7 +53,7 @@ export function AnalysisWarningsModal(props: Props) {
             <FlagMessage variant="warning">
               <HtmlFormatter>
                 <SafeHTMLInjection
-                  htmlAsString={message.trim().replace(/\n/g, '<br />')}
+                  htmlAsString={message.trim().replaceAll('\n', '<br />')}
                   sanitizeLevel={SanitizeLevel.RESTRICTED}
                 />
               </HtmlFormatter>
@@ -93,3 +93,4 @@ export function AnalysisWarningsModal(props: Props) {
 }
 
 export default withCurrentUserContext(AnalysisWarningsModal);
+
