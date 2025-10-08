@@ -410,8 +410,8 @@ export function latinize(str: string): string {
 export function decodeJwt(token: string) {
   const segments = token.split('.');
   const base64Url = segments.length > 1 ? segments[1] : segments[0];
-  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  return JSON.parse(window.atob(base64));
+  const base64 = base64Url.replaceAll('-', '+').replaceAll('_', '/');
+  return JSON.parse(globalThis.atob(base64));
 }
 
 const VERSION_BUILD = 'build ';
@@ -419,3 +419,4 @@ export function getInstanceVersionNumber(version: string) {
   // e.g. "10.5 (build 12345)" => "10.5 (12345)"
   return version.replace(VERSION_BUILD, '');
 }
+
