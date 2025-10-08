@@ -33,7 +33,7 @@ export interface EventsProps {
   isFirst?: boolean;
 }
 
-function Events(props: EventsProps) {
+function Events(props: Readonly<EventsProps>) {
   const { analysisKey, canAdmin, events, isFirst } = props;
 
   const sortedEvents = sortBy(
@@ -70,3 +70,4 @@ function Events(props: EventsProps) {
 }
 
 export default React.memo(Events);
+
