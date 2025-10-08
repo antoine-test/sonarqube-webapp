@@ -112,7 +112,7 @@ class ProjectManagementApp extends React.PureComponent<Props, State> {
     const parameters = {
       analyzedBefore: analyzedBefore && toShortISO8601String(analyzedBefore),
       onProvisionedOnly: this.state.provisioned || undefined,
-      p: this.state.page !== 1 ? this.state.page : undefined,
+      p: this.state.page === 1 ? undefined : this.state.page,
       ps: PAGE_SIZE,
       q: this.state.query || undefined,
       qualifiers: this.state.qualifiers,
@@ -260,3 +260,4 @@ class ProjectManagementApp extends React.PureComponent<Props, State> {
 }
 
 export default withCurrentUserContext(ProjectManagementApp);
+
