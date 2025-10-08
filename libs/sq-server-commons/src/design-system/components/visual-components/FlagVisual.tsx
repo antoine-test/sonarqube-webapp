@@ -26,7 +26,7 @@ interface Props {
   className?: string;
 }
 
-export function FlagVisual({ className }: Props) {
+export function FlagVisual({ className }: Readonly<Props>) {
   const theme = useTheme();
 
   return (
@@ -78,3 +78,4 @@ export function FlagVisual({ className }: Props) {
     </svg>
   );
 }
+
