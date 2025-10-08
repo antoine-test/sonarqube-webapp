@@ -42,11 +42,11 @@ export default class OutsideClickHandler extends React.Component<Props> {
   }
 
   addClickHandler = () => {
-    window.addEventListener('click', this.handleWindowClick);
+    globalThis.addEventListener('click', this.handleWindowClick);
   };
 
   removeClickHandler = () => {
-    window.removeEventListener('click', this.handleWindowClick);
+    globalThis.removeEventListener('click', this.handleWindowClick);
   };
 
   handleWindowClick = (event: MouseEvent) => {
@@ -56,7 +56,7 @@ export default class OutsideClickHandler extends React.Component<Props> {
       if (
         node &&
         !node.contains(event.target as Node) &&
-        window.document.contains(event.target as Node)
+        globalThis.document.contains(event.target as Node)
       ) {
         this.props.onClickOutside();
       }
@@ -67,3 +67,4 @@ export default class OutsideClickHandler extends React.Component<Props> {
     return this.props.children;
   }
 }
+
