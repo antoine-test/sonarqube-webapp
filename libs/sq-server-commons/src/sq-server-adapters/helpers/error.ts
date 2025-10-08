@@ -52,7 +52,7 @@ export function throwGlobalError(
           /* ignore parsing errors */
         },
       )
-      .then(() => Promise.reject(param));
+      .then(() => { throw param; });
   }
 
   // Axios response object
@@ -64,3 +64,4 @@ export function throwGlobalError(
 
   return Promise.reject(param);
 }
+
