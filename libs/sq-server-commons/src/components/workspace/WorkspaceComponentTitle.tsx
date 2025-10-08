@@ -29,7 +29,7 @@ interface Props {
   limited?: boolean;
 }
 
-export default function WorkspaceComponentTitle({ component, limited }: Props) {
+export default function WorkspaceComponentTitle({ component, limited }: Readonly<Props>) {
   const { name = '—' } = component;
   return (
     <>
@@ -44,3 +44,4 @@ export default function WorkspaceComponentTitle({ component, limited }: Props) {
     </>
   );
 }
+
