@@ -32,7 +32,7 @@ export interface BranchesAnalysisStepProps {
   setConfig: (config: TutorialConfig) => void;
 }
 
-export function BranchAnalysisStepContent(props: BranchesAnalysisStepProps) {
+export function BranchAnalysisStepContent(props: Readonly<BranchesAnalysisStepProps>) {
   const { config, setConfig, component, languages } = props;
 
   return (
@@ -50,3 +50,4 @@ export function BranchAnalysisStepContent(props: BranchesAnalysisStepProps) {
 }
 
 export default withLanguages(BranchAnalysisStepContent);
+
