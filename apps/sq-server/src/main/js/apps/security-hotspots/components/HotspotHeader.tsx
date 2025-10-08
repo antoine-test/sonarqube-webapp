@@ -40,7 +40,7 @@ export interface HotspotHeaderProps {
   standards?: StandardsInformation;
 }
 
-export function HotspotHeader(props: HotspotHeaderProps) {
+export function HotspotHeader(props: Readonly<HotspotHeaderProps>) {
   const { branchLike, component, hotspot, standards } = props;
   const { message, messageFormattings, rule, key } = hotspot;
   const refreshBranchStatus = useRefreshBranchStatus(component.key);
@@ -91,3 +91,4 @@ export function HotspotHeader(props: HotspotHeaderProps) {
     </div>
   );
 }
+
