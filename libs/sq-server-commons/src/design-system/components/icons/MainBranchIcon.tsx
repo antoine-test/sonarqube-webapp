@@ -28,7 +28,7 @@ import { CustomIcon, IconProps } from './Icon';
  * to replace all of the icons yet. There are situations where it is OK to ignore this deprecation
  * warning when revisiting old code, but all new code should use the icons from Echoes.
  */
-export function MainBranchIcon({ fill = 'currentColor', ...iconProps }: IconProps) {
+export function MainBranchIcon({ fill = 'currentColor', ...iconProps }: Readonly<IconProps>) {
   const theme = useTheme();
   return (
     <CustomIcon {...iconProps}>
@@ -41,3 +41,4 @@ export function MainBranchIcon({ fill = 'currentColor', ...iconProps }: IconProp
     </CustomIcon>
   );
 }
+
