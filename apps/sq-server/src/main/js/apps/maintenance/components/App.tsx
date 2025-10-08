@@ -77,7 +77,7 @@ export default class App extends React.PureComponent<Props, State> {
     this.mounted = false;
 
     if (isDefined(this.interval)) {
-      window.clearInterval(this.interval);
+      globalThis.clearInterval(this.interval);
     }
   }
 
@@ -152,12 +152,12 @@ export default class App extends React.PureComponent<Props, State> {
   };
 
   scheduleRefresh = () => {
-    this.interval = window.setTimeout(this.fetchStatus, DELAY_REFRESH_STATUS);
+    this.interval = globalThis.setTimeout(this.fetchStatus, DELAY_REFRESH_STATUS);
   };
 
   loadPreviousPage = () => {
     setInterval(() => {
-      window.location.replace(getReturnUrl(this.props.location));
+      globalThis.location.replace(getReturnUrl(this.props.location));
     }, DELAY_REDIRECT_PREV_PAGE);
   };
 
@@ -371,3 +371,4 @@ const MaintenanceSpinner = styled.div`
   margin-top: 2.5rem;
   text-align: center;
 `;
+
