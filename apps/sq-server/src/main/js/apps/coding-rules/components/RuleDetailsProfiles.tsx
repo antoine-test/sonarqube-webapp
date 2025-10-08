@@ -322,7 +322,7 @@ export default function RuleDetailsProfiles(props: Readonly<Props>) {
             onDone={props.onActivate}
             profiles={filter(
               referencedProfiles,
-              (profile) => !activations.find((activation) => activation.qProfile === profile.key),
+              (profile) => !activations.some((activation) => activation.qProfile === profile.key),
             )}
             rule={ruleDetails}
           />
@@ -363,3 +363,4 @@ const StyledParameter = styled.div`
     text-overflow: ellipsis;
   }
 `;
+
