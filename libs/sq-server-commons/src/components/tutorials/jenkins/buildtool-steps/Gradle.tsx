@@ -38,7 +38,7 @@ const JENKINSFILE_SNIPPET = `node {
   }
 }`;
 
-export default function Gradle(props: LanguageProps) {
+export default function Gradle(props: Readonly<LanguageProps>) {
   const { component } = props;
 
   return (
@@ -67,3 +67,4 @@ export default function Gradle(props: LanguageProps) {
     </>
   );
 }
+
