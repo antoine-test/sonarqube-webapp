@@ -239,10 +239,10 @@ export class App extends React.PureComponent<Props, State> {
 
     this.attachShortcuts();
 
-    if (!this.props.isFetchingBranch) {
-      this.fetchFirstIssues(true).catch(() => undefined);
-    } else {
+    if (this.props.isFetchingBranch) {
       this.requiresInitialFetch = true;
+    } else {
+      this.fetchFirstIssues(true).catch(() => undefined);
     }
   }
 
@@ -379,7 +379,7 @@ export class App extends React.PureComponent<Props, State> {
     const { issues = [], selected } = this.state;
     const index = issues.findIndex((issue) => issue.key === selected);
 
-    return index !== -1 ? index : undefined;
+    return index === -1 ? undefined : index;
   }
 
   selectNextIssue = () => {
@@ -554,10 +554,10 @@ export class App extends React.PureComponent<Props, State> {
     this.setState({ checked: [], loading: true });
 
     let response: FetchIssuesPromise;
-    if (openIssueKey !== undefined) {
-      response = await this.fetchIssuesUntil(openIssueKey);
-    } else {
+    if (openIssueKey === undefined) {
       response = await this.fetchIssues({}, true, firstRequest);
+    } else {
+      response = await this.fetchIssuesUntil(openIssueKey);
     }
 
     try {
@@ -728,7 +728,7 @@ export class App extends React.PureComponent<Props, State> {
     let count;
 
     if (checkAll && paging && !this.props.component?.needIssueSync) {
-      count = paging.total > MAX_PAGE_SIZE ? MAX_PAGE_SIZE : paging.total;
+      count = Math.min(paging.total, MAX_PAGE_SIZE);
     } else {
       count = Math.min(checked.length, MAX_PAGE_SIZE);
     }
@@ -1068,7 +1068,7 @@ export class App extends React.PureComponent<Props, State> {
     const { branchLike, component, currentUser, branchLikes } = this.props;
     const { issues, loading, loadingMore, paging, query } = this.state;
     const selectedIndex = this.getSelectedIndex();
-    const selectedIssue = selectedIndex !== undefined ? issues[selectedIndex] : undefined;
+    const selectedIssue = selectedIndex === undefined ? undefined : issues[selectedIndex];
 
     if (!paging) {
       return null;
@@ -1329,3 +1329,4 @@ const StyledIssueWrapper = styled.div`
     border-top: none;
   }
 `;
+
