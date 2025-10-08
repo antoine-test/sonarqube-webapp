@@ -34,7 +34,7 @@ import { useIntl } from 'react-intl';
 import tw from 'twin.macro';
 import { dismissNotice } from '../../api/users';
 import { useCurrentUser } from '../../context/current-user/CurrentUserContext';
-import {} from '../../design-system';
+import   '../../design-system';
 import { useModeModifiedQuery, useStandardExperienceModeQuery } from '../../queries/mode';
 import { Permissions } from '../../types/permissions';
 import { NoticeType } from '../../types/users';
@@ -110,3 +110,4 @@ const FacetBanner = styled.div`
   ${tw`sw-p-2 sw-rounded-2`}
   background-color: ${cssVar('color-background-accent-weak-default')};
 `;
+
