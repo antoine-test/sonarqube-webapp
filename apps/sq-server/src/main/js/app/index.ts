@@ -81,7 +81,7 @@ async function initApplication() {
 }
 
 function isMainApp() {
-  const { pathname } = window.location;
+  const { pathname } = globalThis.location;
 
   return (
     getSystemStatus() === 'UP' &&
@@ -91,3 +91,4 @@ function isMainApp() {
     !pathname.startsWith(`${getBaseUrl()}/formatting/help`)
   );
 }
+
