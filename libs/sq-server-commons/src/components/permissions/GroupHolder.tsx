@@ -40,7 +40,7 @@ interface Props {
 
 export const ANYONE = 'Anyone';
 
-export default function GroupHolder(props: Props) {
+export default function GroupHolder(props: Readonly<Props>) {
   const { group, isComponentPrivate, permissions, removeOnly, isGitHubUser, isGitLabUser } = props;
   const { loading, handleCheck, modal } = usePermissionChange({
     holder: group,
@@ -100,3 +100,4 @@ export default function GroupHolder(props: Props) {
     </Table.Row>
   );
 }
+
