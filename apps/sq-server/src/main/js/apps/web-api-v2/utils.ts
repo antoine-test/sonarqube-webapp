@@ -71,7 +71,7 @@ export const dereferenceSchema = (
     return val as DereferenceRecursive<P>;
   };
 
-  return dereferenceRecursive(document) as ExcludeReferences<OpenAPIV3.Document>;
+  return dereferenceRecursive(document);
 };
 
 export const getApiEndpointKey = (name: string, method: string) => `${name}${URL_DIVIDER}${method}`;
@@ -103,3 +103,4 @@ export function extractSchemaAndMediaType(
 
   return requests;
 }
+
