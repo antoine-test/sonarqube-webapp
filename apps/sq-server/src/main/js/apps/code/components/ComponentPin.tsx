@@ -31,7 +31,7 @@ interface Props {
   openComponent: WorkspaceContextShape['openComponent'];
 }
 
-export default function ComponentPin(props: Props) {
+export default function ComponentPin(props: Readonly<Props>) {
   const { branchLike, component, openComponent } = props;
 
   const handleClick = React.useCallback(() => {
@@ -52,3 +52,4 @@ export default function ComponentPin(props: Props) {
     />
   );
 }
+
