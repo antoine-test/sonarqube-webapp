@@ -63,12 +63,12 @@ export class AdminContainer extends React.PureComponent<AdminContainerProps, Sta
   componentDidMount() {
     this.mounted = true;
     this.portalAnchor = document.getElementById('component-nav-portal');
-    if (!this.props.appState.canAdmin) {
-      handleRequiredAuthorization();
-    } else {
+    if (this.props.appState.canAdmin) {
       this.fetchNavigationSettings();
       this.fetchPendingPlugins();
       this.fetchSystemStatus();
+    } else {
+      handleRequiredAuthorization();
     }
   }
 
@@ -115,7 +115,7 @@ export class AdminContainer extends React.PureComponent<AdminContainerProps, Sta
       ({ status }) => {
         if (this.mounted) {
           this.setState({ systemStatus: status });
-          window.location.reload();
+          globalThis.location.reload();
         }
       },
       () => {},
@@ -170,3 +170,4 @@ export class AdminContainer extends React.PureComponent<AdminContainerProps, Sta
 }
 
 export default withAppStateContext(AdminContainer);
+
