@@ -28,7 +28,7 @@ import { CustomIcon, IconProps } from './Icon';
  * to replace all of the icons yet. There are situations where it is OK to ignore this deprecation
  * warning when revisiting old code, but all new code should use the icons from Echoes.
  */
-export function FlagWarningIcon({ fill = 'iconWarning', ...iconProps }: IconProps) {
+export function FlagWarningIcon({ fill = 'iconWarning', ...iconProps }: Readonly<IconProps>) {
   const theme = useTheme();
   return (
     <CustomIcon {...iconProps}>
@@ -40,3 +40,4 @@ export function FlagWarningIcon({ fill = 'iconWarning', ...iconProps }: IconProp
   );
 }
 FlagWarningIcon.displayName = 'FlagWarningIcon';
+
