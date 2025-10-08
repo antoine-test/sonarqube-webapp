@@ -32,7 +32,7 @@ export interface HotspotPrimaryLocationBoxProps {
   secondaryLocationSelected: boolean;
 }
 
-export default function HotspotPrimaryLocationBox(props: HotspotPrimaryLocationBoxProps) {
+export default function HotspotPrimaryLocationBox(props: Readonly<HotspotPrimaryLocationBoxProps>) {
   const { hotspot, secondaryLocationSelected } = props;
 
   const locationRef = React.useRef<HTMLDivElement>(null);
@@ -71,3 +71,4 @@ export default function HotspotPrimaryLocationBox(props: HotspotPrimaryLocationB
     </div>
   );
 }
+
