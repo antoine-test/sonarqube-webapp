@@ -65,7 +65,7 @@ function dotnetYamlSteps(projectKey: string) {
           \${{ runner.temp }}\\scanner\\dotnet-sonarscanner end /d:sonar.token="\${{ secrets.SONAR_TOKEN }}"`;
 }
 
-export default function DotNet(props: DotNetProps) {
+export default function DotNet(props: Readonly<DotNetProps>) {
   const { component, branchesEnabled, mainBranchName, monorepo } = props;
 
   if (monorepo) {
@@ -84,3 +84,4 @@ export default function DotNet(props: DotNetProps) {
     />
   );
 }
+
