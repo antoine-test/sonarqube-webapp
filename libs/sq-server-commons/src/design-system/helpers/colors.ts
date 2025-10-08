@@ -26,7 +26,7 @@ export function stringToColor(str: string) {
   let hash = 0;
 
   for (let i = 0; i < str.length; i++) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    hash = str.codePointAt(i) + ((hash << 5) - hash);
   }
 
   let color = '#';
@@ -61,5 +61,6 @@ export function getTextColor(background: string, dark = '#222', light = '#fff') 
 }
 
 export function getRGBAString([r, g, b]: Array<number | string>, a?: number | string) {
-  return (a !== undefined ? `rgba(${r},${g},${b},${a})` : `rgb(${r},${g},${b})`) as CSSColor;
+  return (a === undefined ? `rgb(${r},${g},${b})` : `rgba(${r},${g},${b},${a})`) as CSSColor;
 }
+
