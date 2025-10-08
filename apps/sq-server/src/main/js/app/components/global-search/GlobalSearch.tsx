@@ -253,9 +253,9 @@ export class GlobalSearch extends React.PureComponent<Props, State> {
     } else {
       let qualifier = ComponentQualifier.Project;
 
-      if ((results[ComponentQualifier.Portfolio] ?? []).find((r) => r.key === selected)) {
+      if ((results[ComponentQualifier.Portfolio] ?? []).some((r) => r.key === selected)) {
         qualifier = ComponentQualifier.Portfolio;
-      } else if ((results[ComponentQualifier.SubPortfolio] ?? []).find((r) => r.key === selected)) {
+      } else if ((results[ComponentQualifier.SubPortfolio] ?? []).some((r) => r.key === selected)) {
         qualifier = ComponentQualifier.SubPortfolio;
       }
 
@@ -421,3 +421,4 @@ export class GlobalSearch extends React.PureComponent<Props, State> {
 }
 
 export default withRouter(GlobalSearch);
+
