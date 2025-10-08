@@ -30,7 +30,7 @@ interface Props {
   settingValue?: string[];
 }
 
-export default function AuthenticationMultiValueField(props: Props) {
+export default function AuthenticationMultiValueField(props: Readonly<Props>) {
   const { settingValue = [], definition } = props;
 
   const displayValue = [...settingValue, ''];
@@ -90,3 +90,4 @@ export default function AuthenticationMultiValueField(props: Props) {
     </div>
   );
 }
+
