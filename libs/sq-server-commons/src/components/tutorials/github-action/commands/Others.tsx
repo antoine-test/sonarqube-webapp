@@ -63,7 +63,7 @@ function otherYamlSteps(buildSteps: string, branchesEnabled: boolean) {
   return output;
 }
 
-export default function Others(props: OthersProps) {
+export default function Others(props: Readonly<OthersProps>) {
   const runsOn = {
     [OSs.Linux]: 'ubuntu-latest',
     [OSs.MacOS]: 'macos-latest',
@@ -104,3 +104,4 @@ export default function Others(props: OthersProps) {
     </>
   );
 }
+
