@@ -32,7 +32,7 @@ interface Props {
   users: RestUserDetailed[];
 }
 
-export default function UsersList({ identityProviders, users, manageProvider }: Props) {
+export default function UsersList({ identityProviders, users, manageProvider }: Readonly<Props>) {
   const header = (
     <TableRow>
       <ContentCell>{translate('users.user_name')}</ContentCell>
@@ -67,3 +67,4 @@ export default function UsersList({ identityProviders, users, manageProvider }: 
     </StickyTable>
   );
 }
+
