@@ -51,7 +51,7 @@ export function BooleanFacet(props: Readonly<BooleanFacetProps>) {
   return (
     <FacetBox
       className="it__search-navigator-facet-box it__search-navigator-facet-header"
-      count={value !== undefined ? 1 : 0}
+      count={value === undefined ? 0 : 1}
       data-property={property}
       help={help}
       id={headerId}
@@ -84,3 +84,4 @@ export function BooleanFacet(props: Readonly<BooleanFacetProps>) {
     </FacetBox>
   );
 }
+
