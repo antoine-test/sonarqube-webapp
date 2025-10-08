@@ -31,7 +31,7 @@ export interface BitbucketServerFormProps {
   onFieldChange: (fieldId: keyof BitbucketServerBindingDefinition, value: string) => void;
 }
 
-export default function BitbucketServerForm(props: BitbucketServerFormProps) {
+export default function BitbucketServerForm(props: Readonly<BitbucketServerFormProps>) {
   const { formData } = props;
   const toStatic = useDocUrl(DocLink.AlmBitBucketServerIntegration);
   return (
@@ -92,3 +92,4 @@ export default function BitbucketServerForm(props: BitbucketServerFormProps) {
     </>
   );
 }
+
