@@ -32,7 +32,7 @@ interface Props {
   query: Query;
 }
 
-export default function Domain({ domain, query }: Props) {
+export default function Domain({ domain, query }: Readonly<Props>) {
   const filteredActions = domain.actions.filter((action) => actionsFilter(query, domain, action));
 
   return (
@@ -65,3 +65,4 @@ export default function Domain({ domain, query }: Props) {
     </div>
   );
 }
+
