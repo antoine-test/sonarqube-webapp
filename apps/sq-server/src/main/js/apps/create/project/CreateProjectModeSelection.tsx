@@ -135,7 +135,7 @@ function separateAvailableOptions(almCounts: CreateProjectModeSelectionProps['al
   };
 }
 
-export function CreateProjectModeSelection(props: CreateProjectModeSelectionProps) {
+export function CreateProjectModeSelection(props: Readonly<CreateProjectModeSelectionProps>) {
   const {
     appState: { canAdmin },
     almCounts,
@@ -180,3 +180,4 @@ export function CreateProjectModeSelection(props: CreateProjectModeSelectionProp
 }
 
 export default withAppStateContext(CreateProjectModeSelection);
+
