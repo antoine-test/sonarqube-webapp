@@ -33,7 +33,7 @@ export interface ActivityLinkProps {
   metric?: string;
 }
 
-export default function ActivityLink(props: ActivityLinkProps) {
+export default function ActivityLink(props: Readonly<ActivityLinkProps>) {
   const { branchLike, component, graph, label, metric } = props;
   return (
     <StandoutLink
@@ -48,3 +48,4 @@ export default function ActivityLink(props: ActivityLinkProps) {
     </StandoutLink>
   );
 }
+
