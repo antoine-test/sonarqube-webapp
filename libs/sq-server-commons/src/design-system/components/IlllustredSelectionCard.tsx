@@ -34,7 +34,7 @@ interface Props {
   selected: boolean;
 }
 
-export function IllustratedSelectionCard(props: Props) {
+export function IllustratedSelectionCard(props: Readonly<Props>) {
   const { className, description, image, onClick, selected } = props;
 
   return (
@@ -89,3 +89,4 @@ export const StyledSelectionCard = styled(BareButton)`
     border: ${themeBorder('default', 'primary')};
   }
 `;
+
