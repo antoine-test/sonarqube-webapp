@@ -32,7 +32,7 @@ import { CustomIcon, IconProps } from './Icon';
 export function StatusResolvedIcon({
   fill = cssVar('color-icon-subtle'),
   ...iconProps
-}: IconProps) {
+}: Readonly<IconProps>) {
   const theme = useTheme();
 
   return (
@@ -47,3 +47,4 @@ export function StatusResolvedIcon({
     </CustomIcon>
   );
 }
+
