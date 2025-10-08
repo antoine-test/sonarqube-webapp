@@ -29,7 +29,7 @@ interface Props {
   profile: string;
 }
 
-export default function ProfileRulesDeprecatedWarning(props: Props) {
+export default function ProfileRulesDeprecatedWarning(props: Readonly<Props>) {
   return (
     <FlagMessage variant="warning">
       <div className="sw-flex sw-gap-1">
@@ -51,3 +51,4 @@ export default function ProfileRulesDeprecatedWarning(props: Props) {
     </FlagMessage>
   );
 }
+
