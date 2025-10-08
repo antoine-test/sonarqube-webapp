@@ -29,7 +29,7 @@ export interface PipelineStepProps {
   alm: AlmKeys;
 }
 
-export default function PipelineStep(props: PipelineStepProps) {
+export default function PipelineStep(props: Readonly<PipelineStepProps>) {
   const { alm } = props;
   return (
     <TutorialStep title={translate('onboarding.tutorial.with.jenkins.pipeline.title')}>
@@ -106,3 +106,4 @@ export default function PipelineStep(props: PipelineStepProps) {
     </TutorialStep>
   );
 }
+
