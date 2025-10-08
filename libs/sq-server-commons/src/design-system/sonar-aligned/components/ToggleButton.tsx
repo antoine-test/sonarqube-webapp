@@ -56,7 +56,7 @@ export interface ButtonToggleProps<T extends ToggleButtonValueType> {
  * Options cannot be disabled individually anymore
  *
  */
-export function ToggleButton<T extends ToggleButtonValueType>(props: ButtonToggleProps<T>) {
+export function ToggleButton<T extends ToggleButtonValueType>(props: Readonly<ButtonToggleProps<T>>) {
   const { disabled = false, label, options, value, role = 'radiogroup' } = props;
   const isRadioGroup = role === 'radiogroup';
 
@@ -67,7 +67,7 @@ export function ToggleButton<T extends ToggleButtonValueType>(props: ButtonToggl
           aria-checked={isRadioGroup ? option.value === value : undefined}
           aria-controls={isRadioGroup ? undefined : getTabPanelId(String(option.value))}
           aria-current={option.value === value}
-          aria-selected={!isRadioGroup ? option.value === value : undefined}
+          aria-selected={isRadioGroup ? undefined : option.value === value}
           data-value={option.value}
           disabled={disabled || option.disabled}
           id={getTabId(String(option.value))}
@@ -136,3 +136,4 @@ const OptionButton = styled(ButtonSecondary)<{ selected: boolean }>`
     z-index: 1;
   }
 `;
+
