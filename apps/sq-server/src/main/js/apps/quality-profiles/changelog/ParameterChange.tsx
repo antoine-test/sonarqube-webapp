@@ -25,7 +25,7 @@ interface Props {
   value: string | null;
 }
 
-export default function ParameterChange({ name, value }: Props) {
+export default function ParameterChange({ name, value }: Readonly<Props>) {
   return (
     <p className="sw-break-words">
       {value == null
@@ -37,3 +37,4 @@ export default function ParameterChange({ name, value }: Props) {
     </p>
   );
 }
+
