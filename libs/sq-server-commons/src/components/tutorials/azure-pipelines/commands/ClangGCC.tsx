@@ -47,7 +47,7 @@ type OsConstant = {
   };
 };
 
-export default function ClangGCC(props: ClangGCCProps) {
+export default function ClangGCC(props: Readonly<ClangGCCProps>) {
   const { config, projectKey } = props;
   const [os, setOs] = React.useState<OSs>(OSs.Linux);
   const [arch, setArch] = React.useState<Arch>(Arch.X86_64);
@@ -184,3 +184,4 @@ unzip build-wrapper.zip`,
     </>
   );
 }
+
