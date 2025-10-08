@@ -28,7 +28,7 @@ interface Props {
   onSubmit: () => void;
 }
 
-export default function RemoveExtendedDescriptionModal({ onCancel, onSubmit }: Props) {
+export default function RemoveExtendedDescriptionModal({ onCancel, onSubmit }: Readonly<Props>) {
   const [submitting, setSubmitting] = React.useState(false);
   const header = translate('coding_rules.remove_extended_description');
 
@@ -52,3 +52,4 @@ export default function RemoveExtendedDescriptionModal({ onCancel, onSubmit }: P
     />
   );
 }
+
