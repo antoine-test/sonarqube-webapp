@@ -62,7 +62,7 @@ export function PluginRiskConsent(props: Readonly<PluginRiskConsentProps>) {
       });
 
       // force a refresh for the backend
-      window.location.href = `${getBaseUrl()}/`;
+      globalThis.location.href = `${getBaseUrl()}/`;
     } catch (_) {
       /* Do nothing */
     }
@@ -91,3 +91,4 @@ export function PluginRiskConsent(props: Readonly<PluginRiskConsentProps>) {
 }
 
 export default whenLoggedIn(withRouter(PluginRiskConsent));
+
