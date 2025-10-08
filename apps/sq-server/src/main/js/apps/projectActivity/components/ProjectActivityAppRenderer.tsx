@@ -46,7 +46,7 @@ interface Props {
   query: Query;
 }
 
-export default function ProjectActivityAppRenderer(props: Props) {
+export default function ProjectActivityAppRenderer(props: Readonly<Props>) {
   const {
     analyses,
     measuresHistory,
@@ -115,3 +115,4 @@ const StyledWrapper = styled.div`
   border: ${themeBorder('default', 'filterbarBorder')};
   background-color: ${themeColor('backgroundSecondary')};
 `;
+
