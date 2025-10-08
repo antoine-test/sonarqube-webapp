@@ -100,7 +100,7 @@ export const isDataSame = (
   );
 };
 
-export function PRDecorationBinding(props: Props) {
+export function PRDecorationBinding(props: Readonly<Props>) {
   const { component, currentUser } = props;
   const [formData, setFormData] = React.useState<FormData>(cloneDeep(INITIAL_FORM_DATA));
   const [instances, setInstances] = React.useState<AlmSettingsInstance[]>([]);
@@ -292,3 +292,4 @@ export function PRDecorationBinding(props: Props) {
 }
 
 export default withCurrentUserContext(PRDecorationBinding);
+
