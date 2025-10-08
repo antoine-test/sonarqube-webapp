@@ -31,7 +31,7 @@ export class PageUnavailableDueToIndexation extends React.PureComponent<WithInde
       this.props.indexationContext.status.isCompleted &&
       !this.props.indexationContext.status.hasFailures
     ) {
-      window.location.reload();
+      globalThis.location.reload();
     }
   }
 
@@ -61,3 +61,4 @@ export class PageUnavailableDueToIndexation extends React.PureComponent<WithInde
 }
 
 export default withIndexationContext(PageUnavailableDueToIndexation);
+
