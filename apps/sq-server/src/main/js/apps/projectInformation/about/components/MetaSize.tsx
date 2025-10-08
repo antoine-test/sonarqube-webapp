@@ -34,7 +34,7 @@ interface MetaSizeProps {
   measures: Measure[];
 }
 
-export default function MetaSize({ component, measures }: MetaSizeProps) {
+export default function MetaSize({ component, measures }: Readonly<MetaSizeProps>) {
   const isApp = component.qualifier === ComponentQualifier.Application;
   const ncloc = measures.find((measure) => measure.metric === MetricKey.ncloc);
   const projects = isApp
@@ -96,3 +96,4 @@ export default function MetaSize({ component, measures }: MetaSizeProps) {
     </>
   );
 }
+
