@@ -35,7 +35,7 @@ export interface Props {
 
 const DEACTIVATE_FORM_ID = 'deactivate-user-form';
 
-export default function DeactivateForm(props: Props) {
+export default function DeactivateForm(props: Readonly<Props>) {
   const { user } = props;
   const [anonymize, setAnonymize] = React.useState(false);
 
@@ -100,3 +100,4 @@ export default function DeactivateForm(props: Props) {
     />
   );
 }
+
