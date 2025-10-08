@@ -52,7 +52,7 @@ export function SystemUpgradeForm(props: Readonly<Props>) {
   let systemUpgradesWithPatch: SystemUpgrade[][] = [];
 
   const alertVariant =
-    updateUseCase !== UpdateUseCase.NewVersion ? MESSAGE_CALLOUT_VARIANT[updateUseCase] : undefined;
+    updateUseCase === UpdateUseCase.NewVersion ? undefined : MESSAGE_CALLOUT_VARIANT[updateUseCase];
 
   const parsedVersion = SYSTEM_VERSION_REGEXP.exec(appState.version);
 
@@ -144,3 +144,4 @@ export function SystemUpgradeForm(props: Readonly<Props>) {
     />
   );
 }
+
