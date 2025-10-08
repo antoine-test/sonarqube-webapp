@@ -21,7 +21,8 @@
 import { getBaseUrl } from '~sq-server-commons/helpers/system';
 
 export default function handleRequiredAuthorization() {
-  const returnTo = window.location.pathname + window.location.search + window.location.hash;
+  const returnTo = globalThis.location.pathname + globalThis.location.search + globalThis.location.hash;
   const searchParams = new URLSearchParams({ return_to: returnTo, authorizationError: 'true' });
-  window.location.replace(`${getBaseUrl()}/sessions/new?${searchParams.toString()}`);
+  globalThis.location.replace(`${getBaseUrl()}/sessions/new?${searchParams.toString()}`);
 }
+
