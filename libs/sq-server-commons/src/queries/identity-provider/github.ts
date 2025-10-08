@@ -138,7 +138,7 @@ export function useGithubRolesMappingMutation() {
       if (state) {
         const newData = unionBy(
           addedOrChanged,
-          state.filter((s) => deleted.find((id) => id === s.id) === undefined),
+          state.filter((s) => !deleted.some((id) => id === s.id)),
           (el) => el.id,
         );
         client.setQueryData(queryKey, newData);
@@ -149,3 +149,4 @@ export function useGithubRolesMappingMutation() {
     },
   });
 }
+
