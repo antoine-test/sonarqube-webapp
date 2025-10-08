@@ -25,7 +25,7 @@ import { RawQuery } from '../types/router';
 import { queryToSearchString } from './query';
 
 export function getHostUrl(): string {
-  return window.location.origin + getBaseUrl();
+  return globalThis.location.origin + getBaseUrl();
 }
 
 export function getPathUrlAsString(path: To, internal = true): string {
@@ -69,3 +69,4 @@ export function getDeprecatedActiveRulesUrl(
 export function getProjectOverviewUrl(projectKey: string): Partial<Path> {
   return { pathname: PROJECT_BASE_URL, search: queryToSearchString({ id: projectKey }) };
 }
+
