@@ -31,7 +31,7 @@ export interface GitlabFormProps {
   onFieldChange: (fieldId: keyof GitlabBindingDefinition, value: string) => void;
 }
 
-export default function GitlabForm(props: GitlabFormProps) {
+export default function GitlabForm(props: Readonly<GitlabFormProps>) {
   const { formData, onFieldChange } = props;
   const toStatic = useDocUrl(DocLink.AlmGitLabIntegration);
   return (
@@ -93,3 +93,4 @@ export default function GitlabForm(props: GitlabFormProps) {
     </>
   );
 }
+
