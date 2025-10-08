@@ -126,7 +126,7 @@ export class QualityGateCondition extends React.PureComponent<Props> {
           return getRisksUrl({
             newParams: {
               ...getBranchLikeQuery(this.props.branchLike),
-              newlyIntroduced: condition.period != null ? 'true' : undefined,
+              newlyIntroduced: condition.period == null ? undefined : 'true',
               severities: scaFilterConditionsBySeverity(threshold).join(','),
               types: SCA_METRIC_TYPE_MAP[metricKey as MetricKey],
               id: this.props.component.key,
@@ -289,3 +289,4 @@ export class QualityGateCondition extends React.PureComponent<Props> {
 }
 
 export default withMetricsContext(QualityGateCondition);
+
