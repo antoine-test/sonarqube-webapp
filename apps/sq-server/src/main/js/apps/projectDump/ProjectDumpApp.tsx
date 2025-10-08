@@ -59,17 +59,16 @@ export function ProjectDumpApp({ component, hasFeature }: Readonly<Props>) {
           </div>
         </header>
 
-        <>
-          <div className="sw-mb-4">
+        <div className="sw-mb-4">
             <h2 className="sw-heading-lg">{translate('project_dump.export')}</h2>
           </div>
           <Export componentKey={component.key} />
           <BasicSeparator className="sw-my-8" />
           <Import componentKey={component.key} importEnabled={!!projectImportFeatureEnabled} />
-        </>
       </div>
     </LargeCenteredLayout>
   );
 }
 
 export default withComponentContext(withAvailableFeatures(ProjectDumpApp));
+
