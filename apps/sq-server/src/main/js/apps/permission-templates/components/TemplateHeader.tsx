@@ -30,7 +30,7 @@ interface Props {
   topQualifiers: string[];
 }
 
-export default function TemplateHeader(props: Props) {
+export default function TemplateHeader(props: Readonly<Props>) {
   const { template } = props;
   return (
     <header className="sw-mb-2 sw-flex sw-justify-between" id="project-permissions-header">
@@ -54,3 +54,4 @@ export default function TemplateHeader(props: Props) {
     </header>
   );
 }
+
