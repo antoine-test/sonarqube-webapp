@@ -35,7 +35,7 @@ interface Props {
 
 const PAGE_SIZE = 10;
 
-export default function DeliveriesForm({ onClose, webhook }: Props) {
+export default function DeliveriesForm({ onClose, webhook }: Readonly<Props>) {
   const [deliveries, setDeliveries] = useState<WebhookDelivery[]>([]);
   const [loading, setLoading] = useState(true);
   const [paging, setPaging] = useState<Paging | undefined>(undefined);
@@ -102,3 +102,4 @@ export default function DeliveriesForm({ onClose, webhook }: Props) {
     />
   );
 }
+
