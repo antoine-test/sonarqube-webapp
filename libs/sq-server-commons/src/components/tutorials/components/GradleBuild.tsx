@@ -31,7 +31,7 @@ interface Props {
   component: Component;
 }
 
-export default function GradleBuild({ component }: Props) {
+export default function GradleBuild({ component }: Readonly<Props>) {
   return (
     <NumberedListItem>
       <FormattedMessage
@@ -70,3 +70,4 @@ export default function GradleBuild({ component }: Props) {
     </NumberedListItem>
   );
 }
+
