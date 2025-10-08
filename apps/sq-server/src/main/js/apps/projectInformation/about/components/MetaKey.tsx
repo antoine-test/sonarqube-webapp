@@ -35,7 +35,7 @@ interface MetaKeyProps {
   qualifier: string;
 }
 
-export default function MetaKey({ componentKey, qualifier }: MetaKeyProps) {
+export default function MetaKey({ componentKey, qualifier }: Readonly<MetaKeyProps>) {
   const intl = useIntl();
   return (
     <>
@@ -69,3 +69,4 @@ export default function MetaKey({ componentKey, qualifier }: MetaKeyProps) {
     </>
   );
 }
+
