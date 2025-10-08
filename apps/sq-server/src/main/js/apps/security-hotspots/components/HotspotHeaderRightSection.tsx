@@ -33,7 +33,7 @@ interface Props {
   onUpdateHotspot: (statusUpdate?: boolean, statusOption?: HotspotStatusOption) => Promise<void>;
 }
 
-export default function HotspotHeaderRightSection(props: Props) {
+export default function HotspotHeaderRightSection(props: Readonly<Props>) {
   const { hotspot, categoryStandard } = props;
   return (
     <>
@@ -68,7 +68,7 @@ interface HotspotHeaderInfoProps {
   title: string;
 }
 
-function HotspotHeaderInfo({ children, title, className }: HotspotHeaderInfoProps) {
+function HotspotHeaderInfo({ children, title, className }: Readonly<HotspotHeaderInfoProps>) {
   return (
     <div className={classNames('sw-min-w-abs-150 sw-max-w-abs-250', className)}>
       <div className="sw-typo-semibold">{title}:</div>
@@ -76,3 +76,4 @@ function HotspotHeaderInfo({ children, title, className }: HotspotHeaderInfoProp
     </div>
   );
 }
+
