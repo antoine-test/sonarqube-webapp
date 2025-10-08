@@ -50,7 +50,7 @@ interface Props {
   showAnalysisDate?: boolean;
 }
 
-export default function Component(props: Props) {
+export default function Component(props: Readonly<Props>) {
   const {
     branchLike,
     canBePinned = true,
@@ -161,3 +161,4 @@ export default function Component(props: Props) {
     </TableRowInteractive>
   );
 }
+
