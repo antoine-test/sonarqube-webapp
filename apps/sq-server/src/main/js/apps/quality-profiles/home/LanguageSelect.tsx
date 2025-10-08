@@ -68,7 +68,7 @@ export default function LanguageSelect(props: Readonly<Props>) {
         isClearable
         loadOptions={handleLanguagesSearch}
         onChange={(option: LabelValueSelectOption<string>) => {
-          router.replace(!option ? PROFILE_PATH : getProfilesForLanguagePath(option.value));
+          router.replace(option ? getProfilesForLanguagePath(option.value) : PROFILE_PATH);
         }}
         options={options}
         value={options.find((o) => o.value === currentFilter)}
@@ -76,3 +76,4 @@ export default function LanguageSelect(props: Readonly<Props>) {
     </div>
   );
 }
+
