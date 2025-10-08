@@ -29,7 +29,7 @@ export interface OtherProps {
   projectKey: string;
 }
 
-export default function Other(props: OtherProps) {
+export default function Other(props: Readonly<OtherProps>) {
   const { projectKey } = props;
   return (
     <>
@@ -59,3 +59,4 @@ export default function Other(props: OtherProps) {
     </>
   );
 }
+
