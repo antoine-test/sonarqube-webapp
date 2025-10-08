@@ -29,7 +29,7 @@ export interface Props {
   update: Update;
 }
 
-export default function PluginChangeLog({ release, update }: Props) {
+export default function PluginChangeLog({ release, update }: Readonly<Props>) {
   return (
     <div className="sw-p-4">
       <Text isHighlighted size="large">
@@ -52,3 +52,4 @@ export default function PluginChangeLog({ release, update }: Props) {
     </div>
   );
 }
+
