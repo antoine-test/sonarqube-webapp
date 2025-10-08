@@ -39,7 +39,7 @@ interface Props extends TokenModifiers {
   issueFindingRef?: RefObject<HTMLDivElement>;
 }
 
-export function LineToken(props: Props) {
+export function LineToken(props: Readonly<Props>) {
   const { children, className, hasMarker, issueFindingRef, ...modifiers } = props;
 
   return (
@@ -93,3 +93,4 @@ const TokenStyled = styled.span`
     ${tw`sw-pl-1`}
   }
 `;
+
