@@ -88,7 +88,7 @@ export function ListStyleFacet<S>(props: Readonly<Props<S>>) {
     facetHeader,
     fetching,
     getFacetItemText = (item: string) => item,
-    getSearchResultKey = (result: S) => String(result),
+    getSearchResultKey = String,
     getSortedItems,
     hideStat = false,
     inner = false,
@@ -582,3 +582,4 @@ function SearchResultList<S>({
     </>
   );
 }
+
