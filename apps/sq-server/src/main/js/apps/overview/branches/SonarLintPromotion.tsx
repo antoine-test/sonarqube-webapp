@@ -46,7 +46,7 @@ const CONDITIONS_TO_SHOW = [
   MetricKey.new_reliability_rating,
 ];
 
-export function SonarLintPromotion({ currentUser, qgConditions }: SonarLintPromotionProps) {
+export function SonarLintPromotion({ currentUser, qgConditions }: Readonly<SonarLintPromotionProps>) {
   const showMessage = qgConditions?.some(
     (qgCondition) =>
       CONDITIONS_TO_SHOW.includes(qgCondition.metric) && qgCondition.level === 'ERROR',
@@ -82,3 +82,4 @@ export function SonarLintPromotion({ currentUser, qgConditions }: SonarLintPromo
 }
 
 export default withCurrentUserContext(SonarLintPromotion);
+
