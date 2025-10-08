@@ -52,7 +52,7 @@ export function sortProfiles(profiles: BaseProfile[]): Profile[] {
   sorted
     .filter(
       (profile) =>
-        profile.parentKey == null || sorted.find((p) => p.key === profile.parentKey) == null,
+        profile.parentKey == null || !sorted.some((p) => p.key === profile.parentKey),
     )
     .forEach((profile) => {
       putProfile(profile);
@@ -127,3 +127,4 @@ export const filterModifiedCompareResultsByMode = (
     return !isEqual(left.impacts, right.impacts);
   });
 };
+
