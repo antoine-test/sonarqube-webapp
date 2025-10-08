@@ -83,7 +83,7 @@ export default function RegulatoryReport({ component, branchLike }: Readonly<Pro
         let selectedBranch = '';
         if (
           branchLike &&
-          availableBranches.find((br) => getBranchLikeKey(br) === getBranchLikeKey(branchLike))
+          availableBranches.some((br) => getBranchLikeKey(br) === getBranchLikeKey(branchLike))
         ) {
           selectedBranch = getBranchLikeDisplayName(branchLike);
         } else if (mainBranch) {
@@ -196,3 +196,4 @@ export default function RegulatoryReport({ component, branchLike }: Readonly<Pro
     </>
   );
 }
+
