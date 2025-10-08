@@ -120,7 +120,7 @@ export function SystemUpgradeItem(props: Readonly<SystemUpgradeItemProps>) {
             // WARNING! A button acting as a link is bad a11y. We should replace this with a
             // Call To Action (CTA) component from Echoes once it becomes available.
             onClick={() => {
-              window.location.href = 'https://www.sonarsource.com/plans-and-pricing/sonarqube/';
+              globalThis.location.href = 'https://www.sonarsource.com/plans-and-pricing/sonarqube/';
             }}
             //
             variety={ButtonVariety.Primary}
@@ -146,3 +146,4 @@ export function SystemUpgradeItem(props: Readonly<SystemUpgradeItemProps>) {
     </div>
   );
 }
+
