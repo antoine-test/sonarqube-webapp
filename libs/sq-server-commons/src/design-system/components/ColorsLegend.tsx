@@ -42,7 +42,7 @@ interface ColorLegendProps {
   onColorClick: (color: ColorFilterOption) => void;
 }
 
-export function ColorsLegend(props: ColorLegendProps) {
+export function ColorsLegend(props: Readonly<ColorLegendProps>) {
   const { className, colors } = props;
   const theme = useTheme();
 
@@ -101,3 +101,4 @@ const ColorRating = styled.div`
   ${tw`sw-flex sw-justify-center`}
   ${tw`sw-ml-1`}
 `;
+
