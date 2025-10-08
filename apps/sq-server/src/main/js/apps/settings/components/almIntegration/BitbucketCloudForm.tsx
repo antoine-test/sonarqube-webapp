@@ -32,7 +32,7 @@ export interface BitbucketCloudFormProps {
   onFieldChange: (fieldId: keyof BitbucketCloudBindingDefinition, value: string) => void;
 }
 
-export default function BitbucketCloudForm(props: BitbucketCloudFormProps) {
+export default function BitbucketCloudForm(props: Readonly<BitbucketCloudFormProps>) {
   const { formData } = props;
   const workspaceIDIsInvalid = Boolean(
     formData.workspace && !BITBUCKET_CLOUD_WORKSPACE_ID_FORMAT.test(formData.workspace),
@@ -119,3 +119,4 @@ export default function BitbucketCloudForm(props: BitbucketCloudFormProps) {
     </>
   );
 }
+
