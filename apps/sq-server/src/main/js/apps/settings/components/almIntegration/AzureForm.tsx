@@ -31,7 +31,7 @@ export interface AzureFormProps {
   onFieldChange: (fieldId: keyof AzureBindingDefinition, value: string) => void;
 }
 
-export default function AzureForm(props: AzureFormProps) {
+export default function AzureForm(props: Readonly<AzureFormProps>) {
   const { formData, onFieldChange } = props;
   const toStatic = useDocUrl(DocLink.AlmAzureIntegration);
   return (
@@ -97,3 +97,4 @@ export default function AzureForm(props: AzureFormProps) {
     </>
   );
 }
+
