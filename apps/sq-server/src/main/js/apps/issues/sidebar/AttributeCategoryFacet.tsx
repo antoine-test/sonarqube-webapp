@@ -28,7 +28,7 @@ interface Props extends CommonProps {
   categories: Array<CodeAttributeCategory>;
 }
 
-export function AttributeCategoryFacet(props: Props) {
+export function AttributeCategoryFacet(props: Readonly<Props>) {
   const { categories = [], ...rest } = props;
 
   return (
@@ -48,3 +48,4 @@ export function AttributeCategoryFacet(props: Props) {
     />
   );
 }
+
