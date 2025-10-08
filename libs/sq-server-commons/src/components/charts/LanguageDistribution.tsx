@@ -33,7 +33,7 @@ export interface LanguageDistributionProps {
 
 const NUMBER_FORMAT_THRESHOLD = 1000;
 
-export function LanguageDistribution(props: LanguageDistributionProps) {
+export function LanguageDistribution(props: Readonly<LanguageDistributionProps>) {
   const { distribution, languages } = props;
   let parsedDistribution = distribution.split(';').map((point) => {
     const tokens = point.split('=');
@@ -78,3 +78,4 @@ function cutLanguageName(name: string) {
 }
 
 export default withLanguages(LanguageDistribution);
+
