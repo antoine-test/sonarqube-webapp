@@ -59,7 +59,7 @@ function ComponentNav(props: Readonly<ComponentNavProps>) {
         ComponentQualifier.Project,
         ComponentQualifier.Portfolio,
         ComponentQualifier.Application,
-      ].includes(qualifier as ComponentQualifier)
+      ].includes(qualifier)
     ) {
       RecentHistory.add(key, name, qualifier.toLowerCase());
     }
@@ -98,3 +98,4 @@ const SQSTemporaryRelativeBannerContainer = styled.div`
     position: relative;
   }
 `;
+
