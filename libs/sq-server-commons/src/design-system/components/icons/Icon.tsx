@@ -63,7 +63,7 @@ function convertRemToPixel(remString: string) {
 }
 
 /** @deprecated Don't create new icons based on this, use the ones from Echoes instead. */
-export function CustomIcon(props: Props) {
+export function CustomIcon(props: Readonly<Props>) {
   const {
     'aria-label': ariaLabel,
     'aria-hidden': ariaHidden,
@@ -107,7 +107,7 @@ export function OcticonHoc(
   WrappedOcticon: React.ComponentType<React.PropsWithChildren<OcticonProps>>,
   displayName?: string,
 ): React.ComponentType<React.PropsWithChildren<IconProps>> {
-  function IconWrapper({ fill, ...props }: IconProps) {
+  function IconWrapper({ fill, ...props }: Readonly<IconProps>) {
     const theme = useTheme();
 
     const size = props.width ?? props.height ?? 'small';
@@ -125,3 +125,4 @@ export function OcticonHoc(
   IconWrapper.displayName = displayName ?? WrappedOcticon.displayName ?? WrappedOcticon.name;
   return IconWrapper;
 }
+
