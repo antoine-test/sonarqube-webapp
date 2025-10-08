@@ -28,7 +28,7 @@ interface Props {
   template: PermissionTemplate;
 }
 
-export default function Defaults({ template }: Props) {
+export default function Defaults({ template }: Readonly<Props>) {
   const qualifiersToDisplay = template.defaultFor;
 
   const qualifiers = sortBy(qualifiersToDisplay)
@@ -41,3 +41,4 @@ export default function Defaults({ template }: Props) {
     </Badge>
   );
 }
+
