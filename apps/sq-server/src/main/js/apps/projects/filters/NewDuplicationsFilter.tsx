@@ -20,6 +20,7 @@
 
 import DuplicationsFilter, { Props } from './DuplicationsFilter';
 
-export default function NewDuplicationsFilter(props: Props) {
+export default function NewDuplicationsFilter(props: Readonly<Props>) {
   return <DuplicationsFilter {...props} property="new_duplications" />;
 }
+
