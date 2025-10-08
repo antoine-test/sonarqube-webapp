@@ -41,7 +41,7 @@ export const setupAxiosClient: SetupAxiosClientFunc = async (
     axiosInstance.interceptors.response.use(...interceptor);
   });
 
-  return Promise.resolve(axiosInstance);
+  return axiosInstance;
 };
 
 export const axiosClientResponseInterceptors: AxiosResponseInterceptor[] = [
@@ -62,3 +62,4 @@ export const axiosClientResponseInterceptors: AxiosResponseInterceptor[] = [
 export const axiosToCatchResponseInterceptors: AxiosResponseInterceptor[] = [
   [(response) => response.data],
 ];
+
