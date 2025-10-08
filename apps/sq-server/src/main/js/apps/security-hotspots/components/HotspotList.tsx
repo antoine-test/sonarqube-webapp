@@ -160,7 +160,7 @@ export default class HotspotList extends React.Component<Props, State> {
         </div>
         <ListFooter
           count={hotspots.length}
-          loadMore={!loadingMore ? this.props.onLoadMore : undefined}
+          loadMore={loadingMore ? undefined : this.props.onLoadMore}
           loading={loadingMore}
           total={hotspotsTotal}
         />
@@ -172,3 +172,4 @@ export default class HotspotList extends React.Component<Props, State> {
 const StyledContainer = withTheme(styled.div`
   background-color: ${themeColor('subnavigation')};
 `);
+
