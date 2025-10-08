@@ -27,7 +27,7 @@ interface SamlToggleFieldProps {
   settingValue?: string | boolean;
 }
 
-export default function AuthenticationToggleField(props: SamlToggleFieldProps) {
+export default function AuthenticationToggleField(props: Readonly<SamlToggleFieldProps>) {
   const { ariaDescribedby, settingValue, name } = props;
 
   return (
@@ -39,3 +39,4 @@ export default function AuthenticationToggleField(props: SamlToggleFieldProps) {
     />
   );
 }
+
