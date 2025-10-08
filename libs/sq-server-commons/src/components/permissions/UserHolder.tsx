@@ -36,7 +36,7 @@ interface Props {
   user: PermissionUser;
 }
 
-export default function UserHolder(props: Props) {
+export default function UserHolder(props: Readonly<Props>) {
   const { user, removeOnly, permissions, isGitHubUser, isGitLabUser } = props;
   const { loading, handleCheck, modal } = usePermissionChange({
     holder: user,
@@ -91,3 +91,4 @@ export default function UserHolder(props: Props) {
     </Table.Row>
   );
 }
+
