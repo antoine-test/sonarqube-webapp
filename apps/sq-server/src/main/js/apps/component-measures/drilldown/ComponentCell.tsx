@@ -45,7 +45,7 @@ export interface ComponentCellProps {
 
 const COMPONENT_PATH_MAX_CHARS = 50;
 
-export default function ComponentCell(props: ComponentCellProps) {
+export default function ComponentCell(props: Readonly<ComponentCellProps>) {
   const { branchLike, component, metric, rootComponent, view } = props;
 
   let head = '';
@@ -109,3 +109,4 @@ export default function ComponentCell(props: ComponentCellProps) {
     </ContentCell>
   );
 }
+
