@@ -83,10 +83,11 @@ interface PopupArrowProps {
   style?: React.CSSProperties;
 }
 
-function PopupArrow(props: PopupArrowProps) {
+function PopupArrow(props: Readonly<PopupArrowProps>) {
   return <div className="popup-arrow" style={props.style} />;
 }
 
 const PopupWithRef = React.forwardRef(PopupBase);
 PopupWithRef.displayName = 'Popup';
 export const Popup = PopupWithRef;
+
