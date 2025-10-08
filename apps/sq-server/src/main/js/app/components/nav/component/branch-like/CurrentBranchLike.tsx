@@ -30,7 +30,7 @@ export interface CurrentBranchLikeProps extends Pick<BranchStatusData, 'status'>
   currentBranchLike: BranchLike;
 }
 
-export function CurrentBranchLike(props: CurrentBranchLikeProps) {
+export function CurrentBranchLike(props: Readonly<CurrentBranchLikeProps>) {
   const { currentBranchLike } = props;
 
   const displayName = getBranchLikeDisplayName(currentBranchLike);
@@ -48,3 +48,4 @@ export function CurrentBranchLike(props: CurrentBranchLikeProps) {
 }
 
 export default React.memo(CurrentBranchLike);
+
