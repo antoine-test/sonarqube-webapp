@@ -115,7 +115,7 @@ export class TreeMapView extends React.PureComponent<Props, State> {
         return {
           key: getComponentMeasureUniqueKey(component) ?? '',
           color: isDefined(colorValue) ? (colorScale as Function)(colorValue) : undefined,
-          gradient: !isDefined(colorValue) ? this.getNAGradient() : undefined,
+          gradient: isDefined(colorValue) ? undefined : this.getNAGradient(),
           icon: <QualifierIcon fill="pageContent" qualifier={component.qualifier} />,
           label: [component.name, component.branch].filter((s) => !!s).join(' / '),
           size: sizeValue,
@@ -269,3 +269,4 @@ export class TreeMapView extends React.PureComponent<Props, State> {
 }
 
 export default withTheme(TreeMapView);
+
