@@ -26,7 +26,7 @@ interface Props {
   changelog: WebApi.Changelog[];
 }
 
-export default function ActionChangelog({ changelog }: Props) {
+export default function ActionChangelog({ changelog }: Readonly<Props>) {
   return (
     <Text as="ul" className="sw-list-none sw-max-w-full sw-pl-0">
       {changelog.map((item, index) => (
@@ -40,3 +40,4 @@ export default function ActionChangelog({ changelog }: Props) {
     </Text>
   );
 }
+
