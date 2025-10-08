@@ -51,12 +51,12 @@ export function checkPersonalAccessTokenIsValid(
 ): Promise<{ error?: string; status: boolean }> {
   return get('/api/alm_integrations/check_pat', { almSetting })
     .then(() => ({ status: true }))
-    .catch(async (response: Response) => {
-      if (response.status === 400) {
-        const error = await parseError(response);
+    .catch(async (error_: Response) => {
+      if (error_.status === 400) {
+        const error = await parseError(error_);
         return { status: false, error };
       }
-      return throwGlobalError(response);
+      return throwGlobalError(error_);
     });
 }
 
@@ -241,9 +241,9 @@ export function getGithubOrganizations(
   return getJSON('/api/alm_integrations/list_github_organizations', {
     almSetting,
     token,
-  }).catch((response?: Response) => {
-    if (response && response.status !== 400) {
-      throwGlobalError(response);
+  }).catch((error_?: Response) => {
+    if (error_ && error_.status !== 400) {
+      throwGlobalError(error_);
     }
   });
 }
@@ -302,3 +302,4 @@ export function importGitlabProject(data: {
 }): Promise<{ project: ProjectBase }> {
   return postJSON('/api/alm_integrations/import_gitlab_project', data).catch(throwGlobalError);
 }
+
