@@ -74,7 +74,7 @@ export default class ChangeProjectsForm extends React.PureComponent<Props, State
       key: this.props.profile.key,
       p: searchParams.page,
       ps: searchParams.pageSize,
-      q: searchParams.query !== '' ? searchParams.query : undefined,
+      q: searchParams.query === '' ? undefined : searchParams.query,
       selected: searchParams.filter,
     }).then((data) => {
       if (this.mounted) {
@@ -172,3 +172,4 @@ export default class ChangeProjectsForm extends React.PureComponent<Props, State
     );
   }
 }
+
