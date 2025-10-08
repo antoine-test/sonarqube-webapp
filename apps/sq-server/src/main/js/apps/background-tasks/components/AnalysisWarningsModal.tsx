@@ -120,7 +120,7 @@ export class AnalysisWarningsModal extends React.PureComponent<Props, State> {
                 <FlagMessage variant="warning">
                   <HtmlFormatter>
                     <SafeHTMLInjection
-                      htmlAsString={message.trim().replace(/\n/g, '<br />')}
+                      htmlAsString={message.trim().replaceAll('\n', '<br />')}
                       sanitizeLevel={SanitizeLevel.RESTRICTED}
                     />
                   </HtmlFormatter>
@@ -162,3 +162,4 @@ export class AnalysisWarningsModal extends React.PureComponent<Props, State> {
 }
 
 export default withCurrentUserContext(AnalysisWarningsModal);
+
