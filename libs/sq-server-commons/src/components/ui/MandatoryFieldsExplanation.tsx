@@ -29,7 +29,7 @@ export interface MandatoryFieldsExplanationProps {
 /**
  * @deprecated Use Echoes form components instead: TextInput, TextArea, Select, Checkbox, RadioGroup, etc.
  */
-export default function MandatoryFieldsExplanation({ className }: MandatoryFieldsExplanationProps) {
+export default function MandatoryFieldsExplanation({ className }: Readonly<MandatoryFieldsExplanationProps>) {
   return (
     <Text aria-hidden className={className} isSubtle>
       <FormattedMessage
@@ -39,3 +39,4 @@ export default function MandatoryFieldsExplanation({ className }: MandatoryField
     </Text>
   );
 }
+
