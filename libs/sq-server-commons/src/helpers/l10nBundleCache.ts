@@ -21,9 +21,10 @@
 import { L10nBundle } from '../types/l10nBundle';
 
 export function getL10nBundleFromCache(): L10nBundle {
-  return (window as unknown as any).sonarQubeL10nBundle ?? {};
+  return (globalThis as unknown as any).sonarQubeL10nBundle ?? {};
 }
 
 export function persistL10nBundleInCache(bundle: L10nBundle) {
-  (window as unknown as any).sonarQubeL10nBundle = bundle;
+  (globalThis as unknown as any).sonarQubeL10nBundle = bundle;
 }
+
