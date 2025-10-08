@@ -33,7 +33,7 @@ export interface StatusProps {
   onStatusChange: (statusOption: HotspotStatusOption) => Promise<void>;
 }
 
-export function StatusReviewButton(props: StatusProps) {
+export function StatusReviewButton(props: Readonly<StatusProps>) {
   const { currentUser, hotspot } = props;
 
   const [isOpen, setIsOpen] = React.useState(false);
@@ -71,3 +71,4 @@ export function StatusReviewButton(props: StatusProps) {
 }
 
 export default withCurrentUserContext(StatusReviewButton);
+
