@@ -63,14 +63,14 @@ export default function ProjectCard({ project }: Readonly<Props>) {
   return (
     <Card>
       <aside className="sw-float-right sw-flex sw-flex-col sw-items-end sw-gap-2">
-        {lastAnalysisDate !== undefined ? (
+        {lastAnalysisDate === undefined ? (
+          <Text isSubtle>{translate('my_account.projects.never_analyzed')}</Text>
+        ) : (
           <Text isSubtle>
             <DateFromNow date={lastAnalysisDate}>
               {(fromNow) => translateWithParameters('my_account.projects.analyzed_x', fromNow)}
             </DateFromNow>
           </Text>
-        ) : (
-          <Text isSubtle>{translate('my_account.projects.never_analyzed')}</Text>
         )}
 
         {project.qualityGate !== undefined && (
@@ -107,3 +107,4 @@ export default function ProjectCard({ project }: Readonly<Props>) {
     </Card>
   );
 }
+
