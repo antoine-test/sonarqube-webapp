@@ -51,7 +51,7 @@ interface ComponentsProps {
   showAnalysisDate?: boolean;
 }
 
-function Components(props: ComponentsProps) {
+function Components(props: Readonly<ComponentsProps>) {
   const {
     aicaDisabledMetrics,
     aicaEnabledMetrics,
@@ -189,3 +189,4 @@ const SubHeader = styled(ContentCell)`
   ${tw`sw-font-semibold`}
   color: ${themeColor('pageTitle')}
 `;
+
