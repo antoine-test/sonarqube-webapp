@@ -122,7 +122,7 @@ class Request {
 
   submit(): Promise<Response> {
     const { url, options } = this.getSubmitData({ ...getCSRFToken() });
-    return window.fetch(getBaseUrl() + url, options);
+    return globalThis.fetch(getBaseUrl() + url, options);
   }
 
   setMethod(method: string): this {
@@ -154,7 +154,7 @@ export function corsRequest(url: string, mode: RequestMode = 'cors'): Request {
   const request = new Request(url, options);
   request.submit = function () {
     const { url, options } = this.getSubmitData();
-    return window.fetch(url, options);
+    return globalThis.fetch(url, options);
   };
   return request;
 }
@@ -250,7 +250,7 @@ export function getCorsJSON(url: string, data?: RequestData): Promise<any> {
       if (isSuccessStatus(response.status)) {
         return parseJSON(response);
       }
-      return Promise.reject(response);
+      throw response;
     });
 }
 
@@ -312,3 +312,4 @@ export function deleteJSON(url: string, data?: RequestData): Promise<Response> {
 export function isSuccessStatus(status: number) {
   return status >= 200 && status < 300;
 }
+
