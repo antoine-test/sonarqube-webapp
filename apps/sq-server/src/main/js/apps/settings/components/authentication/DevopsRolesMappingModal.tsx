@@ -147,10 +147,12 @@ export function DevopsRolesMappingModal(props: Readonly<Props>) {
     e.preventDefault();
     const value = customRoleInput.trim();
     if (
-      !list?.some((el) =>
+      list?.some((el) =>
         el.baseRole ? el.role.toLowerCase() === value.toLowerCase() : el.role === value,
       )
     ) {
+      setCustomRoleError(true);
+    } else {
       setMapping([
         {
           id: customRoleInput,
@@ -160,8 +162,6 @@ export function DevopsRolesMappingModal(props: Readonly<Props>) {
         ...(list ?? []),
       ]);
       setCustomRoleInput('');
-    } else {
-      setCustomRoleError(true);
     }
   };
 
@@ -287,3 +287,4 @@ export function DevopsRolesMappingModal(props: Readonly<Props>) {
     </Modal>
   );
 }
+
