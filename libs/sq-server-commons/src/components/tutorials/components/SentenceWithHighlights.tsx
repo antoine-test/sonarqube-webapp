@@ -32,7 +32,7 @@ export default function SentenceWithHighlights({
   highlightKeys,
   translationKey,
   highlightPrefixKeys,
-}: SentenceWithHighlightsProps) {
+}: Readonly<SentenceWithHighlightsProps>) {
   const values: Record<string, JSX.Element> = {};
 
   const transhighlightPrefixKeys = highlightPrefixKeys || translationKey;
@@ -43,3 +43,4 @@ export default function SentenceWithHighlights({
 
   return <FormattedMessage id={`${translationKey}.sentence`} values={values} />;
 }
+
