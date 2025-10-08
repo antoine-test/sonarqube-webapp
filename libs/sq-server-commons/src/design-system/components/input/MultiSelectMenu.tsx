@@ -258,11 +258,11 @@ export class MultiSelectMenu extends PureComponent<Props, State> {
   };
 
   toggleSelect = (item: string) => {
-    if (!this.props.selectedElements.includes(item)) {
+    if (this.props.selectedElements.includes(item)) {
+      this.onUnselectItem(item);
+    } else {
       this.onSelectItem(item);
       this.setState(this.selectNextElement);
-    } else {
-      this.onUnselectItem(item);
     }
   };
 
@@ -382,3 +382,4 @@ export class MultiSelectMenu extends PureComponent<Props, State> {
     );
   }
 }
+
