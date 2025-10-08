@@ -49,7 +49,7 @@ export const SAML = 'saml';
 const CONFIG_TEST_PATH = '/saml/validation_init';
 const SAML_EXCLUDED_FIELD = [SAML_ENABLED_FIELD, SAML_SCIM_DEPRECATED];
 
-export default function SamlAuthenticationTab(props: SamlAuthenticationProps) {
+export default function SamlAuthenticationTab(props: Readonly<SamlAuthenticationProps>) {
   const { definitions } = props;
   const [showEditModal, setShowEditModal] = React.useState(false);
   const [showConfirmProvisioningModal, setShowConfirmProvisioningModal] = React.useState(false);
@@ -246,3 +246,4 @@ export default function SamlAuthenticationTab(props: SamlAuthenticationProps) {
     </Spinner>
   );
 }
+
