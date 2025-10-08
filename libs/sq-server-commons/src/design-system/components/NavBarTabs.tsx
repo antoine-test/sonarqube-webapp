@@ -33,7 +33,7 @@ interface Props extends React.HTMLAttributes<HTMLUListElement> {
   className?: string;
 }
 
-export function NavBarTabs({ children, className, ...other }: Props) {
+export function NavBarTabs({ children, className, ...other }: Readonly<Props>) {
   return (
     <ul className={`sw-flex sw-items-end sw-gap-4 ${className ?? ''}`} {...other}>
       {children}
@@ -84,7 +84,7 @@ export const NavBarTabLink = forwardRef<HTMLAnchorElement, NavBarTabLinkProps>(
 
 NavBarTabLink.displayName = 'NavBarTabLink';
 
-export function DisabledTabLink(props: { label: string; overlay: React.ReactNode }) {
+export function DisabledTabLink(props: Readonly<{ label: string; overlay: React.ReactNode }>) {
   return (
     <NavBarTabLinkWrapper>
       <Tooltip content={props.overlay}>
@@ -143,3 +143,4 @@ const NavBarTabLinkWrapper = styled.li`
     color: ${cssVar('color-text-disabled')};
   }
 `;
+
