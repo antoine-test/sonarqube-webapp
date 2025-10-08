@@ -151,7 +151,7 @@ export const useGitLabSyncStatusQuery = createQueryHook(() => {
         | TaskStatuses.Failed
         | TaskStatuses.Canceled,
       ...(lastSync.status === TaskStatuses.Success ? { summary } : {}),
-      ...(lastSync.status !== TaskStatuses.Success ? { errorMessage } : {}),
+      ...(lastSync.status === TaskStatuses.Success ? {} : { errorMessage }),
     };
   };
 
@@ -260,7 +260,7 @@ export function useGitlabRolesMappingMutation() {
       if (state) {
         const newData = unionBy(
           addedOrChanged,
-          state.filter((s) => deleted.find((id) => id === s.id) === undefined),
+          state.filter((s) => !deleted.some((id) => id === s.id)),
           (el) => el.id,
         );
         client.setQueryData(queryKey, newData);
@@ -271,3 +271,4 @@ export function useGitlabRolesMappingMutation() {
     },
   });
 }
+
