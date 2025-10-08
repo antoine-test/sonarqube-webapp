@@ -37,7 +37,7 @@ interface Props {
   webhook: WebhookResponse;
 }
 
-export default function WebhookActions(props: Props) {
+export default function WebhookActions(props: Readonly<Props>) {
   const { onDelete, onUpdate, webhook } = props;
 
   const [deleting, setDeleting] = useState(false);
@@ -122,3 +122,4 @@ export default function WebhookActions(props: Props) {
     </>
   );
 }
+
