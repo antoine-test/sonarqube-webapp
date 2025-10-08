@@ -29,7 +29,7 @@ export interface Props {
   open: { component?: string; rule?: string };
 }
 
-export default function WorkspaceNav(props: Props) {
+export default function WorkspaceNav(props: Readonly<Props>) {
   // do not show a tab for the currently open component/rule
   const components = props.components.filter((x) => x.key !== props.open.component);
 
@@ -56,3 +56,4 @@ const WorkspaceNavStyled = styled.nav`
   right: 0;
   height: 2rem;
 `;
+
