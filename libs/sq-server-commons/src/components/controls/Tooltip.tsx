@@ -175,8 +175,8 @@ export class TooltipInner extends React.Component<TooltipProps, State> {
   };
 
   clearTimeouts = () => {
-    window.clearTimeout(this.mouseEnterTimeout);
-    window.clearTimeout(this.mouseLeaveTimeout);
+    globalThis.clearTimeout(this.mouseEnterTimeout);
+    globalThis.clearTimeout(this.mouseLeaveTimeout);
   };
 
   isVisible = () => {
@@ -263,7 +263,7 @@ export class TooltipInner extends React.Component<TooltipProps, State> {
   };
 
   handleMouseEnter = () => {
-    this.mouseEnterTimeout = window.setTimeout(
+    this.mouseEnterTimeout = globalThis.setTimeout(
       () => {
         // For some reason, even after the `this.mouseEnterTimeout` is cleared, it still
         // triggers. To workaround this issue, check that its value is not `undefined`
@@ -286,12 +286,12 @@ export class TooltipInner extends React.Component<TooltipProps, State> {
 
   handleMouseLeave = () => {
     if (this.mouseEnterTimeout !== undefined) {
-      window.clearTimeout(this.mouseEnterTimeout);
+      globalThis.clearTimeout(this.mouseEnterTimeout);
       this.mouseEnterTimeout = undefined;
     }
 
     if (!this.mouseIn) {
-      this.mouseLeaveTimeout = window.setTimeout(
+      this.mouseLeaveTimeout = globalThis.setTimeout(
         () => {
           if (this.mounted && this.props.isOpen === undefined && !this.mouseIn) {
             this.setState({ visible: false });
@@ -493,3 +493,4 @@ class TooltipPortal extends React.Component<React.PropsWithChildren<{}>> {
     return createPortal(this.props.children, this.el);
   }
 }
+
