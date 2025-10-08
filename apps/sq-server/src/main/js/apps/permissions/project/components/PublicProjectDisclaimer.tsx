@@ -32,7 +32,7 @@ interface Props {
   onConfirm: () => void;
 }
 
-export default function PublicProjectDisclaimer({ component, isOpen, onClose, onConfirm }: Props) {
+export default function PublicProjectDisclaimer({ component, isOpen, onClose, onConfirm }: Readonly<Props>) {
   const { qualifier } = component;
   return (
     <ConfirmModal
@@ -49,3 +49,4 @@ export default function PublicProjectDisclaimer({ component, isOpen, onClose, on
     </ConfirmModal>
   );
 }
+
