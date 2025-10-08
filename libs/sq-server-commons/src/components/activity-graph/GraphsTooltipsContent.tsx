@@ -27,7 +27,7 @@ interface Props {
   value: string;
 }
 
-export default function GraphsTooltipsContent({ name, index, translatedName, value }: Props) {
+export default function GraphsTooltipsContent({ name, index, translatedName, value }: Readonly<Props>) {
   return (
     <tr className="sw-h-800" key={name}>
       <td className="thin">
@@ -38,3 +38,4 @@ export default function GraphsTooltipsContent({ name, index, translatedName, val
     </tr>
   );
 }
+
