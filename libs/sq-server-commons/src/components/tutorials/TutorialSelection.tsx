@@ -55,13 +55,13 @@ export function TutorialSelection(props: Readonly<TutorialSelectionProps>) {
     const checkUserPermissions = async () => {
       if (hasGlobalPermission(currentUser, Permissions.Scan)) {
         setCurrentUserCanScanProject(true);
-        return Promise.resolve();
+        return;
       }
 
       const { projects } = await getScannableProjects();
-      setCurrentUserCanScanProject(projects.find((p) => p.key === component.key) !== undefined);
+      setCurrentUserCanScanProject(projects.some((p) => p.key === component.key));
 
-      return Promise.resolve();
+      return;
     };
 
     const fetchBaseUrl = async () => {
@@ -114,3 +114,4 @@ export function TutorialSelection(props: Readonly<TutorialSelectionProps>) {
 }
 
 export default withRouter(TutorialSelection);
+
