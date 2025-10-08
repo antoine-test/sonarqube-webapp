@@ -36,7 +36,7 @@ interface Props {
   selectedTags: string[];
 }
 
-export default function TagsSelect(props: Props) {
+export default function TagsSelect(props: Readonly<Props>) {
   const { allowCreation, inputId, onSearch, onChange, selectedTags } = props;
   const [searchResults, setSearchResults] = React.useState<string[]>([]);
 
@@ -110,3 +110,4 @@ function handleMousedown(e: React.MouseEvent) {
     e.stopPropagation();
   }
 }
+
