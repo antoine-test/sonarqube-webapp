@@ -33,7 +33,7 @@ export interface JavaGradleProps {
   projectName: string;
 }
 
-export default function JavaGradle(props: JavaGradleProps) {
+export default function JavaGradle(props: Readonly<JavaGradleProps>) {
   const { projectKey, projectName } = props;
 
   return (
@@ -75,3 +75,4 @@ export default function JavaGradle(props: JavaGradleProps) {
     </>
   );
 }
+
