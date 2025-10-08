@@ -43,7 +43,7 @@ const pipelineDescriptionLinkLabel = translate(
   'onboarding.tutorial.with.gitlab_ci.variables.description.link',
 );
 
-export default function EnvironmentVariablesStep(props: EnvironmentVariablesStepProps) {
+export default function EnvironmentVariablesStep(props: Readonly<EnvironmentVariablesStepProps>) {
   const { baseUrl, component, currentUser } = props;
 
   const renderForm = () => (
@@ -169,3 +169,4 @@ export default function EnvironmentVariablesStep(props: EnvironmentVariablesStep
     </TutorialStep>
   );
 }
+
