@@ -208,9 +208,7 @@ export function getPermissionTemplateUsers(data: {
   q?: string;
   templateId: string;
 }): Promise<{ paging: Paging; users: PermissionUser[] }> {
-  if (data.ps === undefined) {
-    data.ps = PAGE_SIZE;
-  }
+  data.ps ??= PAGE_SIZE;
   return getJSON('/api/permissions/template_users', data).catch(throwGlobalError);
 }
 
@@ -221,9 +219,7 @@ export function getPermissionTemplateGroups(data: {
   q?: string;
   templateId: string;
 }): Promise<{ groups: PermissionGroup[]; paging: Paging }> {
-  if (data.ps === undefined) {
-    data.ps = PAGE_SIZE;
-  }
+  data.ps ??= PAGE_SIZE;
   return getJSON('/api/permissions/template_groups', data).catch(throwGlobalError);
 }
 
@@ -233,3 +229,4 @@ export function changeProjectVisibility(
 ): Promise<void | Response> {
   return post('/api/projects/update_visibility', { project, visibility }).catch(throwGlobalError);
 }
+
