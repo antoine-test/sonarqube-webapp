@@ -30,7 +30,7 @@ interface Props {
   currentTask: Task;
 }
 
-export function AnalysisLicenseError(props: Props) {
+export function AnalysisLicenseError(props: Readonly<Props>) {
   const { currentTask } = props;
   const appState = React.useContext(AppStateContext);
   const [licenseIsValid, loading] = useLicenseIsValid();
@@ -63,3 +63,4 @@ export function AnalysisLicenseError(props: Props) {
     </>
   );
 }
+
