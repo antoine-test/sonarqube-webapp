@@ -49,7 +49,7 @@ interface Props {
   updateProfiles: () => Promise<void>;
 }
 
-export default function ProfileHeader(props: Props) {
+export default function ProfileHeader(props: Readonly<Props>) {
   const { profile, isComparable, updateProfiles } = props;
   const location = useLocation();
   const { hasFeature } = useAvailableFeatures();
@@ -157,3 +157,4 @@ export default function ProfileHeader(props: Props) {
     </div>
   );
 }
+
