@@ -29,7 +29,7 @@ interface Props {
   template: PermissionTemplate;
 }
 
-export default function NameCell({ template }: Props) {
+export default function NameCell({ template }: Readonly<Props>) {
   const pathname = PERMISSION_TEMPLATES_PATH;
 
   return (
@@ -61,3 +61,4 @@ export default function NameCell({ template }: Props) {
     </ContentCell>
   );
 }
+
