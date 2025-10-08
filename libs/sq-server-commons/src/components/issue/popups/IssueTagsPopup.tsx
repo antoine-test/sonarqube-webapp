@@ -29,7 +29,7 @@ interface IssueTagsPopupProps {
   setTags: (tags: string[]) => void;
 }
 
-function IssueTagsPopup({ selectedTags, setTags }: IssueTagsPopupProps) {
+function IssueTagsPopup({ selectedTags, setTags }: Readonly<IssueTagsPopupProps>) {
   const [searchResult, setSearchResult] = React.useState<string[]>([]);
   const LIST_SIZE = 10;
 
@@ -68,3 +68,4 @@ function IssueTagsPopup({ selectedTags, setTags }: IssueTagsPopupProps) {
 }
 
 export default IssueTagsPopup;
+
