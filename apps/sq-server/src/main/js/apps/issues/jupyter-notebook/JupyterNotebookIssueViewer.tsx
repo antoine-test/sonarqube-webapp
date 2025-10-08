@@ -53,11 +53,7 @@ export function JupyterNotebookIssueViewer(props: Readonly<JupyterNotebookIssueV
 
   return (
     <Spinner isLoading={isLoading}>
-      {!renderedCells ? (
-        <FlagMessage className="sw-mt-2" variant="warning">
-          {translate('issue.preview.jupyter_notebook.error')}
-        </FlagMessage>
-      ) : (
+      {renderedCells ? (
         <>
           {renderedCells.before.map((cell, index) => (
             <JupyterCodeCell
@@ -89,6 +85,10 @@ export function JupyterNotebookIssueViewer(props: Readonly<JupyterNotebookIssueV
             source={renderedCells.after.source as string[]}
           />
         </>
+      ) : (
+        <FlagMessage className="sw-mt-2" variant="warning">
+          {translate('issue.preview.jupyter_notebook.error')}
+        </FlagMessage>
       )}
     </Spinner>
   );
@@ -171,3 +171,4 @@ function processIssueForJupyterNotebook(
     after: lastCell,
   });
 }
+
