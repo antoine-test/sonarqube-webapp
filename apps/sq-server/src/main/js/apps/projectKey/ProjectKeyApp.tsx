@@ -35,7 +35,7 @@ interface Props {
   router: Router;
 }
 
-function ProjectKeyApp({ component, router }: Props) {
+function ProjectKeyApp({ component, router }: Readonly<Props>) {
   const handleChangeKey = (newKey: string) => {
     return changeKey({ from: component.key, to: newKey }).then(() => {
       RecentHistory.remove(component.key);
@@ -60,3 +60,4 @@ function ProjectKeyApp({ component, router }: Props) {
 }
 
 export default withComponentContext(withRouter(ProjectKeyApp));
+
