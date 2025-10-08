@@ -31,7 +31,7 @@ interface Props {
   sonarway: string;
 }
 
-export default function ProfileRulesSonarWayComparison(props: Props) {
+export default function ProfileRulesSonarWayComparison(props: Readonly<Props>) {
   const url = getRulesUrl({
     qprofile: props.profile,
     activation: 'false',
@@ -67,3 +67,4 @@ export default function ProfileRulesSonarWayComparison(props: Props) {
     </FlagMessage>
   );
 }
+
