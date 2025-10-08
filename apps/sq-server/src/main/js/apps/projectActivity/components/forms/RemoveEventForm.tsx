@@ -32,7 +32,7 @@ export interface RemoveEventFormProps {
   removeEventQuestion: string;
 }
 
-export default function RemoveEventForm(props: RemoveEventFormProps) {
+export default function RemoveEventForm(props: Readonly<RemoveEventFormProps>) {
   const { analysisKey, event, header, removeEventQuestion } = props;
 
   const { mutate: deleteEvent } = useDeleteEventMutation();
@@ -55,3 +55,4 @@ export default function RemoveEventForm(props: RemoveEventFormProps) {
     />
   );
 }
+
