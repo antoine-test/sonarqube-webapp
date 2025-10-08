@@ -31,7 +31,7 @@ interface Props {
   permissionTemplate: PermissionTemplate;
 }
 
-export default function DeleteForm({ onClose, onSubmit, permissionTemplate: t }: Props) {
+export default function DeleteForm({ onClose, onSubmit, permissionTemplate: t }: Readonly<Props>) {
   const [submitting, setSubmitting] = useState(false);
   const header = translate('permission_template.delete_confirm_title');
 
@@ -60,3 +60,4 @@ export default function DeleteForm({ onClose, onSubmit, permissionTemplate: t }:
     />
   );
 }
+
