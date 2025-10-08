@@ -84,8 +84,8 @@ export const isLatestUpdatedAPatchUpdate = (
 
   if (!isEmpty(allPatch)) {
     const [, , latestPatch] = allPatch[0].version.split('.').map(Number);
-    const effectiveCurrentPatch = isNaN(currentPatch) ? 0 : currentPatch;
-    const effectiveLatestPatch = isNaN(latestPatch) ? 0 : latestPatch;
+    const effectiveCurrentPatch = Number.isNaN(currentPatch) ? 0 : currentPatch;
+    const effectiveLatestPatch = Number.isNaN(latestPatch) ? 0 : latestPatch;
 
     return effectiveCurrentPatch < effectiveLatestPatch;
   }
@@ -100,7 +100,7 @@ export const parseVersion = (version: string) => {
   return regExpParsedVersion
     ?.slice(1)
     .map(Number)
-    .map((n) => (isNaN(n) ? 0 : n));
+    .map((n) => (Number.isNaN(n) ? 0 : n));
 };
 
 export const isVersionAPatchUpdate = (version: string) =>
@@ -117,3 +117,4 @@ export const MESSAGE_CALLOUT_VARIANT: Record<string, MessageVariety> = {
   [UpdateUseCase.CurrentVersionInactive]: MessageVariety.Danger,
   [UpdateUseCase.NewPatch]: MessageVariety.Warning,
 };
+
