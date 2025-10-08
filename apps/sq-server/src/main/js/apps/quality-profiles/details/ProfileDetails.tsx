@@ -36,7 +36,7 @@ interface ProfileDetailsProps {
   updateProfiles: () => Promise<void>;
 }
 
-function ProfileDetails(props: ProfileDetailsProps) {
+function ProfileDetails(props: Readonly<ProfileDetailsProps>) {
   const { profile, profiles, exporters } = props;
 
   return (
@@ -76,3 +76,4 @@ const ContentWrapper = styled.div`
 `;
 
 export default withQualityProfilesContext(ProfileDetails);
+
