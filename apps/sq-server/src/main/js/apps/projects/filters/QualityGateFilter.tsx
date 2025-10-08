@@ -39,7 +39,7 @@ export interface Props {
 
 const HEADER_ID = `facet_quality_gate`;
 
-export default function QualityGateFacet(props: Props) {
+export default function QualityGateFacet(props: Readonly<Props>) {
   const { facet, maxFacetValue, onQueryChange, value } = props;
   const hasWarnStatus = facet?.WARN !== undefined;
   const options = hasWarnStatus ? ['OK', 'WARN', 'ERROR'] : ['OK', 'ERROR'];
@@ -103,3 +103,4 @@ function renderOption(option: string) {
     </div>
   );
 }
+
