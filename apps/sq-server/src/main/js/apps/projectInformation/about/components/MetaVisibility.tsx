@@ -28,7 +28,7 @@ interface Props {
   visibility: Visibility;
 }
 
-export default function MetaVisibility({ qualifier, visibility }: Props) {
+export default function MetaVisibility({ qualifier, visibility }: Readonly<Props>) {
   return (
     <>
       <Heading as="h3" className="sw-mb-2">
@@ -38,3 +38,4 @@ export default function MetaVisibility({ qualifier, visibility }: Props) {
     </>
   );
 }
+
