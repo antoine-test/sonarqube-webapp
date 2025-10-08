@@ -44,7 +44,7 @@ export default function BranchHelpTooltip({
   hasManyBranches,
   canAdminComponent,
   branchSupportEnabled,
-}: Props) {
+}: Readonly<Props>) {
   const helpIcon = <HelperHintIcon aria-label="help-tooltip" />;
   const { data: projectBinding } = useProjectBindingQuery(component.key);
   const isGitLab = projectBinding != null && projectBinding.alm === AlmKeys.GitLab;
@@ -74,14 +74,14 @@ export default function BranchHelpTooltip({
       return (
         <DocHelpTooltip
           content={
-            projectBinding != null
-              ? intl.formatMessage(
+            projectBinding == null
+              ? translate('branch_like_navigation.no_branch_support.content')
+              : intl.formatMessage(
                   {
                     id: `branch_like_navigation.no_branch_support.content_x.${isGitLab ? 'mr' : 'pr'}`,
                   },
                   { alm: translate('alm', projectBinding.alm) },
                 )
-              : translate('branch_like_navigation.no_branch_support.content')
           }
           data-test="branches-support-disabled"
           links={[
@@ -92,9 +92,9 @@ export default function BranchHelpTooltip({
             },
           ]}
           title={
-            projectBinding != null
-              ? translate('branch_like_navigation.no_branch_support.title', isGitLab ? 'mr' : 'pr')
-              : translate('branch_like_navigation.no_branch_support.title')
+            projectBinding == null
+              ? translate('branch_like_navigation.no_branch_support.title')
+              : translate('branch_like_navigation.no_branch_support.title', isGitLab ? 'mr' : 'pr')
           }
         >
           {helpIcon}
@@ -133,3 +133,4 @@ export default function BranchHelpTooltip({
 
   return null;
 }
+
