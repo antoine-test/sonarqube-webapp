@@ -63,7 +63,7 @@ interface Props {
   redirectTo: string;
 }
 
-export default function NewCodeDefinitionSelection(props: Props) {
+export default function NewCodeDefinitionSelection(props: Readonly<Props>) {
   const { importProjects, redirectTo, onClose } = props;
 
   const toUrl = useDocUrl(DocLink.NewCodeDefinition);
@@ -300,3 +300,4 @@ export default function NewCodeDefinitionSelection(props: Props) {
     </section>
   );
 }
+
