@@ -37,7 +37,7 @@ export interface MeasuresPanelNoNewCodeProps {
   period?: Period;
 }
 
-export default function MeasuresPanelNoNewCode(props: MeasuresPanelNoNewCodeProps) {
+export default function MeasuresPanelNoNewCode(props: Readonly<MeasuresPanelNoNewCodeProps>) {
   const { branch, component, period } = props;
 
   const isApp = component.qualifier === ComponentQualifier.Application;
@@ -103,3 +103,4 @@ export default function MeasuresPanelNoNewCode(props: MeasuresPanelNoNewCodeProp
     </div>
   );
 }
+
