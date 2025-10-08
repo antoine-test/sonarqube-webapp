@@ -36,7 +36,7 @@ interface Props {
   previousLine: SourceLine | undefined;
 }
 
-function LineSCM({ line, previousLine }: Props) {
+function LineSCM({ line, previousLine }: Readonly<Props>) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = useCallback(() => {
@@ -91,3 +91,4 @@ function isSCMChanged(s: SourceLine, p: SourceLine | undefined) {
 }
 
 export default memo(LineSCM);
+
