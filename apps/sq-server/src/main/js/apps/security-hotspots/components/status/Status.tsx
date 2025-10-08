@@ -29,7 +29,7 @@ export interface StatusProps {
   onStatusChange: (statusOption: HotspotStatusOption) => Promise<void>;
 }
 
-export default function Status(props: StatusProps) {
+export default function Status(props: Readonly<StatusProps>) {
   const { hotspot } = props;
 
   const statusOption = getStatusOptionFromStatusAndResolution(hotspot.status, hotspot.resolution);
@@ -41,3 +41,4 @@ export default function Status(props: StatusProps) {
     </HighlightedSection>
   );
 }
+
