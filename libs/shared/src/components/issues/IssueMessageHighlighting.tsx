@@ -38,7 +38,7 @@ export interface IssueMessageHighlightingProps {
   messageFormattings?: MessageFormatting[];
 }
 
-export function IssueMessageHighlighting(props: IssueMessageHighlightingProps) {
+export function IssueMessageHighlighting(props: Readonly<IssueMessageHighlightingProps>) {
   const { message, messageFormattings } = props;
 
   if (message === undefined || message === '') {
@@ -124,3 +124,4 @@ const SingleLineSnippet = styled.span`
     ${tw`sw-pb-0`}
   }
 `;
+
