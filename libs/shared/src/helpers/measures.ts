@@ -75,7 +75,7 @@ function ratingFormatter(value: string | number): RatingLabel {
   if (typeof value === 'string') {
     value = parseInt(value, 10);
   }
-  return String.fromCharCode(97 + value - 1).toUpperCase() as RatingLabel;
+  return String.fromCodePoint(97 + value - 1).toUpperCase() as RatingLabel;
 }
 
 function levelFormatter(formatMessage: FormatMessageFunction, value: string | number): string {
@@ -86,7 +86,7 @@ function levelFormatter(formatMessage: FormatMessageFunction, value: string | nu
   const result = formatMessage({ id: l10nKey });
 
   // if couldn't translate, return the initial value
-  return l10nKey !== result ? result : value;
+  return l10nKey === result ? value : result;
 }
 
 function millisecondsFormatter(value: string | number): string {
@@ -337,3 +337,4 @@ export {
   shortDurationFormatter,
   shortIntFormatter,
 };
+
