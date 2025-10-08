@@ -166,12 +166,7 @@ export default function ProjectValidation<I extends string | number>(props: Read
       (keyError === undefined || keyError === ProjectKeyErrors.MonorepoDuplicateKey) &&
       key !== ''
     ) {
-      if (monorepoSetupProjectKeys?.indexOf(key) !== monorepoSetupProjectKeys?.lastIndexOf(key)) {
-        setProject((prevProject) => ({
-          ...prevProject,
-          keyError: ProjectKeyErrors.MonorepoDuplicateKey,
-        }));
-      } else {
+      if (monorepoSetupProjectKeys?.indexOf(key) === monorepoSetupProjectKeys?.lastIndexOf(key)) {
         setProject((prevProject) => {
           if (prevProject.keyError === ProjectKeyErrors.MonorepoDuplicateKey) {
             return {
@@ -182,6 +177,11 @@ export default function ProjectValidation<I extends string | number>(props: Read
 
           return prevProject;
         });
+      } else {
+        setProject((prevProject) => ({
+          ...prevProject,
+          keyError: ProjectKeyErrors.MonorepoDuplicateKey,
+        }));
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -309,3 +309,4 @@ export function ProjectValidationCard<I extends string | number>({
     </Card>
   );
 }
+
