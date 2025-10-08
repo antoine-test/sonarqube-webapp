@@ -25,7 +25,7 @@ export interface NavigateWithParamsProps {
   transformParams: (params: Params) => Record<string, string>;
 }
 
-export default function NavigateWithParams({ pathname, transformParams }: NavigateWithParamsProps) {
+export default function NavigateWithParams({ pathname, transformParams }: Readonly<NavigateWithParamsProps>) {
   const urlParams = useParams();
   const location = useLocation();
   const [searchParams] = useSearchParams();
@@ -40,3 +40,4 @@ export default function NavigateWithParams({ pathname, transformParams }: Naviga
     <Navigate replace to={{ pathname, search: searchParams.toString(), hash: location.hash }} />
   );
 }
+
