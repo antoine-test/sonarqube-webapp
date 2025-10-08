@@ -43,7 +43,7 @@ export interface QualityGatePanelProps {
   totalFailedConditionLength: number;
 }
 
-export function QualityGatePanel(props: QualityGatePanelProps) {
+export function QualityGatePanel(props: Readonly<QualityGatePanelProps>) {
   const {
     component,
     loading,
@@ -130,3 +130,4 @@ const Conditions = styled.div`
     display: contents;
   }
 `;
+
