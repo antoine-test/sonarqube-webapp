@@ -31,7 +31,7 @@ export interface EmptyHotspotsPageProps {
   isStaticListOfHotspots: boolean;
 }
 
-export default function EmptyHotspotsPage(props: EmptyHotspotsPageProps) {
+export default function EmptyHotspotsPage(props: Readonly<EmptyHotspotsPageProps>) {
   const { filtered, filterByFile, emptyTranslationKey, isStaticListOfHotspots } = props;
 
   return (
@@ -56,3 +56,4 @@ export default function EmptyHotspotsPage(props: EmptyHotspotsPageProps) {
     </div>
   );
 }
+
