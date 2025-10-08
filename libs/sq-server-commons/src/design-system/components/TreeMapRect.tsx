@@ -48,7 +48,7 @@ interface Props {
   y: number;
 }
 
-export function TreeMapRect(props: Props) {
+export function TreeMapRect(props: Readonly<Props>) {
   const {
     placement,
     tooltip,
@@ -154,3 +154,4 @@ const StyledA11yHidden = styled.span`
   height: 1px !important;
   overflow: hidden !important;
 `;
+
