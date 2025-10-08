@@ -29,7 +29,7 @@ interface Props {
   paging: Paging | undefined;
 }
 
-export default function SubnavigationIssuesListHeader(props: Props) {
+export default function SubnavigationIssuesListHeader(props: Readonly<Props>) {
   const { loading, paging } = props;
 
   return (
@@ -42,3 +42,4 @@ export default function SubnavigationIssuesListHeader(props: Props) {
 const StyledHeader = styled(SubnavigationHeading)`
   box-shadow: ${themeShadow('scrolling')};
 `;
+
