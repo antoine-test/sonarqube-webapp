@@ -44,7 +44,7 @@ enum TabOption {
   CHANGELOG = 'changelog',
 }
 
-export default function Action(props: Props) {
+export default function Action(props: Readonly<Props>) {
   const { action, domain, showDeprecated, showInternal } = props;
   const verb = action.post ? 'POST' : 'GET';
   const actionKey = getActionKey(domain.path, action.key);
@@ -127,3 +127,4 @@ export default function Action(props: Props) {
     </Card>
   );
 }
+
