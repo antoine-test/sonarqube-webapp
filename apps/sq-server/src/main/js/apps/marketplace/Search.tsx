@@ -46,7 +46,7 @@ export default class Search extends React.PureComponent<Props> {
       {
         disabled: !updateCenterActive,
         label: translate('marketplace.updates_only'),
-        tooltip: !updateCenterActive ? translate('marketplace.not_activated') : undefined,
+        tooltip: updateCenterActive ? undefined : translate('marketplace.not_activated'),
         value: 'updates',
       },
     ];
@@ -67,3 +67,4 @@ export default class Search extends React.PureComponent<Props> {
     );
   }
 }
+
