@@ -60,7 +60,8 @@ export function requestTryAndRepeatUntil<T>(
       if (repeatErrors.length === 0 || repeatErrors.includes(error.status)) {
         return tryRequestAgain(repeatAPICall, tries, stopRepeat, repeatErrors, error);
       }
-      return Promise.reject(error);
+      throw error;
     },
   );
 }
+
