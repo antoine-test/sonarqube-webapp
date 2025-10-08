@@ -28,7 +28,7 @@ interface Props {
   line: SourceLine;
 }
 
-export function SCMPopup({ line }: Props) {
+export function SCMPopup({ line }: Readonly<Props>) {
   const hasAuthor = line.scmAuthor !== undefined && line.scmAuthor !== '';
   const hasDate = line.scmDate !== undefined;
   return (
@@ -58,3 +58,4 @@ export function SCMPopup({ line }: Props) {
 }
 
 export default memo(SCMPopup);
+
