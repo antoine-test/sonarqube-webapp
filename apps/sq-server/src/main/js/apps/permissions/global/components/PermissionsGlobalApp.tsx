@@ -79,20 +79,20 @@ class PermissionsGlobalApp extends React.PureComponent<Props, State> {
     const { filter, query } = this.state;
 
     const getUsers: Promise<{ paging?: Paging; users: PermissionUser[] }> =
-      filter !== 'groups'
-        ? api.getGlobalPermissionsUsers({
+      filter === 'groups'
+        ? Promise.resolve({ paging: undefined, users: [] })
+        : api.getGlobalPermissionsUsers({
             q: query || undefined,
             p: userPage,
-          })
-        : Promise.resolve({ paging: undefined, users: [] });
+          });
 
     const getGroups: Promise<{ groups: PermissionGroup[]; paging?: Paging }> =
-      filter !== 'users'
-        ? api.getGlobalPermissionsGroups({
+      filter === 'users'
+        ? Promise.resolve({ paging: undefined, groups: [] })
+        : api.getGlobalPermissionsGroups({
             q: query || undefined,
             p: groupsPage,
-          })
-        : Promise.resolve({ paging: undefined, groups: [] });
+          });
 
     return Promise.all([getUsers, getGroups]);
   };
@@ -286,3 +286,4 @@ class PermissionsGlobalApp extends React.PureComponent<Props, State> {
 }
 
 export default withAppStateContext(PermissionsGlobalApp);
+
