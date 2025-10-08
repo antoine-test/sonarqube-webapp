@@ -36,7 +36,7 @@ interface Props {
   router: Router;
 }
 
-function Header(props: Props) {
+function Header(props: Readonly<Props>) {
   const { ready, router } = props;
   const [createModal, setCreateModal] = useState(false);
 
@@ -94,3 +94,4 @@ function Header(props: Props) {
 }
 
 export default withRouter(Header);
+
