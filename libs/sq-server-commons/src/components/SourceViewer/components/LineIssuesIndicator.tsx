@@ -36,7 +36,7 @@ export interface LineIssuesIndicatorProps {
   onClick: () => void;
 }
 
-export function LineIssuesIndicator(props: LineIssuesIndicatorProps) {
+export function LineIssuesIndicator(props: Readonly<LineIssuesIndicatorProps>) {
   const { issues, issuesOpen, line, as = 'td' } = props;
   const hasIssues = issues.length > 0;
   const intl = useIntl();
@@ -93,3 +93,4 @@ export function LineIssuesIndicator(props: LineIssuesIndicatorProps) {
 }
 
 export default React.memo(LineIssuesIndicator);
+
