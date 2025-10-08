@@ -179,15 +179,15 @@ export default class AlmBindingDefinitionForm extends React.PureComponent<
         newKey: formData.key,
         ...formData,
         key: alreadySavedFormData.key,
-      } as any);
+      });
     } else if (this.props.bindingDefinition?.key) {
       apiMethod = BINDING_PER_ALM[apiAlm].updateApi({
         newKey: formData.key,
         ...formData,
         key: this.props.bindingDefinition.key,
-      } as any);
+      });
     } else {
-      apiMethod = BINDING_PER_ALM[apiAlm].createApi({ ...formData } as any);
+      apiMethod = BINDING_PER_ALM[apiAlm].createApi({ ...formData });
     }
 
     this.setState({ submitting: true });
@@ -290,3 +290,4 @@ export default class AlmBindingDefinitionForm extends React.PureComponent<
     );
   }
 }
+
