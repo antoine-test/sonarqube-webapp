@@ -222,9 +222,9 @@ export default function NewCodeDefinitionSpecificGroup({
                               )
                               .map(branchToOption)}
                             helpText={
-                              settingsLevel !== NewCodeDefinitionLevels.Branch ? (
+                              settingsLevel === NewCodeDefinitionLevels.Branch ? null : (
                                 <FormattedMessage id="new_code_definition.specific_setting.reference_branch.input.help.main" />
-                              ) : null
+                              )
                             }
                             isRequired
                             label={
@@ -343,3 +343,4 @@ function useSpecificAnalysisDate({
 
   return analysis?.date ? parseDate(analysis?.date) : '';
 }
+
