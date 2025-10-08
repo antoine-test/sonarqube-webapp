@@ -92,9 +92,9 @@ function renderDuplication(props: ProjectCardMeasuresProps) {
     : MetricKey.duplicated_lines_density;
 
   const rating =
-    measures[duplicationMetric] !== undefined
-      ? duplicationRatingConverter(Number(measures[duplicationMetric]))
-      : undefined;
+    measures[duplicationMetric] === undefined
+      ? undefined
+      : duplicationRatingConverter(Number(measures[duplicationMetric]));
 
   return (
     <ProjectCardMeasure
@@ -208,7 +208,7 @@ function renderRatings(
   });
 }
 
-export default function ProjectCardMeasures(props: ProjectCardMeasuresProps) {
+export default function ProjectCardMeasures(props: Readonly<ProjectCardMeasuresProps>) {
   const { isNewCode, measures, componentQualifier } = props;
   const { data: isStandardMode } = useStandardExperienceModeQuery();
   const { hasFeature } = useAvailableFeatures();
@@ -241,3 +241,4 @@ export default function ProjectCardMeasures(props: ProjectCardMeasuresProps) {
     </div>
   );
 }
+
