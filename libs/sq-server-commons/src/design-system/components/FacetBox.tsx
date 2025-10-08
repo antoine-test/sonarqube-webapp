@@ -62,7 +62,7 @@ export interface FacetBoxProps {
   tooltipComponent?: React.ComponentType<React.PropsWithChildren<{ content: React.ReactNode }>>;
 }
 
-export function FacetBox(props: FacetBoxProps) {
+export function FacetBox(props: Readonly<FacetBoxProps>) {
   const {
     ariaLabel,
     children,
@@ -239,3 +239,4 @@ const HeaderTitle = styled.span<{
 
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'inherit')};
 `;
+
