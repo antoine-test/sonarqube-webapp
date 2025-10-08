@@ -24,10 +24,11 @@ export interface LabelActionPairProps {
   translationKey: string;
 }
 
-export default function LabelActionPair({ translationKey }: LabelActionPairProps) {
+export default function LabelActionPair({ translationKey }: Readonly<LabelActionPairProps>) {
   return (
     <>
       <strong>{translate(translationKey, 'label')}:</strong> {translate(translationKey, 'action')}
     </>
   );
 }
+
