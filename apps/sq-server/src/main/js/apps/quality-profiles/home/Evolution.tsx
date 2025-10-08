@@ -27,7 +27,7 @@ export interface EvolutionProps {
   profiles: Profile[];
 }
 
-export default function Evolution({ profiles }: EvolutionProps) {
+export default function Evolution({ profiles }: Readonly<EvolutionProps>) {
   return (
     <div className="sw-flex sw-flex-col sw-gap-12">
       <EvolutionDeprecated profiles={profiles} />
@@ -36,3 +36,4 @@ export default function Evolution({ profiles }: EvolutionProps) {
     </div>
   );
 }
+
