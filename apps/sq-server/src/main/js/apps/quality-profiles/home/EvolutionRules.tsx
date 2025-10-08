@@ -85,12 +85,12 @@ export default function EvolutionRules() {
               {rule.activations
                 ? translateWithParameters(
                     'quality_profiles.latest_new_rules.activated',
-                    rule.langName!,
+                    rule.langName,
                     rule.activations,
                   )
                 : translateWithParameters(
                     'quality_profiles.latest_new_rules.not_activated',
-                    rule.langName!,
+                    rule.langName,
                   )}
             </Text>
           </li>
@@ -121,3 +121,4 @@ function parseRules(
     return { ...rule, activations };
   });
 }
+
