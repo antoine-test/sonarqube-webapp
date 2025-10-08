@@ -39,7 +39,7 @@ interface Props {
   event: AnalysisEvent;
 }
 
-export function Event({ event }: Props) {
+export function Event({ event }: Readonly<Props>) {
   if (event.category === ProjectAnalysisEventCategory.Version) {
     return (
       <div>
@@ -105,3 +105,4 @@ export function Event({ event }: Props) {
 }
 
 export default React.memo(Event);
+
