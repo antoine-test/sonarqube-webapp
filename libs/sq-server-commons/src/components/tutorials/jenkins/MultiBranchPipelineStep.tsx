@@ -49,7 +49,7 @@ function extractBitbucketCloudWorkspaceId(almBinding?: AlmSettingsInstance): str
   }
 }
 
-export default function MultiBranchPipelineStep(props: MultiBranchPipelineStepProps) {
+export default function MultiBranchPipelineStep(props: Readonly<MultiBranchPipelineStepProps>) {
   const { alm, almBinding, projectBinding } = props;
 
   const workspaceId = extractBitbucketCloudWorkspaceId(almBinding);
@@ -252,3 +252,4 @@ export default function MultiBranchPipelineStep(props: MultiBranchPipelineStepPr
     </TutorialStep>
   );
 }
+
