@@ -29,10 +29,11 @@ interface Props {
   name: string;
 }
 
-export default function ProfileLink({ name, language, children, ...other }: Props) {
+export default function ProfileLink({ name, language, children, ...other }: Readonly<Props>) {
   return (
     <StandoutLink to={getProfilePath(name, language)} {...other}>
       {children}
     </StandoutLink>
   );
 }
+
