@@ -31,7 +31,7 @@ export interface TutorialsAppProps {
   currentUser: CurrentUser;
 }
 
-export function TutorialsApp(props: TutorialsAppProps) {
+export function TutorialsApp(props: Readonly<TutorialsAppProps>) {
   const { component, currentUser } = props;
 
   if (!isLoggedIn(currentUser)) {
@@ -47,3 +47,4 @@ export function TutorialsApp(props: TutorialsAppProps) {
 }
 
 export default withComponentContext(withCurrentUserContext(TutorialsApp));
+
