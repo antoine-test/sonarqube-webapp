@@ -101,7 +101,7 @@ export function getAnalysesByVersionByDay(
       const isBeforeTo = !query.to || analysis.date <= query.to;
       const hasSelectedCategoryEvents =
         !query.category ||
-        analysis.events.find((event) => event.category === query.category) != null;
+        analysis.events.some((event) => event.category === query.category);
       matchFilters = isAfterFrom && isBeforeTo && hasSelectedCategoryEvents;
     }
 
@@ -121,13 +121,12 @@ export function parseQuery(urlQuery: RawQuery, isStandardMode = false): Query {
 
   customMetrics = uniq(
     customMetrics.map((metric) =>
-      !isStandardMode ? (STANDARD_CONDITIONS_MAP[metric] ?? metric) : metric,
+      isStandardMode ? metric : (STANDARD_CONDITIONS_MAP[metric] ?? metric),
     ),
   )
-    .map((metric) =>
+    .flatMap((metric) =>
       !isStandardMode && MQR_CONDITIONS_MAP[metric] ? [metric, MQR_CONDITIONS_MAP[metric]] : metric,
-    )
-    .flat();
+    );
 
   return {
     category: parseAsString(urlQuery.category),
@@ -171,3 +170,4 @@ function parseGraph(value?: string) {
 function serializeGraph(value?: GraphType) {
   return value === DEFAULT_GRAPH ? undefined : value;
 }
+
