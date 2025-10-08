@@ -166,9 +166,8 @@ export function YmlFileStep(props: Readonly<YmlFileStepProps>) {
         <NumberedListItem>
           <FormattedMessage
             id={`onboarding.tutorial.with.gitlab_ci.project_key.${buildTool}.step2`}
-            values={Object.assign(
-              {
-                file: (
+            values={({
+              file: (
                   <>
                     <InlineSnippet snippet={filenameForBuildTool[buildTool]} />
 
@@ -178,8 +177,7 @@ export function YmlFileStep(props: Readonly<YmlFileStepProps>) {
                     />
                   </>
                 ),
-              },
-              buildTool === BuildTools.Gradle
+              ...(buildTool === BuildTools.Gradle
                 ? {
                     file2: (
                       <>
@@ -192,8 +190,8 @@ export function YmlFileStep(props: Readonly<YmlFileStepProps>) {
                       </>
                     ),
                   }
-                : {},
-            )}
+                : {}),
+            })}
           />
           {buildTool === BuildTools.Gradle ? (
             <GradleBuildSelection className="sw-mb-4 sw-mt-2">
@@ -265,3 +263,4 @@ export function YmlFileStep(props: Readonly<YmlFileStepProps>) {
 }
 
 export default withCLanguageFeature(withAvailableFeatures(YmlFileStep));
+
