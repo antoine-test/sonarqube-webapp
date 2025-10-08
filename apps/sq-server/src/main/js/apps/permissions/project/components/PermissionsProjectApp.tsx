@@ -90,24 +90,24 @@ class PermissionsProjectApp extends React.PureComponent<Props, State> {
     const { filter, query, selectedPermission } = this.state;
 
     const getUsers: Promise<{ paging?: Paging; users: PermissionUser[] }> =
-      filter !== 'groups'
-        ? api.getPermissionsUsersForComponent({
+      filter === 'groups'
+        ? Promise.resolve({ paging: undefined, users: [] })
+        : api.getPermissionsUsersForComponent({
             projectKey: component.key,
             q: query || undefined,
             permission: selectedPermission,
             p: userPage,
-          })
-        : Promise.resolve({ paging: undefined, users: [] });
+          });
 
     const getGroups: Promise<{ groups: PermissionGroup[]; paging?: Paging }> =
-      filter !== 'users'
-        ? api.getPermissionsGroupsForComponent({
+      filter === 'users'
+        ? Promise.resolve({ paging: undefined, groups: [] })
+        : api.getPermissionsGroupsForComponent({
             projectKey: component.key,
             q: query || undefined,
             permission: selectedPermission,
             p: groupsPage,
-          })
-        : Promise.resolve({ paging: undefined, groups: [] });
+          });
 
     return Promise.all([getUsers, getGroups]);
   };
@@ -415,3 +415,4 @@ class PermissionsProjectApp extends React.PureComponent<Props, State> {
 }
 
 export default withComponentContext(PermissionsProjectApp);
+
