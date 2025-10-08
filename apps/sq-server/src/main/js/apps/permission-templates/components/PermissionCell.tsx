@@ -31,7 +31,7 @@ interface Props {
   };
 }
 
-export default function PermissionCell({ permission: p }: Props) {
+export default function PermissionCell({ permission: p }: Readonly<Props>) {
   return (
     <ContentCell className="sw-px-2">
       <div>
@@ -60,3 +60,4 @@ export default function PermissionCell({ permission: p }: Props) {
     </ContentCell>
   );
 }
+
