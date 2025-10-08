@@ -32,7 +32,7 @@ interface Props {
   delivery: WebhookDelivery;
 }
 
-export default function DeliveryAccordion({ delivery }: Props) {
+export default function DeliveryAccordion({ delivery }: Readonly<Props>) {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [payload, setPayload] = useState<string | undefined>(undefined);
@@ -85,3 +85,4 @@ export default function DeliveryAccordion({ delivery }: Props) {
     </TextAccordion>
   );
 }
+
