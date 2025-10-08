@@ -50,7 +50,7 @@ export interface PageSidebarProps {
   view: string;
 }
 
-export default function PageSidebar(props: PageSidebarProps) {
+export default function PageSidebar(props: Readonly<PageSidebarProps>) {
   const {
     applicationsEnabled,
     facets,
@@ -260,3 +260,4 @@ function getFacet(facets: Facets | undefined, name: string) {
 function getMaxFacetValue(facets?: Facets) {
   return facets && Math.max(...flatMap(Object.values(facets), (facet) => Object.values(facet)));
 }
+
