@@ -52,15 +52,15 @@ function getExamplesFromDom(element: Element) {
   return (
     Object.values(
       groupBy(
-        pres.filter((e) => e.getAttribute('data-diff-id') !== undefined),
-        (e) => e.getAttribute('data-diff-id'),
+        pres.filter((e) => e.dataset.diffId !== undefined),
+        (e) => e.dataset.diffId,
       ),
     )
       // If we have 1 or 3+ example we can't display any differences
       .filter((diffsBlock) => diffsBlock.length === NUMBER_OF_EXAMPLES)
       .map(
         (diffBlock) =>
-          keyBy(diffBlock, (block) => block.getAttribute('data-diff-type')) as DiffBlock,
+          keyBy(diffBlock, (block) => block.dataset.diffType) as DiffBlock,
       )
   );
 }
@@ -98,3 +98,4 @@ function replaceInDom(current: Element, code: string) {
   markedCode.appendChild(div);
   current.parentNode?.replaceChild(markedCode, current);
 }
+
