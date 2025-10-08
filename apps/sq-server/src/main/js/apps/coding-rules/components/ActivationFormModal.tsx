@@ -135,9 +135,9 @@ export default function ActivationFormModal(props: Readonly<Props>) {
       rule: rule.key,
       severity: isStandardMode ? severity : undefined,
       prioritizedRule,
-      impacts: !isStandardMode
-        ? (Object.fromEntries(impacts) as Record<SoftwareQuality, SoftwareImpactSeverity>)
-        : undefined,
+      impacts: isStandardMode
+        ? undefined
+        : (Object.fromEntries(impacts) as Record<SoftwareQuality, SoftwareImpactSeverity>),
     };
     activateRule(data);
   };
@@ -412,3 +412,4 @@ function getRuleParams({
   }
   return params;
 }
+
