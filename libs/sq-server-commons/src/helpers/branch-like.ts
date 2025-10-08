@@ -73,7 +73,7 @@ export function getBrancheLikesAsTree(branchLikes: BranchLike[]): BranchLikeTree
     'desc',
   ]);
   const parentlessPullRequests = pullRequests.filter(
-    (pr) => !pr.isOrphan && ![mainBranch, ...branches].find((b) => !!b && b.name === pr.base),
+    (pr) => !pr.isOrphan && ![mainBranch, ...branches].some((b) => !!b && b.name === pr.base),
   );
   const orphanPullRequests = pullRequests.filter((pr) => pr.isOrphan);
 
@@ -115,3 +115,4 @@ export function fillBranchLike(
   }
   return undefined;
 }
+
