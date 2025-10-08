@@ -30,7 +30,7 @@ interface Props {
   webhook: WebhookResponse;
 }
 
-export default function WebhookItem({ onDelete, onUpdate, webhook }: Props) {
+export default function WebhookItem({ onDelete, onUpdate, webhook }: Readonly<Props>) {
   return (
     <TableRowInteractive>
       <ContentCell>{webhook.name}</ContentCell>
@@ -45,3 +45,4 @@ export default function WebhookItem({ onDelete, onUpdate, webhook }: Props) {
     </TableRowInteractive>
   );
 }
+
