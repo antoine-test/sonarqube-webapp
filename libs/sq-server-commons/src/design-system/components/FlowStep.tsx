@@ -33,7 +33,7 @@ interface Props {
   step?: number;
 }
 
-export function FlowStep(props: Props) {
+export function FlowStep(props: Readonly<Props>) {
   const { additionalMarkers, className, message, selected, step } = props;
 
   return (
@@ -64,3 +64,4 @@ const StyledLink = styled(BaseLink)`
     background-color: ${themeColor('codeLineLocationMarkerSelected')};
   }
 `;
+
