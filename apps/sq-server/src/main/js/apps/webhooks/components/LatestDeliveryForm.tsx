@@ -31,7 +31,7 @@ interface Props {
   webhook: WebhookResponse;
 }
 
-export default function LatestDeliveryForm(props: Props) {
+export default function LatestDeliveryForm(props: Readonly<Props>) {
   const { delivery, webhook, onClose } = props;
   const [loading, setLoading] = useState(true);
   const [payload, setPayload] = useState<string | undefined>(undefined);
@@ -61,3 +61,4 @@ export default function LatestDeliveryForm(props: Props) {
     />
   );
 }
+
