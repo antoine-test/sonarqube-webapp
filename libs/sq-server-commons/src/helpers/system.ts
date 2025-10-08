@@ -57,5 +57,6 @@ export async function initMockApi() {
         throw e;
       });
   }
-  return Promise.resolve();
+  return;
 }
+
