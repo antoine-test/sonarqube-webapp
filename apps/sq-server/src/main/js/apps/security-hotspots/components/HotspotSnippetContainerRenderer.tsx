@@ -143,9 +143,9 @@ export default function HotspotSnippetContainerRenderer(
     line.line === hotspot.line ? hotspotPrimaryLocationBox : undefined;
 
   const highlightedLocation =
-    selectedHotspotLocation !== undefined
-      ? { index: selectedHotspotLocation, text: hotspot.message }
-      : undefined;
+    selectedHotspotLocation === undefined
+      ? undefined
+      : { index: selectedHotspotLocation, text: hotspot.message };
 
   return (
     <Spinner isLoading={loading}>
@@ -186,3 +186,4 @@ export default function HotspotSnippetContainerRenderer(
 const SourceFileWrapper = withTheme(styled.div`
   background-color: ${themeColor('codeLine')};
 `);
+
