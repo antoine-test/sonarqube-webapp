@@ -74,7 +74,7 @@ export function SearchSelectDropdown<
   Option extends LabelValueSelectOption<V>,
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = GroupBase<Option>,
->(props: SearchSelectDropdownProps<V, Option, IsMulti, Group>) {
+>(props: Readonly<SearchSelectDropdownProps<V, Option, IsMulti, Group>>) {
   const {
     className,
     isDiscreet,
@@ -245,3 +245,4 @@ const StyledSearchSelectWrapper = styled.div<{ isSearchable: boolean }>`
     }
   }
 `;
+
