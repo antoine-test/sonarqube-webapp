@@ -27,14 +27,15 @@ import MainSonarQubeBar from './nav/global/MainSonarQubeBar';
  * We need to render either children or the Outlet,
  * because this component is used both in the context of routes and as a regular container
  */
-export default function SimpleContainer({ children }: { children?: React.ReactNode }) {
+export default function SimpleContainer({ children }: Readonly<{ children?: React.ReactNode }>) {
   return (
     <div className="sw-flex sw-flex-col sw-h-full sw-min-h-[100vh]">
       <div className="sw-box-border sw-flex-auto" id="container">
         <MainSonarQubeBar />
-        {children !== undefined ? children : <Outlet />}
+        {children === undefined ? <Outlet /> : children}
       </div>
       <GlobalFooter />
     </div>
   );
 }
+
