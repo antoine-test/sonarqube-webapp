@@ -81,7 +81,7 @@ export class App extends React.PureComponent<Props> {
 
     const parser = document.createElement('a');
     parser.href = gravatarServerUrl;
-    if (parser.hostname !== window.location.hostname) {
+    if (parser.hostname !== globalThis.location.hostname) {
       return <link href={parser.origin} rel="preconnect" />;
     }
     return null;
@@ -99,3 +99,4 @@ export class App extends React.PureComponent<Props> {
 }
 
 export default withAppStateContext(App);
+
