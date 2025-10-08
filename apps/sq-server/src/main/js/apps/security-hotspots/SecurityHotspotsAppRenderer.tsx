@@ -85,7 +85,7 @@ export interface SecurityHotspotsAppRendererProps {
 
 const STICKY_HEADER_HEIGHT = 73;
 
-export default function SecurityHotspotsAppRenderer(props: SecurityHotspotsAppRendererProps) {
+export default function SecurityHotspotsAppRenderer(props: Readonly<SecurityHotspotsAppRendererProps>) {
   const {
     branchLike,
     component,
@@ -293,3 +293,4 @@ const StyledMain = styled.main`
   border-left: ${themeBorder('default')};
   border-right: ${themeBorder('default')};
 `;
+
