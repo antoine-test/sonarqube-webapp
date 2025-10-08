@@ -77,7 +77,7 @@ export class ProjectsServiceMock {
       return !favorite || p.isFavorite === favorite;
     });
 
-    const sorted = s === 'ncloc' ? results.sort(this.nclocSort) : results;
+    const sorted = s === 'ncloc' ? results.toSorted(this.nclocSort) : results;
 
     return Promise.resolve({
       components: sorted.slice(0, ps),
@@ -131,3 +131,4 @@ export class ProjectsServiceMock {
     this.initData();
   };
 }
+
