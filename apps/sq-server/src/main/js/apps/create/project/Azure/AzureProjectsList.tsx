@@ -41,7 +41,7 @@ export interface AzureProjectsListProps {
 
 const PAGE_SIZE = 10;
 
-export default function AzureProjectsList(props: AzureProjectsListProps) {
+export default function AzureProjectsList(props: Readonly<AzureProjectsListProps>) {
   const { loadingRepositories, projects = [], repositories, searchResults, searchQuery } = props;
 
   const [page, setPage] = React.useState(1);
@@ -80,7 +80,9 @@ export default function AzureProjectsList(props: AzureProjectsListProps) {
   }
 
   let filteredProjects: AzureProject[];
-  if (searchResults !== undefined) {
+  if (searchResults === undefined) {
+    filteredProjects = projects;
+  } else {
     filteredProjects = uniqBy(
       searchResults.map((r) => {
         return (
@@ -95,8 +97,6 @@ export default function AzureProjectsList(props: AzureProjectsListProps) {
       }),
       'name',
     );
-  } else {
-    filteredProjects = projects;
   }
 
   const displayedProjects = filteredProjects.slice(0, page * PAGE_SIZE);
@@ -137,3 +137,4 @@ export default function AzureProjectsList(props: AzureProjectsListProps) {
     </div>
   );
 }
+
