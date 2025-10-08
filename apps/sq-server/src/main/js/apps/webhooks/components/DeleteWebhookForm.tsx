@@ -32,7 +32,7 @@ interface Props {
 
 const FORM_ID = 'delete-webhook-modal';
 
-export default function DeleteWebhookForm({ onClose, onSubmit, webhook }: Props) {
+export default function DeleteWebhookForm({ onClose, onSubmit, webhook }: Readonly<Props>) {
   const header = translate('webhooks.delete');
 
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -61,3 +61,4 @@ export default function DeleteWebhookForm({ onClose, onSubmit, webhook }: Props)
     />
   );
 }
+
