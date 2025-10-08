@@ -84,7 +84,7 @@ export function themeAvatarColor(name: string, contrast = false) {
   return function ({ theme }: ThemedProps) {
     let hash = 0;
     for (let i = 0; i < name.length; i++) {
-      hash = name.charCodeAt(i) + ((hash << 5) - hash);
+      hash = name.codePointAt(i) + ((hash << 5) - hash);
     }
 
     // Reduces number length to avoid modulo's limit.
@@ -146,3 +146,4 @@ function getContrast(theme: Theme, colorOverride: ThemeContrasts | ThemeColors |
 
   return getRGBAString(color, color[3]);
 }
+
