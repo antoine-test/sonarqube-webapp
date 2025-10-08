@@ -158,11 +158,11 @@ export function useAddGroupMembershipMutation() {
     onSuccess(_, data) {
       queryClient.setQueryData<number>(
         [DOMAIN, GROUP_SUB_DOMAIN, 'count', data.groupId],
-        (oldData) => (oldData !== undefined ? oldData + 1 : undefined),
+        (oldData) => (oldData === undefined ? undefined : oldData + 1),
       );
       queryClient.setQueryData<number>(
         [DOMAIN, USER_SUB_DOMAIN, 'count', data.userId],
-        (oldData) => (oldData !== undefined ? oldData + 1 : undefined),
+        (oldData) => (oldData === undefined ? undefined : oldData + 1),
       );
       queryClient.invalidateQueries({
         queryKey: [DOMAIN, USER_SUB_DOMAIN, 'memberships', data.userId],
@@ -191,11 +191,11 @@ export function useRemoveGroupMembershipMutation() {
     onSuccess(_, data) {
       queryClient.setQueryData<number>(
         [DOMAIN, GROUP_SUB_DOMAIN, 'count', data.groupId],
-        (oldData) => (oldData !== undefined ? oldData - 1 : undefined),
+        (oldData) => (oldData === undefined ? undefined : oldData - 1),
       );
       queryClient.setQueryData<number>(
         [DOMAIN, USER_SUB_DOMAIN, 'count', data.userId],
-        (oldData) => (oldData !== undefined ? oldData - 1 : undefined),
+        (oldData) => (oldData === undefined ? undefined : oldData - 1),
       );
       queryClient.invalidateQueries({
         queryKey: [DOMAIN, USER_SUB_DOMAIN, 'memberships', data.userId],
@@ -203,3 +203,4 @@ export function useRemoveGroupMembershipMutation() {
     },
   });
 }
+
