@@ -29,7 +29,7 @@ export interface DotNetProps {
   projectKey: string;
 }
 
-export default function DotNet(props: DotNetProps): JSX.Element {
+export default function DotNet(props: Readonly<DotNetProps>): JSX.Element {
   const { projectKey } = props;
   return (
     <>
@@ -58,3 +58,4 @@ export default function DotNet(props: DotNetProps): JSX.Element {
     </>
   );
 }
+
