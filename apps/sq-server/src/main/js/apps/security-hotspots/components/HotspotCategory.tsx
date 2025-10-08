@@ -38,7 +38,7 @@ interface HotspotCategoryProps {
   title: string;
 }
 
-export default function HotspotCategory(props: HotspotCategoryProps) {
+export default function HotspotCategory(props: Readonly<HotspotCategoryProps>) {
   const {
     expanded,
     onSetExpanded,
@@ -94,7 +94,7 @@ type NavigationHeaderProps = Pick<
   'hotspots' | 'isLastAndIncomplete' | 'rating' | 'title'
 >;
 
-function NavigationHeader(props: NavigationHeaderProps) {
+function NavigationHeader(props: Readonly<NavigationHeaderProps>) {
   const { hotspots, isLastAndIncomplete, rating, title } = props;
   const counter = hotspots.length + (isLastAndIncomplete ? '+' : '');
 
@@ -114,3 +114,4 @@ const MemoizedHeader = memo(NavigationHeader);
 const SubNavigationContainer = styled.div`
   width: calc(100% - 1.5rem);
 `;
+
