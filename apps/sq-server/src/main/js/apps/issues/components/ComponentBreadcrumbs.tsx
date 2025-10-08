@@ -39,12 +39,12 @@ export default function ComponentBreadcrumbs({
   issue,
   selectedFlowIndex,
   selectedLocationIndex,
-}: Props) {
+}: Readonly<Props>) {
   const intl = useIntl();
   const displayProject =
     !component ||
     ![ComponentQualifier.Project, ComponentQualifier.Directory].includes(
-      component.qualifier as ComponentQualifier,
+      component.qualifier,
     );
 
   const displayBranchInformation = isView(component?.qualifier);
@@ -97,3 +97,4 @@ const SlashSeparator = styled.span`
     color: ${cssVar('color-text-subtle')};
   }
 `;
+
