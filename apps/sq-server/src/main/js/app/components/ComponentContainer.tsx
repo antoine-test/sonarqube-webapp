@@ -244,10 +244,10 @@ function ComponentContainer({ hasFeature }: Readonly<WithAvailableFeaturesProps>
       let url;
       if (pullRequestKey !== undefined) {
         url = getPullRequestUrl(projectKey, pullRequestKey);
-      } else if (branchName !== undefined) {
-        url = getProjectUrl(projectKey, branchName);
-      } else {
+      } else if (branchName === undefined) {
         url = getProjectOverviewUrl(projectKey);
+      } else {
+        url = getProjectUrl(projectKey, branchName);
       }
 
       router.replace(url);
@@ -255,9 +255,9 @@ function ComponentContainer({ hasFeature }: Readonly<WithAvailableFeaturesProps>
 
     if (needsAnotherCheck(hasUpdatedTasks, component, tasks)) {
       // Refresh the status as long as there are tasks in progress or no analysis
-      window.clearTimeout(watchStatusTimer.current);
+      globalThis.clearTimeout(watchStatusTimer.current);
 
-      watchStatusTimer.current = window.setTimeout(() => {
+      watchStatusTimer.current = globalThis.setTimeout(() => {
         fetchStatus(component?.key ?? '');
       }, FETCH_STATUS_WAIT_TIME);
     } else if (hasUpdatedTasks) {
@@ -309,7 +309,7 @@ function ComponentContainer({ hasFeature }: Readonly<WithAvailableFeaturesProps>
   // Clear timer on unmount
   React.useEffect(() => {
     return () => {
-      window.clearTimeout(watchStatusTimer.current);
+      globalThis.clearTimeout(watchStatusTimer.current);
       watchStatusTimer.current = undefined;
     };
   }, []);
@@ -487,3 +487,4 @@ function computeHasUpdatedTasks(
 }
 
 export default withAvailableFeatures(ComponentContainer);
+
