@@ -21,10 +21,10 @@
 import { AppVariablesElement, EnhancedWindow } from '../types/browser';
 
 export function getEnhancedWindow(): EnhancedWindow {
-  if (!('baseUrl' in window)) {
+  if (!('baseUrl' in globalThis)) {
     initAppVariables();
   }
-  return window as unknown as EnhancedWindow;
+  return globalThis as unknown as EnhancedWindow;
 }
 
 function getReactDomContainer() {
@@ -38,8 +38,9 @@ function getReactDomContainer() {
 export function initAppVariables() {
   const reactDomContainerDataSet = getReactDomContainer().dataset;
 
-  (window as unknown as EnhancedWindow).baseUrl = reactDomContainerDataSet.baseUrl;
-  (window as unknown as EnhancedWindow).serverStatus = reactDomContainerDataSet.serverStatus;
-  (window as unknown as EnhancedWindow).instance = reactDomContainerDataSet.instance;
-  (window as unknown as EnhancedWindow).official = reactDomContainerDataSet.official === 'true';
+  (globalThis as unknown as EnhancedWindow).baseUrl = reactDomContainerDataSet.baseUrl;
+  (globalThis as unknown as EnhancedWindow).serverStatus = reactDomContainerDataSet.serverStatus;
+  (globalThis as unknown as EnhancedWindow).instance = reactDomContainerDataSet.instance;
+  (globalThis as unknown as EnhancedWindow).official = reactDomContainerDataSet.official === 'true';
 }
+
