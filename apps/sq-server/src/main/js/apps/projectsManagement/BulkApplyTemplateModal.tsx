@@ -188,9 +188,9 @@ export default class BulkApplyTemplateModal extends React.PureComponent<Props, S
 
   renderSelect = (isSelectionOnlyManaged: boolean) => {
     const options =
-      this.state.permissionTemplates !== undefined
-        ? this.state.permissionTemplates.map((t) => ({ label: t.name, value: t.id }))
-        : [];
+      this.state.permissionTemplates === undefined
+        ? []
+        : this.state.permissionTemplates.map((t) => ({ label: t.name, value: t.id }));
 
     return (
       <FormField htmlFor="bulk-apply-template-input" label={translate('template')} required>
@@ -259,3 +259,4 @@ export default class BulkApplyTemplateModal extends React.PureComponent<Props, S
     );
   }
 }
+
