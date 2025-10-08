@@ -82,8 +82,8 @@ export default function UserForm(props: Readonly<Props>) {
   );
 
   const isLoginTooShort = login.length < MINIMUM_LOGIN_LENGTH && login !== '';
-  const doesLoginHaveValidCharacter = login !== '' ? /^[a-zA-Z0-9._@-]+$/.test(login) : true;
-  const doesLoginStartWithLetterOrNumber = login !== '' ? /^\w.*/.test(login) : true;
+  const doesLoginHaveValidCharacter = login === '' ? true : /^[a-zA-Z0-9._@-]+$/.test(login);
+  const doesLoginStartWithLetterOrNumber = login === '' ? true : /^\w.*/.test(login);
   const fieldsdMissing = user ? false : name === '' || login === '' || !password.isValid;
   const isEmailInvalid =
     (user && !user.local) || isInstanceManaged || email.value === '' ? false : !email.isValid;
@@ -93,7 +93,7 @@ export default function UserForm(props: Readonly<Props>) {
 
     createUser(
       {
-        email: email.value !== '' ? email.value : undefined,
+        email: email.value === '' ? undefined : email.value,
         login,
         name: name ?? '',
         password: password.value,
@@ -114,7 +114,7 @@ export default function UserForm(props: Readonly<Props>) {
           isInstanceManaged || !user?.local
             ? { scmAccounts }
             : {
-                email: email.value !== '' ? email.value : null,
+                email: email.value === '' ? null : email.value,
                 name,
                 scmAccounts,
               },
@@ -247,7 +247,7 @@ export default function UserForm(props: Readonly<Props>) {
                 setEmail({ value: e.target.value, isValid: e.target.validity.valid });
               }}
               type="email"
-              validation={!email.isValid ? 'invalid' : undefined}
+              validation={email.isValid ? undefined : 'invalid'}
               value={email.value}
             />
           </Form.Section>
@@ -289,3 +289,4 @@ export default function UserForm(props: Readonly<Props>) {
     </ModalForm>
   );
 }
+
