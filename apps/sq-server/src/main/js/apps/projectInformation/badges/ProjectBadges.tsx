@@ -54,7 +54,7 @@ export interface ProjectBadgesProps {
   component: Component;
 }
 
-export default function ProjectBadges(props: ProjectBadgesProps) {
+export default function ProjectBadges(props: Readonly<ProjectBadgesProps>) {
   const {
     branchLike,
     component: { key: project, qualifier, configuration },
@@ -256,3 +256,4 @@ const StyledBadgeWrapper = styled.div`
     width: auto;
   }
 `;
+
