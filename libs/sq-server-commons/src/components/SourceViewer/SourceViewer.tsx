@@ -304,8 +304,8 @@ export class SourceViewerClass extends React.PureComponent<Props, State> {
         (sources) => {
           loadIssuesCallback(component, sources);
         },
-        (response) => {
-          onFailLoadSources(response, component);
+        (error_) => {
+          onFailLoadSources(error_, component);
         },
       );
     };
@@ -641,7 +641,7 @@ export class SourceViewerClass extends React.PureComponent<Props, State> {
   }
 }
 
-export default function SourceViewer(props: Props) {
+export default function SourceViewer(props: Readonly<Props>) {
   return (
     // we can't use withComponentContext as it would override the "component" prop
     <ComponentContext.Consumer>
@@ -649,3 +649,4 @@ export default function SourceViewer(props: Props) {
     </ComponentContext.Consumer>
   );
 }
+
