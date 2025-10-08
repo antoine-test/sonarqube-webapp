@@ -99,13 +99,13 @@ export default class Workspace extends React.PureComponent<React.PropsWithChildr
   };
 
   saveWorkspace = () => {
-    const data = [
+    const data = 
       // Do not save line number, next time the file is open, it should be open
       // on the first line.
-      ...this.state.components.map((x) =>
+      this.state.components.map((x) =>
         omit({ ...x, [TYPE_KEY]: WorkspaceTypes.Component }, 'line'),
-      ),
-    ];
+      )
+    ;
     save(WORKSPACE, JSON.stringify(data));
   };
 
@@ -203,3 +203,4 @@ export default class Workspace extends React.PureComponent<React.PropsWithChildr
     );
   }
 }
+
