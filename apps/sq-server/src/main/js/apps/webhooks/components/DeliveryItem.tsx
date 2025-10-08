@@ -32,7 +32,7 @@ interface Props {
   payload: string | undefined;
 }
 
-export default function DeliveryItem({ className, delivery, loading, payload }: Props) {
+export default function DeliveryItem({ className, delivery, loading, payload }: Readonly<Props>) {
   return (
     <div className={className}>
       <p className="sw-mb-2">
@@ -60,3 +60,4 @@ export default function DeliveryItem({ className, delivery, loading, payload }: 
     </div>
   );
 }
+
