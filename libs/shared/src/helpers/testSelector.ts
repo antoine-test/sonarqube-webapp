@@ -90,7 +90,7 @@ export class QuerySelector implements ReactTestingQuery {
     container?: HTMLElement,
     waitForOptions?: waitForOptions,
   ): Promise<T> {
-    return this.dispatchQuery.find<T>(container, waitForOptions);
+    return this.dispatchQuery.find<T>(container);
   }
 
   findAll<T extends HTMLElement = HTMLElement>(
@@ -180,7 +180,7 @@ class ChainDispatch extends QuerySelector {
   ) {
     let inside: HTMLElement;
     try {
-      inside = await this.innerQuery.find(container, waitForOptions);
+      inside = await this.innerQuery.find(container);
     } catch (e) {
       const elements = this.innerQuery.getAll(container);
       const all = (
@@ -195,14 +195,14 @@ class ChainDispatch extends QuerySelector {
       }
       return all[0];
     }
-    return this.dispatchQuery.find<T>(inside, waitForOptions);
+    return this.dispatchQuery.find<T>(inside);
   }
 
   async findAll<T extends HTMLElement = HTMLElement>(
     container?: HTMLElement,
     waitForOptions?: waitForOptions,
   ) {
-    return this.dispatchQuery.findAll<T>(await this.innerQuery.find(container, waitForOptions));
+    return this.dispatchQuery.findAll<T>(await this.innerQuery.find(container));
   }
 
   get<T extends HTMLElement = HTMLElement>(container?: HTMLElement) {
@@ -549,3 +549,4 @@ export function byDisplayValue(
 ): QuerySelector {
   return new QuerySelector(new DispatchByDisplayValue(args));
 }
+
