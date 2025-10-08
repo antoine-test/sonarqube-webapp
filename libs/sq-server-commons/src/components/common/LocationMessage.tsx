@@ -24,6 +24,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export default function LocationMessage(props: Props) {
+export default function LocationMessage(props: Readonly<Props>) {
   return <div className="location-message">{props.children}</div>;
 }
+
