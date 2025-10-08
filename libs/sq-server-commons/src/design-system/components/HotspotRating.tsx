@@ -26,7 +26,7 @@ interface Props extends React.AriaAttributes {
   rating?: HotspotRatingLabel;
 }
 
-export function HotspotRating({ className, rating = HotspotRatingEnum.LOW, ...rest }: Props) {
+export function HotspotRating({ className, rating = HotspotRatingEnum.LOW, ...rest }: Readonly<Props>) {
   const ratings = {
     [HotspotRatingEnum.HIGH]: HotspotRatingHigh,
     [HotspotRatingEnum.MEDIUM]: HotspotRatingMedium,
@@ -38,14 +38,15 @@ export function HotspotRating({ className, rating = HotspotRatingEnum.LOW, ...re
   return <Rating className={className} {...rest} />;
 }
 
-function HotspotRatingHigh(props: Props) {
+function HotspotRatingHigh(props: Readonly<Props>) {
   return <SeverityCriticalIcon {...props} fill="rating.E" />;
 }
 
-function HotspotRatingMedium(props: Props) {
+function HotspotRatingMedium(props: Readonly<Props>) {
   return <SeverityMajorIcon {...props} fill="rating.D" />;
 }
 
-function HotspotRatingLow(props: Props) {
+function HotspotRatingLow(props: Readonly<Props>) {
   return <SeverityMinorIcon {...props} fill="rating.C" />;
 }
+
