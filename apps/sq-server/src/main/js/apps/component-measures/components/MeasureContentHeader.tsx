@@ -27,7 +27,7 @@ interface Props {
   right: React.ReactNode;
 }
 
-export default function MeasureContentHeader({ left, right }: Props) {
+export default function MeasureContentHeader({ left, right }: Readonly<Props>) {
   return (
     <StyledHeader className="sw-py-3 sw-px-6 sw-flex sw-justify-between sw-items-center">
       <div className="sw-flex sw-items-center">{left}</div>
@@ -39,3 +39,4 @@ export default function MeasureContentHeader({ left, right }: Props) {
 const StyledHeader = styled.div`
   border-bottom: ${themeBorder('default', 'pageBlockBorder')};
 `;
+
