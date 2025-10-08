@@ -51,7 +51,7 @@ export default function ProjectsList(props: Readonly<Props>) {
       return (
         <div key="footer" style={{ ...style }}>
           <ListFooter
-            count={projects !== undefined ? projects.length : 0}
+            count={projects === undefined ? 0 : projects.length}
             loadMore={loadMore}
             loadMoreAriaLabel={translate('projects.show_more')}
             loading={loading}
@@ -113,3 +113,4 @@ export default function ProjectsList(props: Readonly<Props>) {
     </AutoSizer>
   );
 }
+
