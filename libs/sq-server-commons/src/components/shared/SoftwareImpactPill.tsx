@@ -44,7 +44,7 @@ export interface Props {
   type?: 'issue' | 'rule';
 }
 
-export default function SoftwareImpactPill(props: Props) {
+export default function SoftwareImpactPill(props: Readonly<Props>) {
   const {
     className,
     severity,
@@ -163,3 +163,4 @@ export default function SoftwareImpactPill(props: Props) {
     </Popover>
   );
 }
+
