@@ -26,7 +26,7 @@ interface Props {
   showLeftRightHint?: boolean;
 }
 
-export default function IssueLocationsNavigatorKeyboardHint({ showLeftRightHint }: Props) {
+export default function IssueLocationsNavigatorKeyboardHint({ showLeftRightHint }: Readonly<Props>) {
   const leftRightHint = showLeftRightHint
     ? `${KeyboardKeys.LeftArrow} ${KeyboardKeys.RightArrow}`
     : '';
@@ -39,3 +39,4 @@ export default function IssueLocationsNavigatorKeyboardHint({ showLeftRightHint 
     </div>
   );
 }
+
