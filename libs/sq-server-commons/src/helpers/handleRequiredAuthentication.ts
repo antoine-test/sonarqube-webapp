@@ -21,7 +21,8 @@
 import { getBaseUrl } from './system';
 
 export default function handleRequiredAuthentication() {
-  const returnTo = window.location.pathname + window.location.search + window.location.hash;
+  const returnTo = globalThis.location.pathname + globalThis.location.search + globalThis.location.hash;
   const searchParams = new URLSearchParams({ return_to: returnTo });
-  window.location.replace(`${getBaseUrl()}/sessions/new?${searchParams.toString()}`);
+  globalThis.location.replace(`${getBaseUrl()}/sessions/new?${searchParams.toString()}`);
 }
+
