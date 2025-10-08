@@ -53,7 +53,8 @@ export default function PrioritizedRulesFacet(props: Readonly<Props>) {
       renderName={renderName}
       renderTextName={renderName}
       singleSelection
-      values={value !== undefined ? [String(value)] : []}
+      values={value === undefined ? [] : [String(value)]}
     />
   );
 }
+
