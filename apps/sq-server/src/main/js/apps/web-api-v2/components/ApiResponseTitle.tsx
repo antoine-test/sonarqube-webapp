@@ -25,7 +25,7 @@ interface Props {
   codeDescription: string;
 }
 
-export default function ApiResponseTitle({ code, codeDescription }: Props) {
+export default function ApiResponseTitle({ code, codeDescription }: Readonly<Props>) {
   return (
     <div className="sw-flex sw-items-center sw-gap-2">
       <Badge variety={getResponseCodeVariety(code)}>{code}</Badge>
@@ -49,3 +49,4 @@ export const getResponseCodeVariety = (code: string): BadgeProps['variety'] => {
       return 'neutral'; // Default gray for others
   }
 };
+
