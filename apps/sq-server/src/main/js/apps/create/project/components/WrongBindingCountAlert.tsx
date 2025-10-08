@@ -30,7 +30,7 @@ export interface WrongBindingCountAlertProps {
   alm: AlmKeys;
 }
 
-export default function WrongBindingCountAlert(props: WrongBindingCountAlertProps) {
+export default function WrongBindingCountAlert(props: Readonly<WrongBindingCountAlertProps>) {
   const { alm } = props;
   const { canAdmin } = useAppState();
 
@@ -59,3 +59,4 @@ export default function WrongBindingCountAlert(props: WrongBindingCountAlertProp
     </MessageCallout>
   );
 }
+
