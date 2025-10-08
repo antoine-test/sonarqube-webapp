@@ -39,7 +39,7 @@ const HEADER_ID = `facet_qualifier`;
 
 const options = [ComponentQualifier.Project, ComponentQualifier.Application];
 
-export default function QualifierFacet(props: QualifierFacetProps) {
+export default function QualifierFacet(props: Readonly<QualifierFacetProps>) {
   const { facet, maxFacetValue, onQueryChange, value } = props;
 
   const onItemClick = React.useCallback(
@@ -85,3 +85,4 @@ export default function QualifierFacet(props: QualifierFacetProps) {
 function renderOption(option: string) {
   return <div className="sw-flex sw-items-center">{translate('qualifier', option)}</div>;
 }
+
