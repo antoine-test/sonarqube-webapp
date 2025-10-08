@@ -31,7 +31,7 @@ export interface GraphsLegendCustomProps {
   series: Serie[];
 }
 
-export default function GraphsLegendCustom(props: GraphsLegendCustomProps) {
+export default function GraphsLegendCustom(props: Readonly<GraphsLegendCustomProps>) {
   const { leakPeriodDate, series, removeMetric } = props;
 
   return (
@@ -82,3 +82,4 @@ export default function GraphsLegendCustom(props: GraphsLegendCustomProps) {
     </ul>
   );
 }
+
