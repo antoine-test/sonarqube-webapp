@@ -49,7 +49,7 @@ const selectors = {
     byLabelText('list_of_rules')
       .byRole('listitem')
       .getAll()
-      .filter((item) => !!item.getAttribute('data-rule')),
+      .filter((item) => !!item.dataset.rule),
   currentListItem: byRole('listitem', { current: true }),
 
   // Filters
@@ -291,3 +291,4 @@ export function renderCodingRulesApp(
     featureList,
   });
 }
+
