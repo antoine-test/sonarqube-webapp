@@ -71,9 +71,7 @@ export class JsonIssueMapper {
   }
 
   lineOffsetToCursorPosition(startLine: number, startOffset: number): number {
-    if (!this.splitCode) {
-      this.splitCode = this.code.split('\n');
-    }
+    this.splitCode ??= this.code.split('\n');
     const charsBeforeStartLine = this.splitCode.slice(0, startLine - 1).join('\n').length;
     return charsBeforeStartLine + startOffset + (startLine > 1 ? 1 : 0);
   }
@@ -385,3 +383,4 @@ export function getOffsetsForIssue(issue: Issue, data: string) {
 
   return { startOffset, endOffset };
 }
+
