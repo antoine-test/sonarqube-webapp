@@ -37,15 +37,15 @@ export function DismissableBanner(props: Readonly<DismissableBannerProps>) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    if (get(DISMISSED_ALERT_STORAGE_KEY, alertKey) !== 'true') {
-      setShow(true);
-    } else {
+    if (get(DISMISSED_ALERT_STORAGE_KEY, alertKey) === 'true') {
       setShow(false);
+    } else {
+      setShow(true);
     }
   }, [alertKey]);
 
   const handleBannerDismiss = useCallback(() => {
-    window.dispatchEvent(new Event('resize'));
+    globalThis.dispatchEvent(new Event('resize'));
     save(DISMISSED_ALERT_STORAGE_KEY, 'true', alertKey);
     setShow(false);
   }, [alertKey]);
@@ -74,3 +74,4 @@ const SQSTemporaryRelativeBannerContainer = styled.div`
     position: relative;
   }
 `;
+
