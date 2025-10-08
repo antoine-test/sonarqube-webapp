@@ -36,7 +36,7 @@ enum Period {
 
 const PROPERTY = 'period';
 
-export function PeriodFilter(props: PeriodFilterProps) {
+export function PeriodFilter(props: Readonly<PeriodFilterProps>) {
   const { newCodeSelected, onChange } = props;
 
   const handleClick = React.useCallback(() => {
@@ -65,3 +65,4 @@ export function PeriodFilter(props: PeriodFilterProps) {
     </>
   );
 }
+
