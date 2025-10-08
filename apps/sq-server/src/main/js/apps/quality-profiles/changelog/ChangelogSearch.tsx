@@ -28,7 +28,7 @@ interface ChangelogSearchProps {
   onReset: () => void;
 }
 
-export default function ChangelogSearch(props: ChangelogSearchProps) {
+export default function ChangelogSearch(props: Readonly<ChangelogSearchProps>) {
   const { dateRange } = props;
 
   const intl = useIntl();
@@ -51,3 +51,4 @@ export default function ChangelogSearch(props: ChangelogSearchProps) {
     </div>
   );
 }
+
