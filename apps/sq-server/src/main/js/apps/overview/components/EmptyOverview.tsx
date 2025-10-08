@@ -83,7 +83,7 @@ export function EmptyOverview(props: Readonly<EmptyOverviewProps>) {
 
     getScannableProjects()
       .then(({ projects }) => {
-        setCurrentUserCanScanProject(projects.find((p) => p.key === component.key) !== undefined);
+        setCurrentUserCanScanProject(projects.some((p) => p.key === component.key));
       })
       .catch(() => {});
   }, [component.key, currentUser, currentUserCanScanProject]);
@@ -165,3 +165,4 @@ const SynchInProgress = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
