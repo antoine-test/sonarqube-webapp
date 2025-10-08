@@ -146,7 +146,7 @@ export function parseSorting(sort: string): { sortDesc: boolean; sortValue: stri
 
 export async function fetchScannableProjects() {
   if (scannableProjectsCached) {
-    return Promise.resolve({ scannableProjects: scannableProjectsCached });
+    return { scannableProjects: scannableProjectsCached };
   }
 
   const response = await getScannableProjects().then(({ projects }) => {
@@ -184,7 +184,7 @@ export function fetchProjects({
         facets: getFacetsMap(facets, isStandardMode),
         projects: components.map((component) => ({
           ...component,
-          isScannable: scannableProjects.find((p) => p.key === component.key) !== undefined,
+          isScannable: scannableProjects.some((p) => p.key === component.key),
         })),
         total: paging.total,
       };
@@ -284,3 +284,4 @@ export function formatDuration(ms: number) {
     { value: minutes, label: 'duration.minutes' },
   ]);
 }
+
