@@ -127,7 +127,7 @@ export default function IssueView(props: Readonly<Props>) {
                 >
                   {intl.formatMessage(
                     {
-                      id: `issue.severity.updated_notification.link.${!quality ? 'standard' : 'mqr'}`,
+                      id: `issue.severity.updated_notification.link.${quality ? 'mqr' : 'standard'}`,
                     },
                     {
                       type: translate('issue.type', issue.type).toLowerCase(),
@@ -234,3 +234,4 @@ const IssueItem = styled.li`
     outline-offset: -2px;
   }
 `;
+
