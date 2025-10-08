@@ -35,7 +35,7 @@ interface Props extends PopupProps {
 /** @deprecated Use DropdownMenu and other DropdownMenu.* elements from Echoes instead.
  * See the {@link https://xtranet-sonarsource.atlassian.net/wiki/spaces/Platform/pages/3354918914/DropdownMenus | Migration Guide}
  */
-export function DropdownToggler(props: Props) {
+export function DropdownToggler(props: Readonly<Props>) {
   const {
     children,
     open,
@@ -64,3 +64,4 @@ export function DropdownToggler(props: Props) {
     </Popup>
   );
 }
+
