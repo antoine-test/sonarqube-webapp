@@ -57,7 +57,7 @@ function mavenYamlSteps(projectKey: string, projectName: string) {
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=${projectKey} -Dsonar.projectName='${projectName}'`;
 }
 
-export default function JavaMaven(props: JavaMavenProps) {
+export default function JavaMaven(props: Readonly<JavaMavenProps>) {
   const { component, branchesEnabled, mainBranchName, monorepo } = props;
 
   if (monorepo) {
@@ -76,3 +76,4 @@ export default function JavaMaven(props: JavaMavenProps) {
     />
   );
 }
+
