@@ -51,7 +51,7 @@ export interface HotspotViewerRendererProps {
   standards?: StandardsInformation;
 }
 
-export function HotspotViewerRenderer(props: HotspotViewerRendererProps) {
+export function HotspotViewerRenderer(props: Readonly<HotspotViewerRendererProps>) {
   const {
     component,
     currentUser,
@@ -119,3 +119,4 @@ export function HotspotViewerRenderer(props: HotspotViewerRendererProps) {
 }
 
 export default withCurrentUserContext(HotspotViewerRenderer);
+
