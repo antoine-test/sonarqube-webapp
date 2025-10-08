@@ -47,7 +47,7 @@ export interface TreeMapProps<T> {
   width: number;
 }
 
-export function TreeMap<T = unknown>(props: TreeMapProps<T>) {
+export function TreeMap<T = unknown>(props: Readonly<TreeMapProps<T>>) {
   function mostCommitPrefix(labels: string[]) {
     const sortedLabels = sortBy(labels.slice(0));
     const firstLabel = sortedLabels[0];
@@ -110,3 +110,4 @@ export function TreeMap<T = unknown>(props: TreeMapProps<T>) {
 const StyledContainer = styled.ul`
   ${tw`sw-relative`}
 `;
+
