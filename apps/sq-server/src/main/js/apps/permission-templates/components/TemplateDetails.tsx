@@ -25,7 +25,7 @@ interface Props {
   template: PermissionTemplate;
 }
 
-export default function TemplateDetails({ template }: Props) {
+export default function TemplateDetails({ template }: Readonly<Props>) {
   return (
     <div className="sw-mb-4">
       {template.defaultFor.length > 0 && (
@@ -46,3 +46,4 @@ export default function TemplateDetails({ template }: Props) {
     </div>
   );
 }
+
