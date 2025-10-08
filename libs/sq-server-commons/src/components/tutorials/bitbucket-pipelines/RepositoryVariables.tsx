@@ -39,7 +39,7 @@ export interface RepositoryVariablesProps {
   currentUser: LoggedInUser;
 }
 
-export default function RepositoryVariables(props: RepositoryVariablesProps) {
+export default function RepositoryVariables(props: Readonly<RepositoryVariablesProps>) {
   const { almBinding, baseUrl, component, currentUser } = props;
   const { data: projectBinding } = useProjectBindingQuery(component.key);
   return (
@@ -126,3 +126,4 @@ export default function RepositoryVariables(props: RepositoryVariablesProps) {
     </>
   );
 }
+
