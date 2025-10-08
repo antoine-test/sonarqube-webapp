@@ -38,7 +38,7 @@ export interface Props {
 
 const NO_DATA_OPTION = 6;
 
-export default function DuplicationsFilter(props: Props) {
+export default function DuplicationsFilter(props: Readonly<Props>) {
   const { facet, maxFacetValue, property = 'duplications', value } = props;
   return (
     <RangeFacetBase
@@ -89,3 +89,4 @@ function renderOption(option: number) {
     </div>
   );
 }
+
