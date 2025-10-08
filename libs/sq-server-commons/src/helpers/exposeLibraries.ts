@@ -34,7 +34,7 @@ import {
 } from './request';
 
 const exposeLibraries = () => {
-  const global = window as any;
+  const global = globalThis as any;
 
   global.SonarRequest = {
     request,
@@ -55,3 +55,4 @@ const exposeLibraries = () => {
 };
 
 export default exposeLibraries;
+
