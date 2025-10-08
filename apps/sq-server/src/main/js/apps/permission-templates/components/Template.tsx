@@ -83,24 +83,24 @@ export default class Template extends React.PureComponent<Props, State> {
     const { query, filter, selectedPermission } = this.state;
 
     const getUsers: Promise<{ paging?: Paging; users: PermissionUser[] }> =
-      filter !== 'groups'
-        ? api.getPermissionTemplateUsers({
+      filter === 'groups'
+        ? Promise.resolve({ paging: undefined, users: [] })
+        : api.getPermissionTemplateUsers({
             templateId: template.id,
             q: query || undefined,
             permission: selectedPermission,
             p: usersPage,
-          })
-        : Promise.resolve({ paging: undefined, users: [] });
+          });
 
     const getGroups: Promise<{ groups: PermissionGroup[]; paging?: Paging }> =
-      filter !== 'users'
-        ? api.getPermissionTemplateGroups({
+      filter === 'users'
+        ? Promise.resolve({ paging: undefined, groups: [] })
+        : api.getPermissionTemplateGroups({
             templateId: template.id,
             q: query || undefined,
             permission: selectedPermission,
             p: groupsPage,
-          })
-        : Promise.resolve({ paging: undefined, groups: [] });
+          });
 
     return Promise.all([getUsers, getGroups]);
   };
@@ -388,3 +388,4 @@ export default class Template extends React.PureComponent<Props, State> {
     );
   }
 }
+
