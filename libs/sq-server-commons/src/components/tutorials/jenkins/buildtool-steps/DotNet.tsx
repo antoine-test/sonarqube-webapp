@@ -46,7 +46,7 @@ const DotOS: { [key in keyof typeof DotNetFlavor]: OSDotNet } = {
   linux_core: OSs.Linux,
 };
 
-export default function DotNet(props: LanguageProps) {
+export default function DotNet(props: Readonly<LanguageProps>) {
   const { component } = props;
   const [flavorComponent, setFlavorComponent] =
     React.useState<keyof typeof DotNetFlavor>('win_core');
@@ -72,3 +72,4 @@ export default function DotNet(props: LanguageProps) {
     </>
   );
 }
+
