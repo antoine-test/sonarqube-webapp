@@ -162,7 +162,7 @@ export default function CodeAppRenderer(props: Readonly<Props>) {
 
   return (
     <LargeCenteredLayout className="sw-py-8 sw-typo-lg" id="code-page">
-      <Helmet defer={false} title={sourceViewer !== undefined ? sourceViewer.name : defaultTitle} />
+      <Helmet defer={false} title={sourceViewer === undefined ? defaultTitle : sourceViewer.name} />
       <A11ySkipTarget anchor="code_main" />
       {isPortfolio && (
         <header className="sw-grid sw-grid-cols-3 sw-gap-12 sw-mb-4">
@@ -311,3 +311,4 @@ export default function CodeAppRenderer(props: Readonly<Props>) {
     </LargeCenteredLayout>
   );
 }
+
