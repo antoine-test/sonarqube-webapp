@@ -335,7 +335,7 @@ export class CodingRulesApp extends React.PureComponent<Props, State> {
   getSelectedIndex = ({ rules } = this.state) => {
     const selected = this.getSelectedRuleKey(this.props) || getOpen(this.props.location.query);
     const index = rules.findIndex((rule) => rule.key === selected);
-    return index !== -1 ? index : undefined;
+    return index === -1 ? undefined : index;
   };
 
   selectNextRule = () => {
@@ -671,7 +671,7 @@ export class CodingRulesApp extends React.PureComponent<Props, State> {
                 className="sw-overflow-y-auto"
                 style={{
                   height: `calc(100vh - ${LAYOUT_GLOBAL_NAV_HEIGHT + LAYOUT_FOOTER_HEIGHT}px - ${
-                    !openRule ? RULE_LIST_HEADER_HEIGHT : 0
+                    openRule ? 0 : RULE_LIST_HEADER_HEIGHT
                   }px)`,
                 }}
               >
@@ -759,3 +759,4 @@ const StyledContentWrapper = styled.div`
   border-bottom: none;
   overflow-x: hidden;
 `;
+
