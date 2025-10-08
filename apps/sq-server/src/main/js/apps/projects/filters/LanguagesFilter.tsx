@@ -38,7 +38,7 @@ interface Props {
   value?: string[];
 }
 
-export function LanguagesFilter(props: Props) {
+export function LanguagesFilter(props: Readonly<Props>) {
   const { facet, languages, loadSearchResultCount, query, onQueryChange, value = [] } = props;
   const intl = useIntl();
 
@@ -127,3 +127,4 @@ export function LanguagesFilter(props: Props) {
 }
 
 export default withLanguages(LanguagesFilter);
+
