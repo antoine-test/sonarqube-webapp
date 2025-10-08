@@ -27,7 +27,7 @@ interface Props {
   className?: string;
 }
 
-export default function GradleBuildSelection({ children, className }: Props) {
+export default function GradleBuildSelection({ children, className }: Readonly<Props>) {
   const [build, setBuild] = React.useState<GradleBuildDSL>(GradleBuildDSL.Groovy);
 
   const buildOptions = Object.values(GradleBuildDSL).map((v: GradleBuildDSL) => ({
@@ -50,3 +50,4 @@ export default function GradleBuildSelection({ children, className }: Props) {
     </>
   );
 }
+
