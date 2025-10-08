@@ -36,7 +36,7 @@ export interface ColorRatingsLegendProps {
   onRatingClick: (selection: number) => void;
 }
 
-export default function ColorRatingsLegend(props: ColorRatingsLegendProps) {
+export default function ColorRatingsLegend(props: Readonly<ColorRatingsLegendProps>) {
   const { className, filters } = props;
   const theme = useTheme();
   const RATINGS = [1, 2, 3, 4, 5];
@@ -66,3 +66,4 @@ export default function ColorRatingsLegend(props: ColorRatingsLegendProps) {
     <ColorsLegend className={className} colors={ratingsColors} onColorClick={handleColorClick} />
   );
 }
+
