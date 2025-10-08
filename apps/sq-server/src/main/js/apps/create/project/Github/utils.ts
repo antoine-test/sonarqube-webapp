@@ -68,6 +68,7 @@ export async function redirectToGithub(params: {
   if (isWebUri(instanceRootUrl) === undefined) {
     throw new Error('Invalid GitHub URL');
   } else {
-    window.location.replace(`${instanceRootUrl}/login/oauth/authorize?${queryParams}`);
+    globalThis.location.replace(`${instanceRootUrl}/login/oauth/authorize?${queryParams}`);
   }
 }
+
