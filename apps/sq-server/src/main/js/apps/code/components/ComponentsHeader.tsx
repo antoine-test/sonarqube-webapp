@@ -46,7 +46,7 @@ const SHORT_NAME_METRICS = [
   MetricKey.new_duplicated_lines_density,
 ];
 
-export default function ComponentsHeader(props: ComponentsHeaderProps) {
+export default function ComponentsHeader(props: Readonly<ComponentsHeaderProps>) {
   const {
     baseComponent,
     canBePinned = true,
@@ -81,7 +81,7 @@ export default function ComponentsHeader(props: ComponentsHeaderProps) {
       return translate(
         'metric',
         metric,
-        SHORT_NAME_METRICS.includes(metric as MetricKey) ? 'short_name' : 'name',
+        SHORT_NAME_METRICS.includes(metric) ? 'short_name' : 'name',
       );
     });
 
@@ -101,3 +101,4 @@ export default function ComponentsHeader(props: ComponentsHeaderProps) {
     </>
   );
 }
+
