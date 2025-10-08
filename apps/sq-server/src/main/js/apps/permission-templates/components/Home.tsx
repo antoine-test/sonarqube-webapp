@@ -33,7 +33,7 @@ interface Props {
   topQualifiers: string[];
 }
 
-export default function Home(props: Props) {
+export default function Home(props: Readonly<Props>) {
   return (
     <LargeCenteredLayout id="users-page">
       <div className="sw-my-8">
@@ -53,3 +53,4 @@ export default function Home(props: Props) {
     </LargeCenteredLayout>
   );
 }
+
