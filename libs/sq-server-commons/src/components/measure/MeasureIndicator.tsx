@@ -37,7 +37,7 @@ interface Props {
   value: string | undefined;
 }
 
-export default function MeasureIndicator(props: Props) {
+export default function MeasureIndicator(props: Readonly<Props>) {
   const { className, metricKey, metricType, value } = props;
 
   if (
@@ -62,3 +62,4 @@ export default function MeasureIndicator(props: Props) {
 
   return <Measure {...props} badgeSize={RatingBadgeSize.Small} />;
 }
+
