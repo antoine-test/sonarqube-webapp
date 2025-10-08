@@ -62,7 +62,7 @@ export const MAX_ANALYSES_NB = 5;
 const MAX_GRAPH_NB = 2;
 const MAX_SERIES_PER_GRAPH = 3;
 
-export function ActivityPanel(props: ActivityPanelProps) {
+export function ActivityPanel(props: Readonly<ActivityPanelProps>) {
   const {
     analyses = [],
     branchLike,
@@ -170,3 +170,4 @@ export function ActivityPanel(props: ActivityPanelProps) {
 }
 
 export default React.memo(ActivityPanel);
+
