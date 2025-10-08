@@ -32,7 +32,7 @@ export interface YamlFileStepProps {
   setConfig: (config: TutorialConfig) => void;
 }
 
-export function YamlFileStep(props: YamlFileStepProps) {
+export function YamlFileStep(props: Readonly<YamlFileStepProps>) {
   const { ci, config, setConfig, children, hasCLanguageFeature } = props;
 
   return (
@@ -52,3 +52,4 @@ export function YamlFileStep(props: YamlFileStepProps) {
 }
 
 export default withCLanguageFeature(YamlFileStep);
+
