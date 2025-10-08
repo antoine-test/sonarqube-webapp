@@ -31,7 +31,7 @@ function getAlmLongName(alm: AlmKeys) {
   return hasMessage('alm', alm, 'long') ? translate('alm', alm, 'long') : translate('alm', alm);
 }
 
-export default function SelectAlmStep(props: SelectAlmStepProps) {
+export default function SelectAlmStep(props: Readonly<SelectAlmStepProps>) {
   const { alm } = props;
   return (
     <TutorialStep title={translate('onboarding.tutorial.with.jenkins.alm_selection.title')}>
@@ -52,3 +52,4 @@ export default function SelectAlmStep(props: SelectAlmStepProps) {
     </TutorialStep>
   );
 }
+
