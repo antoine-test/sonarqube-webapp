@@ -110,7 +110,7 @@ export default function MeasureOverview(props: Readonly<Props>) {
       );
     } else {
       updateQuery({
-        selected: selectedComponent.key !== rootComponent.key ? selectedComponent.key : undefined,
+        selected: selectedComponent.key === rootComponent.key ? undefined : selectedComponent.key,
       });
     }
   };
@@ -161,3 +161,4 @@ export default function MeasureOverview(props: Readonly<Props>) {
     </div>
   );
 }
+
