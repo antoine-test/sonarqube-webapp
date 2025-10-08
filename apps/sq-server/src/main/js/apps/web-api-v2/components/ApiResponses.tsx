@@ -30,7 +30,7 @@ interface Props {
   responses?: ExcludeReferences<OpenAPIV3.ResponsesObject>;
 }
 
-export default function ApiResponses({ responses }: Props) {
+export default function ApiResponses({ responses }: Readonly<Props>) {
   const [openedResponses, setOpenedResponses] = React.useState<string[]>([
     Object.keys(responses ?? {})[0],
   ]);
@@ -68,3 +68,4 @@ export default function ApiResponses({ responses }: Props) {
     </>
   );
 }
+
