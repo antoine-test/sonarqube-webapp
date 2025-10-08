@@ -29,7 +29,7 @@ interface Props {
   path: string;
 }
 
-export default function SubnavigationIssueComponentName({ path }: Props) {
+export default function SubnavigationIssueComponentName({ path }: Readonly<Props>) {
   return (
     <StyledHeading className="sw-pb-1 sw-pt-6 sw-flex sw-truncate" title={path}>
       <Text className="sw-truncate" isSubtle>
@@ -44,3 +44,4 @@ const StyledHeading = styled(SubnavigationHeading)`
     border-bottom: ${themeBorder('default')};
   }
 `;
+
