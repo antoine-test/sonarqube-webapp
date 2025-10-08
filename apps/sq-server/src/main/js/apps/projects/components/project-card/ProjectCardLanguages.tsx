@@ -32,7 +32,7 @@ interface Props {
 
 const MAX_DISPLAYED_LANGUAGES = 2;
 
-export function ProjectCardLanguages({ className, distribution, languages }: Props) {
+export function ProjectCardLanguages({ className, distribution, languages }: Readonly<Props>) {
   if (distribution === undefined) {
     return null;
   }
@@ -70,7 +70,8 @@ function getLanguageName(languages: Languages, key: string): string {
     return translate('unknown');
   }
   const language = languages[key];
-  return language != null ? language.name : key;
+  return language == null ? key : language.name;
 }
 
 export default withLanguages(ProjectCardLanguages);
+
