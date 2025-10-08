@@ -30,7 +30,7 @@ export interface GraphsTooltipsContentCoverageProps {
   tooltipIdx: number;
 }
 
-export default function GraphsTooltipsContentCoverage(props: GraphsTooltipsContentCoverageProps) {
+export default function GraphsTooltipsContentCoverage(props: Readonly<GraphsTooltipsContentCoverageProps>) {
   const { addSeparator, measuresHistory, tooltipIdx } = props;
   const uncovered = measuresHistory.find((measure) => measure.metric === MetricKey.uncovered_lines);
   const coverage = measuresHistory.find((measure) => measure.metric === MetricKey.coverage);
@@ -61,3 +61,4 @@ export default function GraphsTooltipsContentCoverage(props: GraphsTooltipsConte
     </>
   );
 }
+
