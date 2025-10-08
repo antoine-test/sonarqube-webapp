@@ -75,11 +75,9 @@ export default function DataTableModal(props: DataTableModalProps) {
 
       data.forEach(({ x, y }) => {
         const key = x.getTime();
-        if (acc[key] === undefined) {
-          acc[key] = { date: x } as DataTableEntry;
-        }
+        acc[key] ??= { date: x } as DataTableEntry;
 
-        if (y !== undefined && !(typeof y === 'number' && isNaN(y))) {
+        if (y !== undefined && !(typeof y === 'number' && Number.isNaN(y))) {
           acc[key][serie.name] = formatMeasure(y, serie.type);
         }
       });
@@ -219,3 +217,4 @@ const StyledTable = styled.table`
     vertical-align: middle;
   }
 `;
+
