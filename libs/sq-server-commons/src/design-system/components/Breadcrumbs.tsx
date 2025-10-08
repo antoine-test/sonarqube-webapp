@@ -54,7 +54,7 @@ interface Props {
   maxWidth?: number;
 }
 
-export function Breadcrumbs(props: Props) {
+export function Breadcrumbs(props: Readonly<Props>) {
   const {
     ariaLabel,
     breadcrumbLimit,
@@ -177,7 +177,7 @@ export function Breadcrumbs(props: Props) {
   );
 }
 
-export function BreadcrumbsFullWidth(props: Omit<Props, 'innerRef' | 'maxWidth'>) {
+export function BreadcrumbsFullWidth(props: Readonly<Omit<Props, 'innerRef' | 'maxWidth'>>) {
   const containerRef = React.useRef(null);
   const [width = LAYOUT_VIEWPORT_MAX_WIDTH_LARGE] = useResizeObserver(containerRef);
 
@@ -192,3 +192,4 @@ const BreadcrumbWrapper = styled.nav`
   color: ${cssVar('color-text-subtle')};
   background-color: ${themeColor('breadcrumb')};
 `;
+
