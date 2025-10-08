@@ -36,9 +36,9 @@ export function GlobalNavUser() {
   const { settings } = React.useContext(AppStateContext);
 
   const handleLogin = React.useCallback(() => {
-    const returnTo = encodeURIComponent(window.location.pathname + window.location.search);
-    window.location.href = `${getBaseUrl()}/sessions/new?return_to=${returnTo}${
-      window.location.hash
+    const returnTo = encodeURIComponent(globalThis.location.pathname + globalThis.location.search);
+    globalThis.location.href = `${getBaseUrl()}/sessions/new?return_to=${returnTo}${
+      globalThis.location.hash
     }`;
   }, []);
 
@@ -69,3 +69,4 @@ export function GlobalNavUser() {
     />
   );
 }
+
