@@ -554,7 +554,7 @@ export const definitions: ExtendedSettingDefinition[] = [
     key: 'sonar.cobol.copy.exclusions',
     name: 'Copybooks to exclude',
     description:
-      'Comma-separated list of copybooks exclusion patterns. If one copybook name matches one exclusion pattern, no violation will be reported on this copybook. The exclusion pattern must be a case-insensitive regular expression and should not include the copybook suffix.<p>For instance "one\\d*,TWO." will exclude violations reported on one23.cpy, ONE111.cpy, TWOX, and TWO2.cpy copybooks.</p>',
+      String.raw`Comma-separated list of copybooks exclusion patterns. If one copybook name matches one exclusion pattern, no violation will be reported on this copybook. The exclusion pattern must be a case-insensitive regular expression and should not include the copybook suffix.<p>For instance "one\d*,TWO." will exclude violations reported on one23.cpy, ONE111.cpy, TWOX, and TWO2.cpy copybooks.</p>`,
     category: 'COBOL',
     subCategory: 'Preprocessor',
     multiValues: true,
@@ -2190,7 +2190,7 @@ export const definitions: ExtendedSettingDefinition[] = [
     key: 'sonar.scala.coverage.reportPaths',
     name: 'Path to Scoverage report',
     description:
-      'Path to Scoverage report file(s) (scoverage.xml). Usually in target\\scala-X.X\\scoverage-report',
+      String.raw`Path to Scoverage report file(s) (scoverage.xml). Usually in target\scala-X.X\scoverage-report`,
     category: 'Scala',
     subCategory: 'Test and Coverage',
     multiValues: true,
@@ -2470,3 +2470,4 @@ export const definitions: ExtendedSettingDefinition[] = [
     fields: [],
   },
 ];
+
