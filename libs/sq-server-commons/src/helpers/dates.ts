@@ -46,9 +46,10 @@ export function toISO8601WithOffsetString(rawDate: ParsableDate): string {
 }
 
 export function isValidDate(date: Date): boolean {
-  return !isNaN(date.getTime());
+  return !Number.isNaN(date.getTime());
 }
 
 export function now() {
   return new Date();
 }
+
