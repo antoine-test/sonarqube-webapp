@@ -38,7 +38,7 @@ interface Props {
   onEditComment: (key: string, text: string) => void;
 }
 
-export default function CommentActions(props: Props) {
+export default function CommentActions(props: Readonly<Props>) {
   const { commentKey, markdown, onDeleteComment, onEditComment } = props;
 
   const intl = useIntl();
@@ -107,3 +107,4 @@ export default function CommentActions(props: Props) {
     </>
   );
 }
+
