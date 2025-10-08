@@ -192,10 +192,10 @@ export const AI_SUPPORTED_CONDITION_ORDER_PRIORITIES: Record<string, number> = {
   [MetricKey.coverage]: 4,
 };
 
-const CAYC_CONDITIONS_WITHOUT_FIXED_VALUE: AllCaycMetricKeys[] = [
+const CAYC_CONDITIONS_WITHOUT_FIXED_VALUE: AllCaycMetricKeys[] = new Set([
   MetricKey.new_duplicated_lines_density,
   MetricKey.new_coverage,
-];
+]);
 
 const NON_EDITABLE_CONDITIONS: MetricKey[] = [MetricKey.prioritized_rule_issues];
 
@@ -239,7 +239,7 @@ export function getCaycConditionMetadata(condition: Condition) {
 
 function isWeakCondition(key: AllCaycMetricKeys, selectedCondition: Condition) {
   return (
-    !CAYC_CONDITIONS_WITHOUT_FIXED_VALUE.includes(key) &&
+    !CAYC_CONDITIONS_WITHOUT_FIXED_VALUE.has(key) &&
     ALL_CAYC_CONDITIONS[key]?.error !== selectedCondition.error
   );
 }
@@ -328,7 +328,7 @@ export function groupAndSortByPriorityConditions(
 
 export function getCorrectCaycCondition(condition: Condition) {
   const conditionMetric = condition.metric as OptimizedCaycMetricKeys;
-  if (CAYC_CONDITIONS_WITHOUT_FIXED_VALUE.includes(conditionMetric)) {
+  if (CAYC_CONDITIONS_WITHOUT_FIXED_VALUE.has(conditionMetric)) {
     return condition;
   }
   return OPTIMIZED_CAYC_CONDITIONS[conditionMetric];
@@ -363,3 +363,4 @@ export function getLocalizedMetricNameNoDiffMetric(
 ) {
   return getLocalizedMetricName(getNoDiffMetric(metric, metrics));
 }
+
