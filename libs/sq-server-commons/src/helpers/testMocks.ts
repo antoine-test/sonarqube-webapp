@@ -459,7 +459,7 @@ export function mockMeasureEnhanced(overrides: Partial<MeasureEnhanced> = {}): M
   return {
     bestValue: true,
     leak: '1',
-    metric: mockMetric({ ...(overrides.metric || {}) }),
+    metric: mockMetric({ ...overrides.metric }),
     period: {
       bestValue: true,
       index: 1,
@@ -929,3 +929,4 @@ export function mockDumpStatus(props: Partial<DumpStatus> = {}): DumpStatus {
 export function mockRuleRepository(override: Partial<RuleRepository> = {}) {
   return { key: 'css', language: 'css', name: 'SonarQube', ...override };
 }
+
