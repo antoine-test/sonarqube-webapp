@@ -64,8 +64,9 @@ export default class TemplateFacet extends React.PureComponent<Props> {
         renderName={this.renderName}
         renderTextName={this.renderName}
         singleSelection
-        values={value !== undefined ? [String(value)] : []}
+        values={value === undefined ? [] : [String(value)]}
       />
     );
   }
 }
+
