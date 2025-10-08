@@ -37,7 +37,7 @@ export interface QualityProfilesContextProps {
 export function withQualityProfilesContext<P extends Partial<QualityProfilesContextProps>>(
   WrappedComponent: React.ComponentType<React.PropsWithChildren<P>>,
 ): React.ComponentType<React.PropsWithChildren<Omit<P, keyof QualityProfilesContextProps>>> {
-  function ComponentWithQualityProfilesProps(props: P) {
+  function ComponentWithQualityProfilesProps(props: Readonly<P>) {
     const context = useOutletContext<QualityProfilesContextProps>();
     return <WrappedComponent {...props} {...context} />;
   }
@@ -51,3 +51,4 @@ export function withQualityProfilesContext<P extends Partial<QualityProfilesCont
 export function useQualityProfilesContext() {
   return useOutletContext<QualityProfilesContextProps>();
 }
+
