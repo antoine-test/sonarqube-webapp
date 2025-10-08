@@ -37,7 +37,7 @@ export interface Props extends IconProps {
   type: string | IssueType;
 }
 
-export default function IssueTypeIcon({ type, ...iconProps }: Props) {
+export default function IssueTypeIcon({ type, ...iconProps }: Readonly<Props>) {
   switch (type.toLowerCase()) {
     case IssueType.Bug.toLowerCase():
     case 'bugs':
@@ -90,3 +90,4 @@ export function getIssueTypeIcon(type: string | IssueType) {
       return undefined;
   }
 }
+
