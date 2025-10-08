@@ -29,7 +29,7 @@ export interface LeakPeriodInfoProps {
   leakPeriod: Period | ApplicationPeriod;
 }
 
-export function LeakPeriodInfo({ leakPeriod }: LeakPeriodInfoProps) {
+export function LeakPeriodInfo({ leakPeriod }: Readonly<LeakPeriodInfoProps>) {
   if (isApplicationNewCodePeriod(leakPeriod)) {
     return <ApplicationLeakPeriodInfo leakPeriod={leakPeriod} />;
   }
@@ -37,3 +37,4 @@ export function LeakPeriodInfo({ leakPeriod }: LeakPeriodInfoProps) {
 }
 
 export default React.memo(LeakPeriodInfo);
+
