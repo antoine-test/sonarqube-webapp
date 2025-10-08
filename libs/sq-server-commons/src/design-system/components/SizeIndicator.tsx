@@ -42,7 +42,7 @@ const SIZE_IN_LOC = {
   l: 500_000,
 };
 
-export function SizeIndicator({ size = 'sm', value }: Props) {
+export function SizeIndicator({ size = 'sm', value }: Readonly<Props>) {
   let letter: SizeLabel;
   if (inRange(value, 0, SIZE_IN_LOC.xs)) {
     letter = 'XS';
@@ -75,3 +75,4 @@ const StyledContainer = styled.div<{ size: string }>`
   ${tw`sw-rounded-pill`};
   ${tw`sw-font-semibold`};
 `;
+
