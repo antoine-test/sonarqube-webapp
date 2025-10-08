@@ -31,7 +31,7 @@ interface Props {
   toggleFavorite: VoidFunction;
 }
 
-export function FavoriteButton(props: Props) {
+export function FavoriteButton(props: Readonly<Props>) {
   const { className, favorite, overlay, toggleFavorite, innerRef } = props;
 
   return (
@@ -60,3 +60,4 @@ const StyledButtonIcon = styled(ButtonIcon)<{ isIconFilled: boolean }>`
   }`
       : ''}
 `;
+
