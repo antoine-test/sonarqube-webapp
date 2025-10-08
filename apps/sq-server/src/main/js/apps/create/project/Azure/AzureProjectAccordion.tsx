@@ -43,7 +43,7 @@ export interface AzureProjectAccordionProps {
 
 const PAGE_SIZE = 20;
 
-export default function AzureProjectAccordion(props: AzureProjectAccordionProps) {
+export default function AzureProjectAccordion(props: Readonly<AzureProjectAccordionProps>) {
   const { loading, startsOpen, project, repositories = [], searchQuery } = props;
 
   const [open, setOpen] = React.useState(startsOpen);
@@ -125,3 +125,4 @@ export default function AzureProjectAccordion(props: AzureProjectAccordionProps)
     </Accordion>
   );
 }
+
