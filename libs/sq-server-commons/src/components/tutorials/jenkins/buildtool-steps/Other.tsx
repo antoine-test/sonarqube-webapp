@@ -34,7 +34,7 @@ const JENKINSFILE_SNIPPET = `node {
   }
 }`;
 
-export default function Other(props: LanguageProps) {
+export default function Other(props: Readonly<LanguageProps>) {
   const { component } = props;
   return (
     <>
@@ -46,3 +46,4 @@ export default function Other(props: LanguageProps) {
     </>
   );
 }
+
