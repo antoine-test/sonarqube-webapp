@@ -62,7 +62,7 @@ export function SubnavigationItem(props: Readonly<Props>) {
   );
 }
 
-export function SubnavigationLinkItem({ children, ...props }: NavLinkProps) {
+export function SubnavigationLinkItem({ children, ...props }: Readonly<NavLinkProps>) {
   return <SubnavigationLinkItemStyled {...props}>{children}</SubnavigationLinkItemStyled>;
 }
 
@@ -102,3 +102,4 @@ const SubnavigationLinkItemStyled = styled(NavLink)`
   ${ItemBaseStyle};
   ${tw`sw-no-underline`}
 `;
+
