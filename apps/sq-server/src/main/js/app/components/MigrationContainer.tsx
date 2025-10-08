@@ -23,7 +23,7 @@ import { getSystemStatus } from '~sq-server-commons/helpers/system';
 
 export function MigrationContainer() {
   if (getSystemStatus() !== 'UP') {
-    const returnTo = window.location.pathname + window.location.search + window.location.hash;
+    const returnTo = globalThis.location.pathname + globalThis.location.search + globalThis.location.hash;
     const to = {
       pathname: '/maintenance',
       search: new URLSearchParams({
@@ -37,3 +37,4 @@ export function MigrationContainer() {
 }
 
 export default MigrationContainer;
+
