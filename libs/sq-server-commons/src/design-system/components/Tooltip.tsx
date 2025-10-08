@@ -111,7 +111,7 @@ export class TooltipInner extends React.Component<TooltipProps, State> {
     this.state = {
       flipped: false,
       placement: props.placement,
-      visible: props.visible !== undefined ? props.visible : false,
+      visible: props.visible ?? false,
     };
     this.id = uniqueId('tooltip-');
     this.throttledPositionTooltip = throttle(this.positionTooltip, THROTTLE_SCROLL_DELAY);
@@ -191,8 +191,8 @@ export class TooltipInner extends React.Component<TooltipProps, State> {
   };
 
   clearTimeouts = () => {
-    window.clearTimeout(this.mouseEnterTimeout);
-    window.clearTimeout(this.mouseLeaveTimeout);
+    globalThis.clearTimeout(this.mouseEnterTimeout);
+    globalThis.clearTimeout(this.mouseLeaveTimeout);
   };
 
   hasVisibleChanged = (prevStateVisible: boolean, prevPropsVisible?: boolean) => {
@@ -271,7 +271,7 @@ export class TooltipInner extends React.Component<TooltipProps, State> {
   };
 
   handlePointerEnter = () => {
-    this.mouseEnterTimeout = window.setTimeout(
+    this.mouseEnterTimeout = globalThis.setTimeout(
       () => {
         // for some reason even after the `this.mouseEnterTimeout` is cleared, it still triggers
         // to workaround this issue, check that its value is not `undefined`
@@ -294,12 +294,12 @@ export class TooltipInner extends React.Component<TooltipProps, State> {
 
   handlePointerLeave = () => {
     if (this.mouseEnterTimeout !== undefined) {
-      window.clearTimeout(this.mouseEnterTimeout);
+      globalThis.clearTimeout(this.mouseEnterTimeout);
       this.mouseEnterTimeout = undefined;
     }
 
     if (!this.mouseIn) {
-      this.mouseLeaveTimeout = window.setTimeout(
+      this.mouseLeaveTimeout = globalThis.setTimeout(
         () => {
           if (this.mounted && this.props.visible === undefined && !this.mouseIn) {
             this.setState({ visible: false });
@@ -554,3 +554,4 @@ export const TooltipWrapperInner = styled.div`
     ${tw`sw-mx-4`};
   }
 `;
+
