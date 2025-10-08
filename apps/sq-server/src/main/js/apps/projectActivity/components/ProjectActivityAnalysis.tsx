@@ -61,7 +61,7 @@ export enum Dialog {
   RemoveAnalysis = 'remove_analysis',
 }
 
-function ProjectActivityAnalysis(props: ProjectActivityAnalysisProps) {
+function ProjectActivityAnalysis(props: Readonly<ProjectActivityAnalysisProps>) {
   let node: HTMLLIElement | null = null;
 
   const {
@@ -86,7 +86,7 @@ function ProjectActivityAnalysis(props: ProjectActivityAnalysisProps) {
   };
 
   const parsedDate = parseDate(analysis.date);
-  const hasVersion = analysis.events.find((event) => event.category === 'VERSION') != null;
+  const hasVersion = analysis.events.some((event) => event.category === 'VERSION');
 
   const canAddVersion = canAdmin && !hasVersion && canCreateVersion;
   const canAddEvent = canAdmin;
@@ -276,3 +276,4 @@ export const BaselineMarker = styled.li`
 `;
 
 export default injectIntl(ProjectActivityAnalysis);
+
