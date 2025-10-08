@@ -41,7 +41,7 @@ export interface Props {
   project: Project;
 }
 
-export default function ProjectRowActions({ currentUser, project }: Props) {
+export default function ProjectRowActions({ currentUser, project }: Readonly<Props>) {
   const [applyTemplateModal, setApplyTemplateModal] = useState(false);
   const [hasAccess, setHasAccess] = useState<boolean | undefined>(undefined);
   const [loading, setLoading] = useState(false);
@@ -152,3 +152,4 @@ export default function ProjectRowActions({ currentUser, project }: Props) {
     </>
   );
 }
+
