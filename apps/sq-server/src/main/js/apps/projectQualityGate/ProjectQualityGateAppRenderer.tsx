@@ -377,7 +377,7 @@ function ProjectQualityGateAppRenderer(props: Readonly<ProjectQualityGateAppRend
                     props.onSelect(value);
                   }
                 }}
-                value={!usesDefault ? selectedQualityGateName : currentQualityGate.name}
+                value={usesDefault ? currentQualityGate.name : selectedQualityGateName}
               >
                 <div>
                   <div className="sw-ml-1 sw-mb-2">
@@ -459,3 +459,4 @@ function ProjectQualityGateAppRenderer(props: Readonly<ProjectQualityGateAppRend
 }
 
 export default withAvailableFeatures(ProjectQualityGateAppRenderer);
+
