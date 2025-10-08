@@ -32,7 +32,7 @@ export interface MarketplaceAppContainerProps {
   location: Location;
 }
 
-function MarketplaceAppContainer(props: MarketplaceAppContainerProps) {
+function MarketplaceAppContainer(props: Readonly<MarketplaceAppContainerProps>) {
   const { appState, location } = props;
 
   const propsToPass = {
@@ -56,3 +56,4 @@ function MarketplaceAppContainer(props: MarketplaceAppContainerProps) {
 }
 
 export default withRouter(withAppStateContext(MarketplaceAppContainer));
+
