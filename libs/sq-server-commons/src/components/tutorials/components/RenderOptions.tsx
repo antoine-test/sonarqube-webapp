@@ -37,7 +37,7 @@ export default function RenderOptions({
   optionLabelKey,
   options,
   titleLabelKey,
-}: RenderOptionsProps) {
+}: Readonly<RenderOptionsProps>) {
   const onChange = (checked: string) => {
     onCheck(checked);
   };
@@ -58,3 +58,4 @@ export default function RenderOptions({
     </div>
   );
 }
+
