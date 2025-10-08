@@ -27,7 +27,7 @@ export function withCLanguageFeature<P>(
     React.PropsWithChildren<P & { hasCLanguageFeature: boolean }>
   >,
 ) {
-  function Wrapper(props: Omit<P, 'hasCLanguageFeature'>) {
+  function Wrapper(props: Readonly<Omit<P, 'hasCLanguageFeature'>>) {
     const { data: languages = {} } = useLanguagesQuery();
     const hasCLanguageFeature = languages.c !== undefined;
 
@@ -38,3 +38,4 @@ export function withCLanguageFeature<P>(
 
   return Wrapper;
 }
+
