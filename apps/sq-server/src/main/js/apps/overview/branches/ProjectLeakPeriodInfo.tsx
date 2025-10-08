@@ -35,7 +35,7 @@ export interface ProjectLeakPeriodInfoProps extends WrappedComponentProps {
   leakPeriod: Period;
 }
 
-export function ProjectLeakPeriodInfo(props: ProjectLeakPeriodInfoProps) {
+export function ProjectLeakPeriodInfo(props: Readonly<ProjectLeakPeriodInfoProps>) {
   const {
     intl: { formatDate, formatTime },
     leakPeriod,
@@ -87,3 +87,4 @@ export function ProjectLeakPeriodInfo(props: ProjectLeakPeriodInfoProps) {
 }
 
 export default React.memo(injectIntl(ProjectLeakPeriodInfo));
+
