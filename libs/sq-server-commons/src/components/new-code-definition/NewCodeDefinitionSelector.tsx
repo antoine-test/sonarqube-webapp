@@ -39,7 +39,7 @@ interface Props {
   onNcdChanged: (ncd: NewCodeDefinitiondWithCompliance) => void;
 }
 
-export default function NewCodeDefinitionSelector(props: Props) {
+export default function NewCodeDefinitionSelector(props: Readonly<Props>) {
   const intl = useIntl();
   const { onNcdChanged } = props;
 
@@ -90,7 +90,7 @@ export default function NewCodeDefinitionSelector(props: Props) {
 
   const getNcdSelectionValue = () => {
     if (selectedNcdType) {
-      return selectedNcdType !== NewCodeDefinitionType.Inherited ? 'specific' : 'general';
+      return selectedNcdType === NewCodeDefinitionType.Inherited ? 'general' : 'specific';
     }
 
     return '';
@@ -167,3 +167,4 @@ export default function NewCodeDefinitionSelector(props: Props) {
     </div>
   );
 }
+
