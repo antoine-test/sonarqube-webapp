@@ -70,7 +70,7 @@ export interface LineProps {
   secondaryIssueLocations: LinearIssueLocation[];
 }
 
-export default function Line(props: LineProps) {
+export default function Line(props: Readonly<LineProps>) {
   const {
     children,
     displayAllIssues,
@@ -192,7 +192,7 @@ export default function Line(props: LineProps) {
       {displayDuplications && (
         <LineDuplicationBlock
           blocksLoaded={blocksLoaded}
-          duplicated={!blocksLoaded ? Boolean(line.duplicated) : duplications.includes(0)}
+          duplicated={blocksLoaded ? duplications.includes(0) : Boolean(line.duplicated)}
           index={0}
           key={0}
           line={line}
@@ -243,3 +243,4 @@ export default function Line(props: LineProps) {
     </LineWrapper>
   );
 }
+
