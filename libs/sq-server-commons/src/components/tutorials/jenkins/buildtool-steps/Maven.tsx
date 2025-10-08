@@ -35,7 +35,7 @@ function jenkinsfileSnippet(projectKey: string, projectName: string) {
 }`;
 }
 
-export default function Maven({ component }: LanguageProps) {
+export default function Maven({ component }: Readonly<LanguageProps>) {
   return (
     <CreateJenkinsfileBulletPoint
       alertTranslationKeyPart="onboarding.tutorial.with.jenkins.jenkinsfile.maven.step3"
@@ -43,3 +43,4 @@ export default function Maven({ component }: LanguageProps) {
     />
   );
 }
+
