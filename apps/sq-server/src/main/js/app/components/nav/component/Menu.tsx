@@ -600,7 +600,7 @@ export function Menu(props: Readonly<Props>) {
         ComponentQualifier.Project,
         ComponentQualifier.Portfolio,
         ComponentQualifier.Application,
-      ].includes(qualifier as ComponentQualifier)
+      ].includes(qualifier)
     ) {
       return null;
     }
@@ -791,3 +791,4 @@ export function Menu(props: Readonly<Props>) {
 }
 
 export default withAvailableFeatures(Menu);
+
