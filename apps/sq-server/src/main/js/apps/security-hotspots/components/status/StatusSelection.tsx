@@ -33,7 +33,7 @@ interface Props {
   onStatusOptionChange: (statusOption: HotspotStatusOption) => Promise<void>;
 }
 
-export default function StatusSelection(props: Props) {
+export default function StatusSelection(props: Readonly<Props>) {
   const { hotspot } = props;
   const initialStatus = React.useMemo(
     () => getStatusOptionFromStatusAndResolution(hotspot.status, hotspot.resolution),
@@ -82,3 +82,4 @@ export default function StatusSelection(props: Props) {
     />
   );
 }
+
