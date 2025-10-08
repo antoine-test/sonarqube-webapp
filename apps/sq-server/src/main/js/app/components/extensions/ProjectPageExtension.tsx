@@ -42,9 +42,9 @@ export default function ProjectPageExtension({ params }: ProjectPageExtensionPro
   }
 
   const fullKey =
-    params !== undefined
-      ? `${params.pluginKey}/${params.extensionKey}`
-      : `${pluginKey}/${extensionKey}`;
+    params === undefined
+      ? `${pluginKey}/${extensionKey}`
+      : `${params.pluginKey}/${params.extensionKey}`;
 
   const extension = component.extensions?.find((p) => p.key === fullKey);
   return extension ? (
@@ -53,3 +53,4 @@ export default function ProjectPageExtension({ params }: ProjectPageExtensionPro
     <NotFound />
   );
 }
+
