@@ -35,7 +35,7 @@ export interface QualityGatePanelSectionProps {
   qualityGate?: QualityGate;
 }
 
-export function QualityGatePanelSection(props: QualityGatePanelSectionProps) {
+export function QualityGatePanelSection(props: Readonly<QualityGatePanelSectionProps>) {
   const { isApplication, isLastStatus, measures, qgStatus, qualityGate, isNewCode } = props;
   const [collapsed, setCollapsed] = React.useState(false);
 
@@ -92,3 +92,4 @@ export function QualityGatePanelSection(props: QualityGatePanelSectionProps) {
 }
 
 export default React.memo(QualityGatePanelSection);
+
