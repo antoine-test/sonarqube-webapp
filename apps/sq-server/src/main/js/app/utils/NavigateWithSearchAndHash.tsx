@@ -24,8 +24,9 @@ export interface NavigateWithSearchAndHashProps {
   pathname: string;
 }
 
-export default function NavigateWithSearchAndHash({ pathname }: NavigateWithSearchAndHashProps) {
+export default function NavigateWithSearchAndHash({ pathname }: Readonly<NavigateWithSearchAndHashProps>) {
   const location = useLocation();
 
   return <Navigate replace to={{ ...location, pathname }} />;
 }
+
