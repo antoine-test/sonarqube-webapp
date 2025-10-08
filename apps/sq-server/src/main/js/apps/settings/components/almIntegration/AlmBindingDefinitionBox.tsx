@@ -138,7 +138,7 @@ function getPrDecoFeatureDescription(alm: AlmKeys) {
   }
 }
 
-export default function AlmBindingDefinitionBox(props: AlmBindingDefinitionBoxProps) {
+export default function AlmBindingDefinitionBox(props: Readonly<AlmBindingDefinitionBoxProps>) {
   const { alm, branchesEnabled, definition, status = DEFAULT_STATUS } = props;
 
   return (
@@ -264,3 +264,4 @@ export default function AlmBindingDefinitionBox(props: AlmBindingDefinitionBoxPr
     </div>
   );
 }
+
