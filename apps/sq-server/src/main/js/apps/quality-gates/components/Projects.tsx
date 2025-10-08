@@ -74,7 +74,7 @@ export default class Projects extends React.PureComponent<Props, State> {
       gateName: this.props.qualityGate.name,
       page: searchParams.page,
       pageSize: searchParams.pageSize,
-      query: searchParams.query !== '' ? searchParams.query : undefined,
+      query: searchParams.query === '' ? undefined : searchParams.query,
       selected: searchParams.filter,
     }).then((data) => {
       if (this.mounted) {
@@ -182,3 +182,4 @@ export default class Projects extends React.PureComponent<Props, State> {
     );
   }
 }
+
