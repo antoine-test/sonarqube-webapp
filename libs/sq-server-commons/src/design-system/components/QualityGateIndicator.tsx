@@ -47,7 +47,7 @@ const formatQualityGateTitle = (intl: ReturnType<typeof useIntl>, status: QGStat
   return intl.formatMessage({ id: 'overview.quality_gate_x' }, { status: formatted });
 };
 
-export function QualityGateIndicator(props: Props) {
+export function QualityGateIndicator(props: Readonly<Props>) {
   const { className, size = 'md', status, tooltipPlacement = PopupPlacement.Right } = props;
   const iconProps = {
     className,
@@ -88,7 +88,7 @@ interface IconProps {
   width: string;
 }
 
-function QGNotComputed({ className, rx, size, tooltipPlacement, ...sizeProps }: IconProps) {
+function QGNotComputed({ className, rx, size, tooltipPlacement, ...sizeProps }: Readonly<IconProps>) {
   const theme = useTheme();
   const contrastColor = themeContrast('qgIndicatorNotComputed')({ theme });
   const intl = useIntl();
@@ -109,7 +109,7 @@ function QGNotComputed({ className, rx, size, tooltipPlacement, ...sizeProps }: 
   );
 }
 
-function QGPassed({ className, rx, size, tooltipPlacement, ...sizeProps }: IconProps) {
+function QGPassed({ className, rx, size, tooltipPlacement, ...sizeProps }: Readonly<IconProps>) {
   const theme = useTheme();
   const contrastColor = themeContrast('qgIndicatorPassed')({ theme });
   const intl = useIntl();
@@ -145,7 +145,7 @@ function QGPassed({ className, rx, size, tooltipPlacement, ...sizeProps }: IconP
   );
 }
 
-function QGFailed({ className, rx, size, tooltipPlacement, ...sizeProps }: IconProps) {
+function QGFailed({ className, rx, size, tooltipPlacement, ...sizeProps }: Readonly<IconProps>) {
   const theme = useTheme();
   const contrastColor = themeContrast('qgIndicatorFailed')({ theme });
   const intl = useIntl();
@@ -180,3 +180,4 @@ function QGFailed({ className, rx, size, tooltipPlacement, ...sizeProps }: IconP
     </svg>
   );
 }
+
