@@ -130,12 +130,12 @@ function CodeApp(props: Readonly<Props>) {
   };
 
   const handleSelect = (selectedComponent: ComponentMeasure) => {
-    if (selectedComponent.refKey !== undefined) {
+    if (selectedComponent.refKey === undefined) {
+      router.push(getCodeUrl(component.key, branchLike, selectedComponent.key));
+    } else {
       const codeType = newCodeSelected ? CodeScope.New : CodeScope.Overall;
       const url = getProjectUrl(selectedComponent.refKey, selectedComponent.branch, codeType);
       router.push(url);
-    } else {
-      router.push(getCodeUrl(component.key, branchLike, selectedComponent.key));
     }
 
     setHighlighted(undefined);
@@ -184,3 +184,4 @@ function withComponentGuard<P extends { component?: Component }>(
 }
 
 export default withRouter(withComponentContext(withMetricsContext(withComponentGuard(CodeApp))));
+
