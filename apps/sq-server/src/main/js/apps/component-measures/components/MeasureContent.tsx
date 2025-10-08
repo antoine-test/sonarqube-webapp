@@ -152,13 +152,13 @@ export default function MeasureContent(props: Readonly<Props>) {
     const index = components.findIndex(
       (component) => getComponentMeasureUniqueKey(component) === componentKey,
     );
-    return index !== -1 ? index : undefined;
+    return index === -1 ? undefined : index;
   };
   const selectedIdx = getSelectedIndex();
 
   const updateSelected = (component: string) => {
     updateQuery({
-      selected: component !== rootComponent.key ? component : undefined,
+      selected: component === rootComponent.key ? undefined : component,
     });
   };
 
@@ -359,3 +359,4 @@ function getComponentRequestParams(
 
   return { metricKeys, opts: { ...opts, ...options }, strategy };
 }
+
