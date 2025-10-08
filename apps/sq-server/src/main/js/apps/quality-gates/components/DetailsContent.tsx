@@ -32,7 +32,7 @@ export interface DetailsContentProps {
   qualityGate: QualityGate;
 }
 
-export function DetailsContent(props: DetailsContentProps) {
+export function DetailsContent(props: Readonly<DetailsContentProps>) {
   const { qualityGate, isFetching } = props;
   const actions = qualityGate.actions ?? {};
   const invalidateQueryCache = useInvalidateQualityGateQuery();
@@ -81,3 +81,4 @@ export function DetailsContent(props: DetailsContentProps) {
 }
 
 export default React.memo(DetailsContent);
+
