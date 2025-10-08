@@ -25,7 +25,7 @@ import { translate } from '~sq-server-commons/helpers/l10n';
 import { queryToSearchString } from '~sq-server-commons/sonar-aligned/helpers/urls';
 import { ProjectsQuery } from '~sq-server-commons/types/projects';
 
-export default function EmptyFavoriteSearch({ query }: { query: ProjectsQuery }) {
+export default function EmptyFavoriteSearch({ query }: Readonly<{ query: ProjectsQuery }>) {
   return (
     <div className="sw-flex sw-flex-col sw-items-center sw-py-8">
       <FishVisual />
@@ -52,3 +52,4 @@ export default function EmptyFavoriteSearch({ query }: { query: ProjectsQuery })
     </div>
   );
 }
+
