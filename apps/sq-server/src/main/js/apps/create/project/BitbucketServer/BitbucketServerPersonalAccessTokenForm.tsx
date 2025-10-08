@@ -42,7 +42,7 @@ export default function BitbucketServerPersonalAccessTokenForm({
   almSetting,
   resetPat,
   onPersonalAccessTokenCreated,
-}: Props) {
+}: Readonly<Props>) {
   const {
     checkingPat,
     firstConnection,
@@ -111,3 +111,4 @@ export default function BitbucketServerPersonalAccessTokenForm({
     </PersonalAccessTokenForm>
   );
 }
+
