@@ -21,6 +21,7 @@
 import { MetricKey } from '~shared/types/metrics';
 import CoverageFilter, { Props } from './CoverageFilter';
 
-export default function NewCoverageFilter(props: Props) {
+export default function NewCoverageFilter(props: Readonly<Props>) {
   return <CoverageFilter {...props} property={MetricKey.new_coverage} />;
 }
+
