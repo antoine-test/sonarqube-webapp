@@ -38,10 +38,11 @@ export const longFormatterOption: FormatDateOptions = {
   second: 'numeric',
 };
 
-export default function TimeFormatter({ children, date, long, ...rest }: TimeFormatterProps) {
+export default function TimeFormatter({ children, date, long, ...rest }: Readonly<TimeFormatterProps>) {
   return (
     <FormattedTime {...rest} value={date} {...(long ? longFormatterOption : formatterOption)}>
       {children ? (d) => <>{children(d)}</> : undefined}
     </FormattedTime>
   );
 }
+
