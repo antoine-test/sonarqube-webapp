@@ -30,7 +30,7 @@ import { Group } from '~sq-server-commons/types/types';
 type Props =
   | {
       create: true;
-      group?: undefined;
+      group: undefined;
       onClose: () => void;
     }
   | {
@@ -116,3 +116,4 @@ export default function GroupForm(props: Props) {
     />
   );
 }
+
