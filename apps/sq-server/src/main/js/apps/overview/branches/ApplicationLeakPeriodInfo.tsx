@@ -29,7 +29,7 @@ export interface ApplicationLeakPeriodInfoProps {
   leakPeriod: ApplicationPeriod;
 }
 
-export function ApplicationLeakPeriodInfo({ leakPeriod }: ApplicationLeakPeriodInfoProps) {
+export function ApplicationLeakPeriodInfo({ leakPeriod }: Readonly<ApplicationLeakPeriodInfoProps>) {
   return (
     <>
       <DateFromNow date={leakPeriod.date}>
@@ -49,3 +49,4 @@ export function ApplicationLeakPeriodInfo({ leakPeriod }: ApplicationLeakPeriodI
 }
 
 export default React.memo(ApplicationLeakPeriodInfo);
+
