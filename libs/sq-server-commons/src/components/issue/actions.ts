@@ -46,11 +46,12 @@ export const updateIssue = (
         onChange(issue);
       }
     },
-    (param) => {
+    (error_) => {
       if (optimisticUpdate) {
         onChange(oldIssue);
       }
-      throwGlobalError(param);
+      throwGlobalError(error_);
     },
   );
 };
+
