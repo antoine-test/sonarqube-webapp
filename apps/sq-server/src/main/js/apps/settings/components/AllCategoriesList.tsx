@@ -96,7 +96,7 @@ function AllCategoriesList(props: Readonly<CategoriesListProps>) {
       className="sw-box-border it__subnavigation_menu"
     >
       {sortedCategories.map((c) => {
-        const category = c.key !== defaultCategory ? c.key.toLowerCase() : undefined;
+        const category = c.key === defaultCategory ? undefined : c.key.toLowerCase();
         const isActive = c.key.toLowerCase() === selectedCategory.toLowerCase();
         return (
           <SubnavigationItem
@@ -116,3 +116,4 @@ function AllCategoriesList(props: Readonly<CategoriesListProps>) {
 }
 
 export default withAvailableFeatures(AllCategoriesList);
+
