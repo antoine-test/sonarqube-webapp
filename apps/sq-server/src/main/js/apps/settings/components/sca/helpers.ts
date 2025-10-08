@@ -22,5 +22,6 @@
  * This exists in its own method for mocking in tests.
  */
 export function reloadWindow() {
-  window.location.reload();
+  globalThis.location.reload();
 }
+
