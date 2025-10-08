@@ -56,7 +56,7 @@ const GRADLE_YAML_STEPS = `
           SONAR_HOST_URL: \${{ secrets.SONAR_HOST_URL }}
         run: ./gradlew build sonar --info`;
 
-export default function Gradle(props: GradleProps) {
+export default function Gradle(props: Readonly<GradleProps>) {
   const { component, branchesEnabled, mainBranchName, monorepo } = props;
 
   return (
@@ -79,3 +79,4 @@ export default function Gradle(props: GradleProps) {
     </>
   );
 }
+
