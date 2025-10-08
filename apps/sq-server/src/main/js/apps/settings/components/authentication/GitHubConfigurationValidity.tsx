@@ -52,7 +52,7 @@ interface Props {
 export default function GitHubConfigurationValidity({
   isAutoProvisioning,
   selectedOrganizations,
-}: Props) {
+}: Readonly<Props>) {
   const [openDetails, setOpenDetails] = useState(false);
   const [messages, setMessages] = useState<string[]>([]);
   const [alertVariant, setAlertVariant] = useState<Variant>('info');
@@ -196,3 +196,4 @@ export default function GitHubConfigurationValidity({
     </>
   );
 }
+
