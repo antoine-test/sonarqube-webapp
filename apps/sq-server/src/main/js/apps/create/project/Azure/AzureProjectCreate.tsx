@@ -307,12 +307,13 @@ function transformToOptions(
   return projects.map(({ name: projectName }) => ({
     label: projectName,
     options:
-      repositories?.[projectName] !== undefined
-        ? repositories[projectName].map(transformToOption)
-        : [],
+      repositories?.[projectName] === undefined
+        ? []
+        : repositories[projectName].map(transformToOption),
   }));
 }
 
 function transformToOption({ name }: AzureRepository): LabelValueSelectOption {
   return { value: name, label: name };
 }
+
