@@ -30,7 +30,7 @@ interface Props {
   webhook: WebhookResponse;
 }
 
-export default function WebhookItemLatestDelivery({ webhook }: Props) {
+export default function WebhookItemLatestDelivery({ webhook }: Readonly<Props>) {
   const [modalOpen, setModalOpen] = useState(false);
 
   if (!webhook.latestDelivery) {
@@ -67,3 +67,4 @@ export default function WebhookItemLatestDelivery({ webhook }: Props) {
     </div>
   );
 }
+
