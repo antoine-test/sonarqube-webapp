@@ -41,7 +41,7 @@ export interface PrepareAnalysisCommandProps {
   projectName?: string;
 }
 
-export default function PrepareAnalysisCommand(props: PrepareAnalysisCommandProps) {
+export default function PrepareAnalysisCommand(props: Readonly<PrepareAnalysisCommandProps>) {
   const { buildTool, kind, projectKey, projectName } = props;
 
   const ADDITIONAL_PROPERTY = 'sonar.cfamily.compile-commands=bw-output/compile_commands.json';
@@ -192,3 +192,4 @@ sonar.projectName=${projectName}
     </Text>
   );
 }
+
