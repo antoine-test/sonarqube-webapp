@@ -37,7 +37,7 @@ interface UnderlineRange {
  * Then, the after hook will replace the tokens with the appropriate HTML markup to underline the content.
  */
 export class HljsUnderlinePlugin {
-  static readonly SPAN_REGEX = '<\\/?span[^>]*>';
+  static readonly SPAN_REGEX = String.raw`<\/?span[^>]*>`;
 
   static readonly TOKEN_PREFIX = 'SNR_TGXRJVF'; // Random string to avoid conflicts with real code
 
@@ -212,3 +212,4 @@ export class HljsUnderlinePlugin {
 
 const hljsUnderlinePlugin = new HljsUnderlinePlugin();
 export { hljsUnderlinePlugin };
+
