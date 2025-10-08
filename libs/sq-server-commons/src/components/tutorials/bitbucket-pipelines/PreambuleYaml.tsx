@@ -28,7 +28,7 @@ export interface PreambuleYamlProps {
   component: Component;
 }
 
-export function PreambuleYaml(props: PreambuleYamlProps) {
+export function PreambuleYaml(props: Readonly<PreambuleYamlProps>) {
   const { buildTool, component } = props;
   switch (buildTool) {
     case BuildTools.Gradle:
@@ -44,3 +44,4 @@ export function PreambuleYaml(props: PreambuleYamlProps) {
       return null;
   }
 }
+
