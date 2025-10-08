@@ -89,7 +89,7 @@ export function mockQualityGateStatusConditionEnhanced(
     level: 'ERROR',
     metric: MetricKey.bugs,
     op: 'GT',
-    measure: mockMeasureEnhanced({ ...(overrides.measure || {}) }),
+    measure: mockMeasureEnhanced({ ...overrides.measure }),
     ...overrides,
   };
 }
@@ -165,3 +165,4 @@ export function mockQualityGateApplicationStatus(
     ...overrides,
   };
 }
+
