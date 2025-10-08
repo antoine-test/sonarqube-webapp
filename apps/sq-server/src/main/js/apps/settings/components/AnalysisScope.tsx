@@ -27,7 +27,7 @@ import { translate } from '~sq-server-commons/helpers/l10n';
 import { AdditionalCategoryComponentProps } from './AdditionalCategories';
 import CategoryDefinitionsList from './CategoryDefinitionsList';
 
-export function AnalysisScope(props: AdditionalCategoryComponentProps) {
+export function AnalysisScope(props: Readonly<AdditionalCategoryComponentProps>) {
   const { component, definitions, selectedCategory } = props;
   const intl = useIntl();
 
@@ -95,3 +95,4 @@ const StyledGrid = styled.div`
   display: grid;
   grid-template-columns: 1.5rem auto;
 `;
+
