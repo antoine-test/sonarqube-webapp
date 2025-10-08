@@ -40,7 +40,7 @@ interface ProjectActivityPageFiltersProps {
   updateQuery: (changes: Partial<Query>) => void;
 }
 
-export default function ProjectActivityPageFilters(props: ProjectActivityPageFiltersProps) {
+export default function ProjectActivityPageFilters(props: Readonly<ProjectActivityPageFiltersProps>) {
   const { category, project, from, to, updateQuery } = props;
 
   const isApp = project.qualifier === ComponentQualifier.Application;
@@ -81,3 +81,4 @@ export default function ProjectActivityPageFilters(props: ProjectActivityPageFil
     </div>
   );
 }
+
