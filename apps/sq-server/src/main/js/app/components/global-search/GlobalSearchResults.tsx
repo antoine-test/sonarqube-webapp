@@ -37,7 +37,7 @@ export interface Props {
   selected?: string;
 }
 
-export default function GlobalSearchResults(props: Props): React.ReactElement<Props> {
+export default function GlobalSearchResults(props: Readonly<Props>): React.ReactElement<Props> {
   const intl = useIntl();
   const qualifiers = Object.keys(props.results);
   const renderedComponents: React.ReactNode[] = [];
@@ -92,3 +92,4 @@ export default function GlobalSearchResults(props: Props): React.ReactElement<Pr
     </>
   );
 }
+
