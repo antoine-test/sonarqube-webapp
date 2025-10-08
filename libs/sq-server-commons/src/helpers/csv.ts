@@ -19,6 +19,7 @@
  */
 
 export function csvEscape(value: string): string {
-  const escaped = value.replace(/"/g, '\\"');
+  const escaped = value.replaceAll('"', String.raw`\"`);
   return `"${escaped}"`;
 }
+
