@@ -31,7 +31,7 @@ export interface ProfileProps {
   currentUser: LoggedInUser;
 }
 
-export function Profile({ currentUser }: ProfileProps) {
+export function Profile({ currentUser }: Readonly<ProfileProps>) {
   const isExternalProvider = !currentUser.local && currentUser.externalProvider !== 'sonarqube';
 
   return (
@@ -131,3 +131,4 @@ export function Profile({ currentUser }: ProfileProps) {
 }
 
 export default whenLoggedIn(Profile);
+
