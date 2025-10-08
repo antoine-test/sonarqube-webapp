@@ -152,10 +152,10 @@ export default class CrossComponentSourceViewer extends React.PureComponent<Prop
           loading: false,
         });
       }
-    } catch (response) {
-      const rsp = response as Response;
+    } catch (error_) {
+      const rsp = error_ as Response;
       if (rsp.status !== HttpStatus.Forbidden) {
-        throwGlobalError(response);
+        throwGlobalError(error_);
       }
       if (this.mounted) {
         this.setState({
@@ -257,3 +257,4 @@ export default class CrossComponentSourceViewer extends React.PureComponent<Prop
     );
   }
 }
+
