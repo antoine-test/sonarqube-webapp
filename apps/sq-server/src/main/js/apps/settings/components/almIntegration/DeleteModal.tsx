@@ -46,7 +46,7 @@ export default function DeleteModal({
   onDelete,
   onCancel,
   projectCount,
-}: DeleteModalProps) {
+}: Readonly<DeleteModalProps>) {
   return (
     <ConfirmModal
       confirmButtonText={translate('delete')}
@@ -69,3 +69,4 @@ export default function DeleteModal({
     </ConfirmModal>
   );
 }
+
