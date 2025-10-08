@@ -34,7 +34,7 @@ export interface DonutChartProps {
   width: number;
 }
 
-export default function DonutChart(props: DonutChartProps) {
+export default function DonutChart(props: Readonly<DonutChartProps>) {
   const { height, padding = [0, 0, 0, 0], width, padAngle, data, thickness } = props;
 
   const availableWidth = width - padding[1] - padding[3];
@@ -80,10 +80,11 @@ interface SectorProps {
   thickness: number;
 }
 
-function Sector(props: SectorProps) {
+function Sector(props: Readonly<SectorProps>) {
   const arc = d3Arc<any, PieArcDatum<DataPoint>>()
     .outerRadius(props.radius)
     .innerRadius(props.radius - props.thickness);
   const d = arc(props.data) as string;
   return <path d={d} style={{ fill: props.fill }} />;
 }
+
