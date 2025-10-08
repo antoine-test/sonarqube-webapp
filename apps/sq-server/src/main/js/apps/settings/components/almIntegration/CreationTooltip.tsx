@@ -35,7 +35,7 @@ export interface CreationTooltipProps {
   preventCreation: boolean;
 }
 
-export function CreationTooltip(props: CreationTooltipProps) {
+export function CreationTooltip(props: Readonly<CreationTooltipProps>) {
   const {
     alm,
     appState: { edition },
@@ -76,3 +76,4 @@ export function CreationTooltip(props: CreationTooltipProps) {
 }
 
 export default withAppStateContext(CreationTooltip);
+
