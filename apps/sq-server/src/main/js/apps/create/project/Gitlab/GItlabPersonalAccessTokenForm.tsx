@@ -42,7 +42,7 @@ export default function GitlabPersonalAccessTokenForm({
   almSetting,
   resetPat,
   onPersonalAccessTokenCreated,
-}: Props) {
+}: Readonly<Props>) {
   const {
     checkingPat,
     firstConnection,
@@ -110,3 +110,4 @@ export default function GitlabPersonalAccessTokenForm({
     </PersonalAccessTokenForm>
   );
 }
+
