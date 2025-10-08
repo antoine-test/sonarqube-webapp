@@ -29,7 +29,7 @@ interface Props {
   projects: QualityGateStatus[];
 }
 
-export default function ApplicationNonCaycProjectWarning({ projects }: Props) {
+export default function ApplicationNonCaycProjectWarning({ projects }: Readonly<Props>) {
   return (
     <>
       <p className="sw-font-bold">
@@ -54,3 +54,4 @@ export default function ApplicationNonCaycProjectWarning({ projects }: Props) {
     </>
   );
 }
+
