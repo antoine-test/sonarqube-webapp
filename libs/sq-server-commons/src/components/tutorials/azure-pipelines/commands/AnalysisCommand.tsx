@@ -31,7 +31,7 @@ export interface AnalysisCommandProps {
   projectName: string;
 }
 
-export default function AnalysisCommand(props: AnalysisCommandProps) {
+export default function AnalysisCommand(props: Readonly<AnalysisCommandProps>) {
   const { config, projectKey, projectName } = props;
   const { buildTool } = config;
 
@@ -63,3 +63,4 @@ export default function AnalysisCommand(props: AnalysisCommandProps) {
       return null;
   }
 }
+
