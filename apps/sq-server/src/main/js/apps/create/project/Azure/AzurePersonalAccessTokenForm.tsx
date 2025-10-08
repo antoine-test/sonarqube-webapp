@@ -47,7 +47,7 @@ export default function AzurePersonalAccessTokenForm({
   almSetting,
   resetPat,
   onPersonalAccessTokenCreate,
-}: AzurePersonalAccessTokenFormProps) {
+}: Readonly<AzurePersonalAccessTokenFormProps>) {
   const {
     checkingPat,
     firstConnection,
@@ -119,3 +119,4 @@ export default function AzurePersonalAccessTokenForm({
     </PersonalAccessTokenForm>
   );
 }
+
