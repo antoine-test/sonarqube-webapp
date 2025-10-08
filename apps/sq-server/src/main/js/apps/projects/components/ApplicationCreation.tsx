@@ -38,7 +38,7 @@ export interface ApplicationCreationProps {
   router: Router;
 }
 
-export function ApplicationCreation(props: ApplicationCreationProps) {
+export function ApplicationCreation(props: Readonly<ApplicationCreationProps>) {
   const { appState, currentUser, router } = props;
 
   const canCreateApplication =
@@ -71,3 +71,4 @@ export function ApplicationCreation(props: ApplicationCreationProps) {
 }
 
 export default withCurrentUserContext(withRouter(withAppStateContext(ApplicationCreation)));
+
