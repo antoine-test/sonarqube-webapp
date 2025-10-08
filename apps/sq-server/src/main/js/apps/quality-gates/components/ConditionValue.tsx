@@ -39,7 +39,7 @@ function ConditionValue({
   isCaycModal,
   metric,
   isCaycCompliantAndOverCompliant,
-}: Props) {
+}: Readonly<Props>) {
   if (isCaycModal) {
     const isToBeModified = condition.error !== getCorrectCaycCondition(condition).error;
 
@@ -81,3 +81,4 @@ const RedColorText = styled.span`
 export const GreenColorText = styled.span<{ isToBeModified: boolean }>`
   color: ${(props) => (props.isToBeModified ? themeColor('qgConditionCayc') : 'inherit')};
 `;
+
