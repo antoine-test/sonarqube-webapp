@@ -32,7 +32,7 @@ function InputForBoolean(
   { onChange, name, value, ...other }: Readonly<Props>,
   ref: React.ForwardedRef<HTMLButtonElement>,
 ) {
-  const toggleValue = getToggleValue(value != null ? value : false);
+  const toggleValue = getToggleValue(value ?? false);
 
   return (
     <div className="sw-flex sw-items-center">
@@ -51,3 +51,4 @@ function getToggleValue(value: string | boolean) {
 }
 
 export default React.forwardRef(InputForBoolean);
+
