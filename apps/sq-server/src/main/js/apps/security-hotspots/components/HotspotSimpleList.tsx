@@ -49,7 +49,7 @@ export interface HotspotSimpleListProps {
   standards: StandardsInformation;
 }
 
-export default function HotspotSimpleList(props: HotspotSimpleListProps) {
+export default function HotspotSimpleList(props: Readonly<HotspotSimpleListProps>) {
   const {
     filterByCategory,
     filterByCWE,
@@ -112,7 +112,7 @@ export default function HotspotSimpleList(props: HotspotSimpleListProps) {
       </div>
       <ListFooter
         count={hotspots.length}
-        loadMore={!loadingMore ? props.onLoadMore : undefined}
+        loadMore={loadingMore ? undefined : props.onLoadMore}
         loading={loadingMore}
         total={hotspotsTotal}
       />
@@ -127,3 +127,4 @@ const SubNavigationContainer = styled.div`
 const StyledContainer = withTheme(styled.div`
   background-color: ${themeColor('subnavigation')};
 `);
+
