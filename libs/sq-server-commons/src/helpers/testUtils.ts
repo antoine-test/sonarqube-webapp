@@ -33,7 +33,7 @@ export function mockIntersectionObserver(): Function {
   let callback: Function;
 
   // @ts-expect-error simplified mock that doesn't fully respect the typing
-  global.IntersectionObserver = jest.fn((cb: Function) => {
+  globalThis.IntersectionObserver = jest.fn((cb: Function) => {
     const instance = {
       observe: jest.fn(),
       unobserve: jest.fn(),
@@ -65,3 +65,4 @@ export async function flushPromises(times = 1) {
     });
   }
 }
+
