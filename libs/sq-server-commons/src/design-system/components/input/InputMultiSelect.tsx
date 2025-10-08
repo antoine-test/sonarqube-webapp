@@ -35,7 +35,7 @@ interface Props extends Pick<ButtonProps, 'onClick'> {
   selectedLabel: string;
 }
 
-export function InputMultiSelect(props: Props) {
+export function InputMultiSelect(props: Readonly<Props>) {
   const { className, count, id, placeholder, selectedLabel } = props;
 
   return (
@@ -70,3 +70,4 @@ const StyledWrapper = styled(WrapperButton)`
     outline: ${themeBorder('focus', 'inputFocus')};
   }
 `;
+
