@@ -32,7 +32,7 @@ import * as ReactRouterDom from 'react-router-dom';
  * Expose dependencies to extensions
  */
 export default function exportModulesAsGlobals() {
-  const w = window as unknown as any;
+  const w = globalThis as unknown as any;
   w.EmotionReact = EmotionReact;
   w.EmotionStyled = EmotionStyled;
   w.DateFns = DateFns;
@@ -43,3 +43,4 @@ export default function exportModulesAsGlobals() {
   w.ReactModal = ReactModal;
   w.ReactRouterDom = ReactRouterDom;
 }
+
