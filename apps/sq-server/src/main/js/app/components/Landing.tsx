@@ -27,7 +27,7 @@ export interface LandingProps {
   currentUser: CurrentUser;
 }
 
-export function Landing({ currentUser }: LandingProps) {
+export function Landing({ currentUser }: Readonly<LandingProps>) {
   let redirectUrl: To;
   if (isLoggedIn(currentUser) && currentUser.homepage) {
     redirectUrl = getHomePageUrl(currentUser.homepage);
@@ -39,3 +39,4 @@ export function Landing({ currentUser }: LandingProps) {
 }
 
 export default withCurrentUserContext(Landing);
+
