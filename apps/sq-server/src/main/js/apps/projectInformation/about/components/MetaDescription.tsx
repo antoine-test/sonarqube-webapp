@@ -26,7 +26,7 @@ interface Props {
   isApp?: boolean;
 }
 
-export default function MetaDescription({ description, isApp }: Props) {
+export default function MetaDescription({ description, isApp }: Readonly<Props>) {
   return (
     <>
       <Heading as="h3">{translate('project.info.description')}</Heading>
@@ -36,3 +36,4 @@ export default function MetaDescription({ description, isApp }: Props) {
     </>
   );
 }
+
