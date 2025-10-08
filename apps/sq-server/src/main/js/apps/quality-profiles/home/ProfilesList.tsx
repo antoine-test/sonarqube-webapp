@@ -47,7 +47,7 @@ export default function ProfilesList(props: Readonly<Props>) {
   let languagesToShow = sortBy(languages, ({ name }) => name).map(({ key }) => key);
 
   if (language) {
-    languagesToShow = languagesToShow.find((key) => key === language) ? [language] : [];
+    languagesToShow = languagesToShow.some((key) => key === language) ? [language] : [];
   }
 
   const renderHeader = React.useCallback(
@@ -116,3 +116,4 @@ export default function ProfilesList(props: Readonly<Props>) {
     </div>
   );
 }
+
