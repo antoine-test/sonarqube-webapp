@@ -54,7 +54,7 @@ export function translateWithParameters(
 
   if (message) {
     return parameters
-      .map((parameter) => String(parameter))
+      .map(String)
       .reduce((acc, parameter, index) => acc.replaceAll(`{${index}}`, () => parameter), message);
   }
 
@@ -142,3 +142,4 @@ export function getShortWeekDayName(index: number) {
 
   return weekdays[index] ? translate(weekdays[index]) : '';
 }
+
