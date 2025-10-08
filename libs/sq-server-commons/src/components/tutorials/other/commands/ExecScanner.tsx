@@ -39,7 +39,7 @@ export interface ExecScannerProps {
   token: string;
 }
 
-export default function ExecScanner(props: ExecScannerProps) {
+export default function ExecScanner(props: Readonly<ExecScannerProps>) {
   const { baseUrl, os, isLocal, component, token, cfamily } = props;
 
   const docUrl = useDocUrl(DocLink.SonarScanner);
@@ -81,3 +81,4 @@ export default function ExecScanner(props: ExecScannerProps) {
     </div>
   );
 }
+
