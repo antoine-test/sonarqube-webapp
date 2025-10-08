@@ -37,7 +37,7 @@ interface AppProps {
   component: Component;
 }
 
-export function App(props: AppProps) {
+export function App(props: Readonly<AppProps>) {
   const { hasFeature } = useAvailableFeatures();
   const { component } = props;
   const { data: branchLike } = useCurrentBranchQuery(component);
@@ -79,3 +79,4 @@ export function App(props: AppProps) {
 }
 
 export default withComponentContext(App);
+
