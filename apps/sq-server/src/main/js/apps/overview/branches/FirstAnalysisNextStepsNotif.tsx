@@ -38,7 +38,7 @@ export interface FirstAnalysisNextStepsNotifProps {
   detectedCIOnLastAnalysis?: boolean;
 }
 
-export function FirstAnalysisNextStepsNotif(props: FirstAnalysisNextStepsNotifProps) {
+export function FirstAnalysisNextStepsNotif(props: Readonly<FirstAnalysisNextStepsNotifProps>) {
   const { hasFeature } = useAvailableFeatures();
 
   const { component, currentUser, detectedCIOnLastAnalysis } = props;
@@ -54,7 +54,7 @@ export function FirstAnalysisNextStepsNotif(props: FirstAnalysisNextStepsNotifPr
   const showConfigurePullRequestDecoNotif = branchesEnabled && projectBinding == null;
 
   const showConfigureCINotif =
-    detectedCIOnLastAnalysis !== undefined ? !detectedCIOnLastAnalysis : false;
+    detectedCIOnLastAnalysis === undefined ? false : !detectedCIOnLastAnalysis;
 
   if (!showConfigureCINotif && !showConfigurePullRequestDecoNotif) {
     return null;
@@ -135,3 +135,4 @@ export function FirstAnalysisNextStepsNotif(props: FirstAnalysisNextStepsNotifPr
 }
 
 export default withCurrentUserContext(FirstAnalysisNextStepsNotif);
+
