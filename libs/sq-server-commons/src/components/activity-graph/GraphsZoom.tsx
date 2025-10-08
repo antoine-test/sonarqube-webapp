@@ -40,7 +40,7 @@ const ZOOM_TIMELINE_PADDING_BOTTOM = 18;
 const ZOOM_TIMELINE_PADDING_LEFT = 60;
 const ZOOM_TIMELINE_HEIGHT = 64;
 
-export default function GraphsZoom(props: GraphsZoomProps) {
+export default function GraphsZoom(props: Readonly<GraphsZoomProps>) {
   const { loading, series, graphEndDate, leakPeriodDate, metricsType, showAreas, graphStartDate } =
     props;
 
@@ -75,3 +75,4 @@ export default function GraphsZoom(props: GraphsZoomProps) {
     </div>
   );
 }
+
