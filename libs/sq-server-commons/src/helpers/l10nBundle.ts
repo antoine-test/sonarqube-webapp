@@ -75,10 +75,10 @@ export async function loadL10nBundle(appState: AppState | undefined) {
   }
 
   const { effectiveLocale, messages: translatedMessages } = await fetchL10nBundle(params).catch(
-    (response) => {
-      if (response?.status !== 304) {
+    (error_) => {
+      if (error_?.status !== 304) {
         // eslint-disable-next-line no-console
-        console.error(`Unexpected status code: ${response.status}`);
+        console.error(`Unexpected status code: ${error_.status}`);
       }
 
       return {
@@ -134,7 +134,7 @@ export async function loadL10nBundle(appState: AppState | undefined) {
 }
 
 function getPreferredLanguage() {
-  return window.navigator.languages ? window.navigator.languages[0] : window.navigator.language;
+  return globalThis.navigator.languages ? globalThis.navigator.languages[0] : globalThis.navigator.language;
 }
 
 function getProductName(appState?: AppState) {
@@ -146,3 +146,4 @@ function getProductName(appState?: AppState) {
 
   return 'SonarQube';
 }
+
