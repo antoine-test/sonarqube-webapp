@@ -28,7 +28,7 @@ interface Props {
   templateRule: RuleDetails;
 }
 
-export default function CustomRuleButton(props: Props) {
+export default function CustomRuleButton(props: Readonly<Props>) {
   const { customRule, templateRule } = props;
   const [modalOpen, setModalOpen] = React.useState(false);
 
@@ -52,3 +52,4 @@ export default function CustomRuleButton(props: Props) {
     </>
   );
 }
+
