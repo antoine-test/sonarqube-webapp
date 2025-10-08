@@ -51,7 +51,7 @@ export function Avatar({
   organizationName,
   size = 'sm',
   border,
-}: AvatarProps) {
+}: Readonly<AvatarProps>) {
   const [imgError, setImgError] = useState(false);
   const numberSize = sizeMap[size];
   const resolvedName = organizationName ?? name;
@@ -112,3 +112,4 @@ const StyledAvatar = styled.img<{ border?: boolean }>`
   border: ${({ border }) => (border ? themeBorder('default', 'avatarBorder') : '')};
   background: ${themeColor('avatarBackground')};
 `;
+
