@@ -34,7 +34,7 @@ interface AccordionProps {
   open: boolean;
 }
 
-export function BorderlessAccordion(props: AccordionProps) {
+export function BorderlessAccordion(props: Readonly<AccordionProps>) {
   const { ariaLabel, className, open, header, data, onClick } = props;
 
   const id = React.useMemo(() => uniqueId('accordion-'), []);
@@ -66,3 +66,4 @@ export function BorderlessAccordion(props: AccordionProps) {
     </div>
   );
 }
+
