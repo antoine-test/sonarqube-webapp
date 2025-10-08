@@ -30,7 +30,7 @@ import withCurrentUserContext from '~sq-server-commons/context/current-user/with
 import { translate } from '~sq-server-commons/helpers/l10n';
 import { isLoggedIn, NoticeType } from '~sq-server-commons/types/users';
 
-export function PromotionNotification(props: CurrentUserContextInterface) {
+export function PromotionNotification(props: Readonly<CurrentUserContextInterface>) {
   const { currentUser, updateDismissedNotices } = props;
 
   const onClick = React.useCallback(() => {
@@ -94,3 +94,4 @@ const PromotionNotificationWrapper = styled.div`
 const PromotionNotificationContent = styled.div`
   border-right: ${themeBorder('default', 'promotionNotificationSeparator')};
 `;
+
