@@ -217,9 +217,7 @@ export default class ComponentsServiceMock {
       (sourceFile) => sourceFile.component.key === preferredKey,
     );
 
-    if (!sourceFile) {
-      sourceFile = this.sourceFiles.find((sourceFile) => sourceFile.lines.length > 0);
-    }
+    sourceFile ??= this.sourceFiles.find((sourceFile) => sourceFile.lines.length > 0);
 
     if (sourceFile) {
       return sourceFile.component.key;
@@ -412,3 +410,4 @@ export default class ComponentsServiceMock {
     return Promise.resolve(response ? cloneDeep(response) : undefined);
   }
 }
+
