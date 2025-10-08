@@ -36,7 +36,7 @@ interface Props {
 
 const FILE_TOP_THRESHOLD = 10;
 
-function LineNumberFunc({ firstLineNumber, lineNumber, popup, displayOptions, ariaLabel }: Props) {
+function LineNumberFunc({ firstLineNumber, lineNumber, popup, displayOptions, ariaLabel }: Readonly<Props>) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const hasLineNumber = Boolean(lineNumber);
@@ -94,3 +94,4 @@ const LineNumberStyled = styled.div`
     color: ${cssVar('color-text-strong')};
   }
 `;
+
