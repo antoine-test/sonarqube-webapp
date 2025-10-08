@@ -422,7 +422,7 @@ export default class QualityProfilesServiceMock {
     const results = (this.profileProjects[data.key] ?? []).filter(
       (project) =>
         project.selected ===
-        (data.selected !== undefined ? Boolean(data.selected === 'selected') : true),
+        (data.selected === undefined ? true : Boolean(data.selected === 'selected')),
     );
 
     return this.reply({
@@ -871,3 +871,4 @@ export default class QualityProfilesServiceMock {
     return Promise.resolve(cloneDeep(response));
   }
 }
+
