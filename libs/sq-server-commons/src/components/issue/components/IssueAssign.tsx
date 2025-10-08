@@ -44,7 +44,7 @@ const renderAvatar = (name?: string, avatar?: string) => (
   <Avatar className="sw-my-1" hash={avatar} name={name} size="xs" />
 );
 
-export default function IssueAssignee(props: Props) {
+export default function IssueAssignee(props: Readonly<Props>) {
   const {
     canAssign,
     issue: { assignee, assigneeName, assigneeLogin, assigneeAvatar },
@@ -160,3 +160,4 @@ export default function IssueAssignee(props: Props) {
     </div>
   );
 }
+
