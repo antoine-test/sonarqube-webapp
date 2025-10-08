@@ -40,7 +40,7 @@ interface AccordionProps {
   open: boolean;
 }
 
-export function Accordion(props: AccordionProps) {
+export function Accordion(props: Readonly<AccordionProps>) {
   const { ariaLabel, className, open, header, data, onClick } = props;
 
   const id = React.useMemo(() => uniqueId('accordion-'), []);
@@ -118,3 +118,4 @@ const accordionStyle = (props: ThemedProps) => css`
 const Container = styled.div`
   ${accordionStyle}
 `;
+
