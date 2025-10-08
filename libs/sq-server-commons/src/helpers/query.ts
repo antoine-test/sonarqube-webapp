@@ -34,8 +34,8 @@ export function queriesEqual(a: RawQuery, b: RawQuery): boolean {
 
   return keysA.every((key) =>
     isEqual(
-      Array.isArray(a[key]) ? a[key].sort() : a[key],
-      Array.isArray(b[key]) ? b[key].sort() : b[key],
+      Array.isArray(a[key]) ? a[key].toSorted() : a[key],
+      Array.isArray(b[key]) ? b[key].toSorted() : b[key],
     ),
   );
 }
@@ -129,3 +129,4 @@ export function serializeOptionalBoolean(value: boolean | undefined): string | u
   }
   return undefined;
 }
+
