@@ -50,7 +50,7 @@ export function parseUrlQuery(urlQuery: RawQuery): ProjectsQuery {
 }
 
 function getAsNumericRating(value: any): number | undefined {
-  if (value === '' || value == null || isNaN(value)) {
+  if (value === '' || value == null || Number.isNaN(value)) {
     return undefined;
   }
   const num = Number(value);
@@ -85,3 +85,4 @@ function getAsQualifier(value: string | undefined): ComponentQualifier | undefin
 function getView(value: any): string | undefined {
   return typeof value !== 'string' || value === 'overall' ? undefined : value;
 }
+
