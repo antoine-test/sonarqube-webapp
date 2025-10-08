@@ -48,7 +48,7 @@ function stringifyPrimitive(v: any) {
       return v ? 'true' : 'false';
 
     case 'number':
-      return isFinite(v) ? v : '';
+      return Number.isFinite(v) ? v : '';
 
     default:
       return '';
@@ -88,3 +88,4 @@ export function stringify(obj: any, sep?: any, eq?: any, name?: any) {
     encodeURIComponent(stringifyPrimitive(name)) + eq + encodeURIComponent(stringifyPrimitive(obj))
   );
 }
+
