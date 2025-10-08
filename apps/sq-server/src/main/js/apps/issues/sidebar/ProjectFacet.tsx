@@ -74,7 +74,7 @@ export function ProjectFacet(props: Readonly<Props>) {
         ComponentQualifier.Portfolio,
         ComponentQualifier.SubPortfolio,
         ComponentQualifier.Application,
-      ].includes(component.qualifier as ComponentQualifier)
+      ].includes(component.qualifier)
     ) {
       return getTree({
         component: component.key,
@@ -181,3 +181,4 @@ function ProjectItem({
     </div>
   );
 }
+
