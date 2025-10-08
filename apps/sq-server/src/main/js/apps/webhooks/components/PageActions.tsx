@@ -32,7 +32,7 @@ interface Props {
 
 export const WEBHOOKS_LIMIT = 10;
 
-export default function PageActions(props: Props) {
+export default function PageActions(props: Readonly<Props>) {
   const { loading, onCreate, webhooksCount } = props;
 
   const [openCreate, setOpenCreate] = useState(false);
@@ -72,3 +72,4 @@ export default function PageActions(props: Props) {
     </>
   );
 }
+
