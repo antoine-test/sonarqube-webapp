@@ -54,7 +54,7 @@ export interface SecurityHotspotsAppRendererProps extends ComponentContextShape 
   onChangeFilters: (filters: Partial<HotspotFilters>) => void;
 }
 
-function HotspotSidebarHeader(props: SecurityHotspotsAppRendererProps) {
+function HotspotSidebarHeader(props: Readonly<SecurityHotspotsAppRendererProps>) {
   const {
     branchLike,
     component,
@@ -181,3 +181,4 @@ function HotspotSidebarHeader(props: SecurityHotspotsAppRendererProps) {
 }
 
 export default withComponentContext(withCurrentUserContext(HotspotSidebarHeader));
+
