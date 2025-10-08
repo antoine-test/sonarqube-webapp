@@ -30,7 +30,7 @@ interface Props {
   issueFindingRef?: RefObject<HTMLDivElement>;
 }
 
-export function LineIssuePointer({ issueFindingRef }: Props) {
+export function LineIssuePointer({ issueFindingRef }: Readonly<Props>) {
   const [distance, setDistance] = useState(0);
   const pointerRef = createRef<HTMLDivElement>();
 
@@ -77,3 +77,4 @@ const IssuePointer = styled(EmptyIssuePointer)<{ distance: number }>`
     content: '';
   }
 `;
+
